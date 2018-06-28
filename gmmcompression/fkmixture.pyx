@@ -499,12 +499,12 @@ cdef class SignificanceAnalyzerClass:
 
         n_spikes = len(pax)*len(pax[0])
         cdef np.ndarray[double, ndim=2, mode="c"] pax2 = np.zeros((n_spikes, self.n_pos),dtype=np.float64, order="C")
-        print "n_spikes_g={}".format(n_spikes_g)
+        #print "n_spikes_g={}".format(n_spikes_g)
         idx = 0
         for i in range(len(pax)):
             for j in range(len(pax[i])):
-                print "i={},j={}".format(i,j)
-                print "pax[{}]={}".format(i,pax[i])
+                #print "i={},j={}".format(i,j)
+                #print "pax[{}]={}".format(i,pax[i])
                 pax2[idx] = pax[i][j]
                 idx = idx + 1
         #print "pax2={}".format(pax2)

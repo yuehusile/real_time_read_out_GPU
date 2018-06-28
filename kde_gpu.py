@@ -478,6 +478,7 @@ class Decoder(object):
         for i, d in enumerate(self.joint_density):
             if tt_included[i]:
                 if len(test_spikes[j].T) > 0:
+                    #print j
                     if self.use_gpu:
                         pax.append( self.gpuDecoder.decodeTT(j, np.ascontiguousarray(test_spikes[j][:-1].T),\
                                 len(test_spikes[j][:-1].T)) )
@@ -554,6 +555,7 @@ class Decoder(object):
         n_tt = len(test_spikes) # all tetrodes with enough encoding spikes
         t1 = time.time()
         pax = self.pax_mt(test_spikes, tt_included)
+        #pax = self.pax(test_spikes, tt_included)
         log_pax = np.array( [ np.log( _pax + self.offset * self.pix() / _mu )\
                              for _pax, _mu in zip(pax, self.mu[tt_included]) ] )
         self.last_log_pax = log_pax

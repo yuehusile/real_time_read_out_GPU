@@ -304,7 +304,6 @@ def getTestSpikes(spike_features, bins,  tt_included, spike_ampl_mask, bin_size,
         n_spikes_binned = []
         for i in range(len(bins)):
             test_spikes,n_spikes = testSpikes(spike_features,bins[i],tt_included,spike_ampl_mask,sf_keys)
-            test_spikes_binned.append(test_spikes)
             if shuffle:
                 test_spikes_tmp = []
                 tmp=[]
@@ -318,6 +317,7 @@ def getTestSpikes(spike_features, bins,  tt_included, spike_ampl_mask, bin_size,
                     test_spikes_tmp.append(tmp)
                 test_spikes = test_spikes_tmp
 
+            test_spikes_binned.append(test_spikes)
             n_spikes_binned.append(n_spikes)
         return test_spikes_binned,n_spikes_binned
     else:

@@ -101,13 +101,16 @@ sigAna = SigAnalyzer(len(grid),len(ephys_sleep.keys()),config.bin_size_sleep,con
 sigAna.uploadParam(decoder_gpu.pix(),decoder_gpu.lx())
 all_shuffle_decode_time = []
 for i in range(len(test_spikes_sleep_bin)):
-    pdb.set_trace()
     t1=time.time()
     decode_time_gpu = \
         decoder_gpu.decode_new( tetrode_inclusion_mask, config.bin_size_sleep, test_spikes_sleep_bin[i], n_spikes_sleep_bin[i], shuffle=True)
     n_spikes_bin = np.squeeze(n_spikes_sleep_bin[i]).astype('int32')
-    print "n_spikes_bin={}".format(n_spikes_bin)
+    #print "n_spikes_bin={}".format(n_spikes_bin)
     prob,ready = sigAna.updateBin(decoder_gpu.cached_pax,n_spikes_bin,decoder_gpu.mu)
     t2=time.time()
     all_shuffle_decode_time.append((t2-t1) * 1e3)
-    print "bin {} decoded, time={} ms".format(i,(t2-t1) * 1e3)
+    #print "bin {} decoded, time={} ms".format(i,(t2-t1) * 1e3)
+
+max_decode_time = np.max(all_shuffle_decode_time)
+mean_decode_time = np.mean(all_shuffle_decode_time)
+print "Shuffling decode time for {} bin, max={} ms, mean={} ms".format(len(test_spikes_sleep_bin),max_decode_time,mean_decode_time)

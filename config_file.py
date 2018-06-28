@@ -16,12 +16,12 @@ bin_size_sleep = 0.02 # in seconds
 grid_element_size_cm = 5 # will be used to generate a grid in case of no
 behav_bw_cm = 8.5
 spf_bw_mV = 0.14*0.001
-compression_threshold = 0
+compression_threshold = 1
 offset = 1e-10 # Hz
 
 # train set
 # choose percentage of run data(bins) to use (later part)
-r_data_not_to_use = 0.95
+r_data_not_to_use = 0.5
 # set percentage of train/test bins
 r_train = 0.9
 
