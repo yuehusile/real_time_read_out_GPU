@@ -2,7 +2,7 @@ cc = g++ -O2
 ncc = nvcc -O2 -Xptxas="-v" -default-stream per-thread -lineinfo
 
 slib = libgpu_kde.so
-deps = ../compressed_decoder/gmmcompression/mixture.h kde_kernel.h gpu_kde.hpp
+deps = ../gmmcompression/mixture.h kde_kernel.h gpu_kde.hpp
 obj = kde_kernel.o
 libs = -lgsl -lgslcblas -lm -lcuda -lcudart -lstdc++ 
 # change cuda lib/include path based on your system
