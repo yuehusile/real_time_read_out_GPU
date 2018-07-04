@@ -811,7 +811,7 @@ void GpuDecoder::showMemRequirement(const int ncomponents, const int spikeDim) c
 
 int SignificanceAnalyzer::allocateMem()
 {
-    printf("alloc gpu significance mem\n");
+    //printf("alloc gpu significance mem\n");
     bool fail = false;
     cudaError_t cuda_result_code;
     // memory for pax
@@ -828,7 +828,7 @@ int SignificanceAnalyzer::allocateMem()
 	else
 	{
 	    //printf("allocated %d Btyes for pax\n",max_spikes_*n_spike_group_*n_time_bin_*g_pitch_);
-	    printf("allocated %d Btyes for pax\n",shf_idx_size_*g_pitch_);
+	    //printf("allocated %d Btyes for pax\n",shf_idx_size_*g_pitch_);
 	}
     }
     else if (!fail)
@@ -848,7 +848,7 @@ int SignificanceAnalyzer::allocateMem()
         }
 	else
 	{
-	    printf("allocated %d Btyes for offset\n",n_spike_group_*max_spikes_*n_spatial_bin_);
+	    //printf("allocated %d Btyes for offset\n",n_spike_group_*max_spikes_*n_spatial_bin_);
 	}
     }
     else if (!fail)
@@ -868,7 +868,7 @@ int SignificanceAnalyzer::allocateMem()
         }
 	else
 	{
-	    printf("allocated %d Btyes for n_spikes\n",(1+n_time_bin_)*sizeof(float));
+	    //printf("allocated %d Btyes for n_spikes\n",(1+n_time_bin_)*sizeof(float));
 	}
     }
     else if (!fail)
@@ -887,7 +887,7 @@ int SignificanceAnalyzer::allocateMem()
         }
 	else
 	{
-	    printf("allocated %d Btyes for prob\n",n_shuffle_*n_time_bin_*g_pitch_);
+	    //printf("allocated %d Btyes for prob\n",n_shuffle_*n_time_bin_*g_pitch_);
 	}
     }
     else if (!fail)
@@ -908,7 +908,7 @@ int SignificanceAnalyzer::allocateMem()
         }
 	else
 	{
-	    printf("allocated %d Btyes for shf_idx_\n", n_shuffle_*s_pitch_);
+	    //printf("allocated %d Btyes for shf_idx_\n", n_shuffle_*s_pitch_);
 	}
     }
     else if (!fail)
@@ -929,7 +929,7 @@ int SignificanceAnalyzer::allocateMem()
         }
 	else
 	{
-	    printf("allocated %d Btyes for memory shift\n", n_time_bin_*n_spike_group_*max_spikes_*sizeof(float));
+	    //printf("allocated %d Btyes for memory shift\n", n_time_bin_*n_spike_group_*max_spikes_*sizeof(float));
 	}
     }
     else if (!fail)
@@ -953,7 +953,7 @@ int SignificanceAnalyzer::allocateMem()
 	else
 	{
 	    //printf("allocated %d btyes for mo\n",n_time_bin_*g_pitch_);
-	    printf("allocated %d btyes for mo\n",n_spatial_bin_);
+	    //printf("allocated %d btyes for mo\n",n_spatial_bin_);
 	}
     }
     else if (!fail)
@@ -973,7 +973,7 @@ int SignificanceAnalyzer::allocateMem()
         }
 	else
 	{
-	    printf("allocated %d btyes for pix\n",n_spatial_bin_*sizeof(float));
+	    //printf("allocated %d btyes for pix\n",n_spatial_bin_*sizeof(float));
 	}
     }
     else if (!fail)
@@ -992,7 +992,7 @@ int SignificanceAnalyzer::allocateMem()
         }
 	else
 	{
-	    printf("allocated %d Btyes for lx\n", n_spatial_bin_*sizeof(float));
+	    //printf("allocated %d Btyes for lx\n", n_spatial_bin_*sizeof(float));
 	}
     }
     else if (!fail)
@@ -1013,7 +1013,7 @@ int SignificanceAnalyzer::allocateMem()
         }
 	else
 	{
-	    printf("allocated %d Btyes for lx/pix cpu\n", 2*n_spatial_bin_*sizeof(float));
+	    //printf("allocated %d Btyes for lx/pix cpu\n", 2*n_spatial_bin_*sizeof(float));
 	}
     }
     else if (!fail)
@@ -1033,7 +1033,7 @@ int SignificanceAnalyzer::allocateMem()
         }
 	else
 	{
-	    printf("allocated %d Btyes for pax cpu\n", n_spike_group_*max_spikes_*n_spatial_bin_*sizeof(float));
+	    //printf("allocated %d Btyes for pax cpu\n", n_spike_group_*max_spikes_*n_spatial_bin_*sizeof(float));
 	}
     }
     else if (!fail)
@@ -1053,7 +1053,7 @@ int SignificanceAnalyzer::allocateMem()
         }
 	else
 	{
-	    printf("allocated %d Btyes for offset cpu\n", n_spatial_bin_*n_spike_group_*max_spikes_*sizeof(float));
+	    //printf("allocated %d Btyes for offset cpu\n", n_spatial_bin_*n_spike_group_*max_spikes_*sizeof(float));
 	}
     }
     else if (!fail)
@@ -1075,7 +1075,7 @@ int SignificanceAnalyzer::allocateMem()
         }
 	else
 	{
-	    printf("allocated %d Btyes for  n_spikes/cum_n_spikes cpu\n", (n_time_bin_*2+1)*sizeof(float));
+	    //printf("allocated %d Btyes for  n_spikes/cum_n_spikes cpu\n", (n_time_bin_*2+1)*sizeof(float));
 	}
     }
     else if (!fail)
@@ -1095,7 +1095,7 @@ int SignificanceAnalyzer::allocateMem()
         }
 	else
 	{
-	    printf("allocated %d Btyes for memory shift\n", n_time_bin_*n_spike_group_*max_spikes_*sizeof(float));
+	    //printf("allocated %d Btyes for memory shift\n", n_time_bin_*n_spike_group_*max_spikes_*sizeof(float));
 	}
     }
     else if (!fail)
@@ -1117,7 +1117,7 @@ int SignificanceAnalyzer::allocateMem()
         }
 	else
 	{
-	    printf("allocated %d Btyes for shuffle index cpu\n", n_shuffle_*shf_idx_size_*sizeof(float));
+	    //printf("allocated %d Btyes for shuffle index cpu\n", n_shuffle_*shf_idx_size_*sizeof(float));
 	}
     }
     else if (!fail)
@@ -1137,7 +1137,7 @@ int SignificanceAnalyzer::allocateMem()
         }
 	else
 	{
-	    printf("allocated %d Btyes for shuffle index cpu\n", n_shuffle_*n_spatial_bin_*sizeof(float));
+	    //printf("allocated %d Btyes for shuffle index cpu\n", n_shuffle_*n_spatial_bin_*sizeof(float));
 	}
     }
     else if (!fail)

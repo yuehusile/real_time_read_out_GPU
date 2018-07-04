@@ -7,7 +7,7 @@ Created on Wednesday June 27 2018
 This file defines a function that loads the silicon probe dataset and re-organize it for encoding and decoding
 
 """
-
+from scipy import interpolate
 import scipy.io as spio
 import collections
 import numpy as np
@@ -18,6 +18,7 @@ from fklab.io.preprocessed_data import read_dataset, check_ephys_dataset
 from fklab.utilities import yaml
 from kde_gpu import MergingCompressionDensity as mcd
 from kde_gpu import Decoder, create_covariance_array
+from kde_gpu import save_mixture
 import pdb
 ######################################################################################################
 # load data from matlab file
@@ -220,11 +221,39 @@ def getTestSet(behavior, ephys, config, event = [], replay=False):
                     event_bins[i] = event_bins[i] + [j];
                     break
         #spio.savemat('event_bins.mat',{'event_bins':event_bins})
+        true_behavior = []
     else:
         event_bins = []
-    return test_binned, event_bins, n_spikes_all
+        true_behavior = interpolate.interp1d( behavior["time"], behavior["linear_position"],\
+                kind='linear', axis=0 ) ( test_binned.center )
+    return test_binned, event_bins, n_spikes_all, true_behavior
 
-def encode(train, behavior, ephys, config):
+def load_mcd_from_file(file_path,n_features,n_shanks,config):
+    # prepare encoding
+    covars = create_covariance_array( config.behav_bw_cm, config.spf_bw_mV, n_features)
+
+    #print "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+    #print "loading mixture"
+    #print "n_features = {}".format(n_features)
+    # created encoding points
+    #print "feature bandwidth = {}".format(config.spf_bw_mV*1000)
+    #print "compression threshold = {}".format(config.compression_threshold)
+    #print "number of shanks = {}".format(n_shanks)
+    # create compressed (empty) joint density with all tetrodes (even if they have too few spikes)
+    mcd_spikebehav = []
+    for i in range(n_shanks):
+        cov_tt = covars[:n_features+1]
+        mcd_spikebehav.append( mcd( ndim=len(cov_tt), sample_covariance =\
+            cov_tt, method='bandwidth', threshold=config.compression_threshold,\
+            name=('TT{}'.format(i) ) ) )
+        mcd_spikebehav[i].load_from_mixturefile('{}/mcd_sb{}.mixture'.format(file_path,i))
+    
+    mcd_behav = mcd( ndim=1, sample_covariance=covars[:1], threshold=0,\
+        name='behavior' )
+    mcd_behav.load_from_mixturefile('{}/mcd_behav.mixture'.format(file_path))
+    return mcd_spikebehav, mcd_behav
+
+def encode(train, behavior, ephys, config, save=False):
     # prepare encoding
     train_behav = prep_dec.extract_train_behav( train, behavior )
     train_spike, tetrode_inclusion_mask =\
@@ -243,7 +272,6 @@ def encode(train, behavior, ephys, config):
     print "number of shanks = {}".format(n_shanks)
     # create compressed (empty) joint density with all tetrodes (even if they have too few spikes)
     mcd_spikebehav = []
-    id_selected_sensors = np.array(ephys.keys())[tetrode_inclusion_mask].tolist()
     for i in range(n_shanks):
         cov_tt = covars[:n_features+1]
         mcd_spikebehav.append( mcd( ndim=len(cov_tt), sample_covariance =\
@@ -260,7 +288,15 @@ def encode(train, behavior, ephys, config):
         name='behavior' )
     training_time = np.sum( train.duration )
     print "Training time = {} s".format(training_time)
-    return mcd_spikebehav, mcd_behav, tetrode_inclusion_mask
+    if save:
+        for i in range(len(mcd_spikebehav)):
+            save_mixture(mcd_spikebehav[i], 'mixture/mcd_sb{}.mixture'.format(i))
+        save_mixture(mcd_behav, 'mixture/mcd_behav.mixture')
+        print "mixture saved"
+    n_train_spike = 0
+    for i in range(len(train_spike)):
+        n_train_spike = n_train_spike + len(train_spike[i][0])
+    return mcd_spikebehav, mcd_behav, tetrode_inclusion_mask, n_train_spike
 
 def getGrid(behavior,config):
     half_grid_size_cm = config.grid_element_size_cm / 2
@@ -324,3 +360,9 @@ def getTestSpikes(spike_features, bins,  tt_included, spike_ampl_mask, bin_size,
         test_spikes,n_spikes = testSpikes(spike_features,bins,tt_included,spike_ampl_mask,sf_keys)
         return test_spikes,np.array(n_spikes)
 
+def getErrors(true_behavior,logpos,grid):
+    decoded_behavior = grid[np.nanargmax(logpos, axis=1)].flatten()
+    assert(len(true_behavior) == len(decoded_behavior))
+    errors = np.array( [np.linalg.norm(pred_i - true_behav_i) \
+                for pred_i, true_behav_i in zip(decoded_behavior, true_behavior)])
+    return errors

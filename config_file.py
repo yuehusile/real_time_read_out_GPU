@@ -23,7 +23,7 @@ offset = 1e-10 # Hz
 # choose percentage of run data(bins) to use (later part)
 r_data_not_to_use = 0.5
 # set percentage of train/test bins
-r_train = 0.9
+r_train = 0.7
 
 # shuffle
 n_time_bin = 40
