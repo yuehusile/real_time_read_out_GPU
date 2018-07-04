@@ -22,6 +22,7 @@ from fklab.utilities import yaml
 #from gmmcompression.fkmixture import GpuDecoderClass as GpuDecoder
 from gmmcompression.fkmixture import SignificanceAnalyzerClass as SigAnalyzer
 from kde_gpu import MergingCompressionDensity as mcd
+from kde_gpu import save_mixture,load_mixture
 from kde_gpu import Decoder, create_covariance_array
 
 import config_file as config
@@ -31,6 +32,7 @@ import scipy.io as spio
 import matplotlib.pyplot as plt
 import random
 import util
+import pickle
 
 ######################################################################################################
 # load data from matlab file
@@ -40,13 +42,26 @@ behavior, ephys_run, ephys_sleep, event = util.loadData(config)
 # preprocessing: select run data, split train/test, show dataset information, remove no spike bins
 ######################################################################################################
 train, training_time = util.getTrainSet(behavior, ephys_run, config)
-test_run, _, n_spikes_run = util.getTestSet(behavior, ephys_run, config)
-test_sleep, event_bins, n_spikes_sleep = util.getTestSet(behavior, ephys_sleep, config, event, replay=True)
+test_run, _, n_spikes_run, true_behavior_run = util.getTestSet(behavior, ephys_run, config)
+test_sleep, event_bins, n_spikes_sleep,_ = util.getTestSet(behavior, ephys_sleep, config, event, replay=True)
 grid = util.getGrid(behavior,config)
 ######################################################################################################
 # encoding
 ######################################################################################################
-mcd_spikebehav, mcd_behav, tetrode_inclusion_mask = util.encode(train, behavior, ephys_run, config)
+mcd_spikebehav0, mcd_behav, tetrode_inclusion_mask, n_train_spike = util.encode(train, behavior, ephys_run, config, save=True)
+n_features = len(ephys_run[u'TT1']['spike_amplitudes'][0])
+n_shanks = len(ephys_run)
+with open('data/info.dat',"wb") as f:
+    pickle.dump(n_features,f)
+    pickle.dump(n_shanks,f)
+    pickle.dump(training_time,f)
+    pickle.dump(grid,f)
+    pickle.dump(tetrode_inclusion_mask,f)
+    pickle.dump(n_train_spike,f)
+#for i in range(len(mcd_spikebehav0)):
+#    save_mixture(mcd_spikebehav0[i], 'mcd_sb{}.mixture'.format(i))
+mcd_spikebehav, mcd_behav = util.load_mcd_from_file('mixture',n_features,n_shanks,config)
+#pdb.set_trace()
 ######################################################################################################
 # decoding
 ######################################################################################################
@@ -66,6 +81,31 @@ test_spikes_sleep,n_spikes_sleep = util.getTestSpikes([ ephys_sleep[key] for key
 test_spikes_sleep_bin,n_spikes_sleep_bin = util.getTestSpikes([ ephys_sleep[key] for key in ephys_sleep.keys() ],\
         test_sleep, tetrode_inclusion_mask, spike_ampl_mask_list, config.bin_size_sleep,\
         sf_keys=["spike_times", "spike_amplitudes"],shuffle=True, binned=True)
+
+test_spikes_sleep_bin = test_spikes_sleep_bin[:500]
+
+with open('data/test_spikes_run.dat', "wb") as f:
+    pickle.dump(test_spikes_run,f)
+    pickle.dump(n_spikes_run,f)
+    pickle.dump(true_behavior_run,f)
+with open('data/test_spikes_sleep.dat', "wb") as f:
+    pickle.dump(test_spikes_sleep,f)
+    pickle.dump(n_spikes_sleep,f)
+with open('data/test_spikes_sleep_bin.dat', "wb") as f:
+    pickle.dump(test_spikes_sleep_bin,f)
+    pickle.dump(n_spikes_sleep_bin,f)
+
+with open('data/test_spikes_run.dat', "rb") as f:
+    test_spikes_run = pickle.load(f)
+    n_spikes_run = pickle.load(f)
+with open('data/test_spikes_sleep.dat', "rb") as f:
+    test_spikes_sleep = pickle.load(f)
+    n_spikes_sleep = pickle.load(f)
+with open('data/test_spikes_sleep_bin.dat', "rb") as f:
+    test_spikes_sleep_bin = pickle.load(f)
+    n_spikes_sleep_bin = pickle.load(f)
+
+
 # initialize decoder
 decoder_cpu = Decoder( mcd_behav, mcd_spikebehav, training_time,\
         grid, config.offset )

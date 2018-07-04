@@ -401,7 +401,7 @@ cdef class MixtureClass:
         result = np.empty( (self.ncomponents, self.ndim, self.ndim), dtype=np.float64, order="C" )
         mixture_get_covariances( self._c_mixture, &result[0,0,0] )
         return result
-    
+   
     def tofile(self, filename):
         return mixture_save_to_file( self._c_mixture, filename )
     

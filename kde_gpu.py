@@ -187,11 +187,12 @@ class MergingCompressionDensity(DensityBase):
             method = string of the method sp
         '''
         if not path.isfile( filepath ):
-            raise ValueError("Path to mixture does not exist.")
+            raise ValueError("Path to mixture does not exist.path={}".format(filepath))
         m = load_mixture( filepath )
 
         self._mixture = m
-        self._c_mixture = m._c_mixture
+        #pdb.set_trace()
+        #self._c_mixture = m._c_mixture
         
         if m.ndim < 1:
             raise ValueError("Loaded mixture has zero dimensions.")
@@ -450,8 +451,8 @@ class Decoder(object):
             for tt_idx, jd in enumerate( self.joint_density ):               
                 n_spike_dim = jd.ndim-grid_dim
                 ret = self.gpuDecoder.addTT(jd._mixture, jd.grid_accumulator( np.ascontiguousarray(self.grid) ), n_spike_dim, grid_dim)
-                if ret == 0:
-                    print "Model from TT {0} correctly uploaded on GPU" .format(tt_idx+1)
+                #if ret == 0:
+                    #print "Model from TT {0} correctly uploaded on GPU" .format(tt_idx+1)
         
     def pix( self, factor=12 ):
         '''
