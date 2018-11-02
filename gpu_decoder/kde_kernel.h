@@ -95,4 +95,13 @@ int launchChkPax(float* pax, int n_idx, int head, int size, int n_pos, size_t pi
 extern "C"
 #endif
 int launch_ll_bin_kernel(float* pax, float* p_mo, float* offset, float* prob, int* shf, size_t g_pitch, size_t s_pitch, int n_pos, int n_spikes, int bin_idx, int head, int size,int n_shuffle);
+#ifdef __cplusplus
+extern "C"
+#endif
+int launch_normalize_kernel(float* prob, size_t g_pitch, int n_pos, int bin_idx, int n_shuffle);
+
+#ifdef __cplusplus
+extern "C"
+#endif
+int launch_rwd_kernel(float* prob, float* dsmat, int n_shuffle, size_t g_pitch, int n_pos, int n_bin, float* rwd, float dmax, int bin_idx, int bin_buf_sz);
 #endif

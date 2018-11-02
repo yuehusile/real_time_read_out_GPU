@@ -15,7 +15,7 @@ bin_size_run = 0.25 # in seconds
 bin_size_sleep = 0.02 # in seconds
 grid_element_size_cm = 5 # will be used to generate a grid in case of no
 behav_bw_cm = 8.5
-spf_bw_mV = 0.14*0.001
+spf_bw_mV = 0.15*0.001
 compression_threshold = 1
 offset = 1e-10 # Hz
 
@@ -28,7 +28,7 @@ r_train = 0.7
 # shuffle
 n_time_bin = 40
 n_max_spike = 100
-n_shuffle = 1000
+n_shuffle = 1001
 
 gpu_n_tt_use = 15
 cpu_n_tt_use = 15

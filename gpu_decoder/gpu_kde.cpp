@@ -1146,6 +1146,86 @@ int SignificanceAnalyzer::allocateMem()
         fail = true;
     }
 
+    // alloc memory for trans on cpu side
+    if (!fail && n_spatial_bin_>0)
+    {
+        cudaHostAlloc(&dsmat_cpu_, n_spatial_bin_*n_spatial_bin_*sizeof(float), cudaHostRegisterDefault);
+        cuda_result_code = cudaGetLastError();
+        if (cuda_result_code!=cudaSuccess) {
+            printf("message trans malloc: %s\n",cudaGetErrorString(cuda_result_code));
+            fail = true;
+        }
+	else
+	{
+	    //printf("allocated %d Btyes for shuffle index cpu\n", n_shuffle_*n_spatial_bin_*sizeof(float));
+	}
+    }
+    else if (!fail)
+    {
+        printf("invalid param: n_spatial_bin_=%d\n",n_spatial_bin_);
+        fail = true;
+    }
+   
+    // memory for trans 
+    if (!fail && n_spatial_bin_>0 )
+    {
+        cudaMallocPitch(&dsmat_, &g_pitch_, n_spatial_bin_*sizeof(float), n_spatial_bin_);
+        cuda_result_code = cudaGetLastError();
+        if (cuda_result_code!=cudaSuccess) {
+            printf("message trans mallocPitch: %s\n",cudaGetErrorString(cuda_result_code));
+            fail = true;
+        }
+	else
+	{
+	    //printf("allocated %d Btyes for prob\n",n_shuffle_*n_time_bin_*g_pitch_);
+	}
+    }
+    else if (!fail)
+    {
+        printf("invalid param: n_spatial_bin_=%d\n",n_spatial_bin_);
+        fail = true;
+    }
+    
+    // alloc memory for rwd on cpu side
+    if (!fail && n_shuffle_>0)
+    {
+        cudaHostAlloc(&rwd_cpu_, n_shuffle_*sizeof(float), cudaHostRegisterDefault);
+        cuda_result_code = cudaGetLastError();
+        if (cuda_result_code!=cudaSuccess) {
+            printf("message rwd malloc: %s\n",cudaGetErrorString(cuda_result_code));
+            fail = true;
+        }
+	else
+	{
+	    //printf("allocated %d Btyes for shuffle index cpu\n", n_shuffle_*n_spatial_bin_*sizeof(float));
+	}
+    }
+    else if (!fail)
+    {
+        printf("invalid param: n_shuffle_=%d\n",n_shuffle_);
+        fail = true;
+    }
+   
+    // memory for rwd 
+    if (!fail && n_shuffle_>0 )
+    {
+        cudaMalloc(&rwd_,  n_shuffle_*sizeof(float));
+        cuda_result_code = cudaGetLastError();
+        if (cuda_result_code!=cudaSuccess) {
+            printf("message rwd mallocPitch: %s\n",cudaGetErrorString(cuda_result_code));
+            fail = true;
+        }
+	else
+	{
+	    //printf("allocated %d Btyes for prob\n",n_shuffle_*n_time_bin_*g_pitch_);
+	}
+    }
+    else if (!fail)
+    {
+        printf("invalid param: n_shuffle_=%d\n",n_shuffle_);
+        fail = true;
+    }
+    
     if (fail)
     {
         printf("allocation failed\n");
@@ -1225,9 +1305,9 @@ float* SignificanceAnalyzer::shf_idx(const int shf)
     return (float*)((char*)(shf_idx_)+s_pitch_*shf); 
 }
 
-void SignificanceAnalyzer::uploadParam(double* pix, double* lx)
+void SignificanceAnalyzer::uploadParam(double* pix, double* lx, double* dsmat)
 {
-    // copy pix/lx to GPU
+    // copy pix/lx/trans to GPU
     for(int i=0 ;i< n_spatial_bin_;i++)
     {
         pix_cpu_[i] = (float)pix[i];
@@ -1241,9 +1321,19 @@ void SignificanceAnalyzer::uploadParam(double* pix, double* lx)
 	    lx_cpu_[i] += (float)lx[j*n_spatial_bin_+i]; 
 	}
     }
+   
+    //printf("\n");
+    for (int i=0;i< n_spatial_bin_*n_spatial_bin_;i++)
+    {
+        dsmat_cpu_[i]=dsmat[i];
+	//printf("%f,",trans_cpu_[i]);
+	//if (i%n_spatial_bin_==0)
+	//  printf("\n");
+    }
 
     cudaMemcpy(pix_, pix_cpu_, n_spatial_bin_*sizeof(float), cudaMemcpyHostToDevice);
     cudaMemcpy(lx_, lx_cpu_, n_spatial_bin_*sizeof(float), cudaMemcpyHostToDevice);
+    cudaMemcpy2D(dsmat_, g_pitch_, dsmat_cpu_, n_spatial_bin_*sizeof(float), n_spatial_bin_*sizeof(float), n_spatial_bin_, cudaMemcpyHostToDevice); 
     cudaError_t cuda_result_code = cudaGetLastError();
     if (cuda_result_code!=cudaSuccess) {
 	printf("message cuda cudaMemcpy pix/lx: %s\n",cudaGetErrorString(cuda_result_code));
@@ -1365,7 +1455,10 @@ void SignificanceAnalyzer::updateBin(double* pax, int* n_spikes_g, double* mu, c
     
     // update n_pax
     n_pax_ += n_spikes*n_group;
-    n_pax_ = n_pax_ % (shf_idx_size_*2);
+    if (n_pax_ > shf_idx_size_*2)
+    {
+        n_pax_ = shf_idx_size_*2;
+    }
     // update likelihood optional
     if (n_pax_>=shf_idx_size_)
     {
@@ -1375,28 +1468,46 @@ void SignificanceAnalyzer::updateBin(double* pax, int* n_spikes_g, double* mu, c
 	float* p_prob = (float*)((char*)prob_ + (bin_head*n_shuffle_)*g_pitch_);
         //downloadData(prob_cpu_,p_prob,n_spatial_bin_*n_shuffle_*sizeof(float),0);
         //cudaMemcpy2D(prob_cpu_, g_pitch_, prob_, n_spatial_bin_*sizeof(float), n_spatial_bin_*sizeof(float), n_shuffle_, cudaMemcpyDeviceToHost);
+        //cudaMemcpy2D(prob_cpu_, n_spatial_bin_*sizeof(float), p_prob, g_pitch_, n_spatial_bin_*sizeof(float), n_shuffle_, cudaMemcpyDeviceToHost);
+        cuda_result_code = cudaGetLastError();
+        if (cuda_result_code!=cudaSuccess) {
+    	    printf("message memory cpy 2D prob to cpu: %s\n",cudaGetErrorString(cuda_result_code));
+        }
+/*	printf("before:\n");
+	for (int i=0;i<n_spatial_bin_;i++)
+	{
+	    //printf("prob[0][%d]=%f,",i,prob_cpu_[i]);
+	    printf("%f,",prob_cpu_[i+n_spatial_bin_]);
+	}
+	printf("\n");
+	printf("after:\n");
+*/
+	launch_normalize_kernel(prob_,g_pitch_,n_spatial_bin_,bin_head,n_shuffle_);
         cudaMemcpy2D(prob_cpu_, n_spatial_bin_*sizeof(float), p_prob, g_pitch_, n_spatial_bin_*sizeof(float), n_shuffle_, cudaMemcpyDeviceToHost);
         cuda_result_code = cudaGetLastError();
         if (cuda_result_code!=cudaSuccess) {
     	    printf("message memory cpy 2D prob to cpu: %s\n",cudaGetErrorString(cuda_result_code));
         }
+/*
 	for (int i=0;i<n_spatial_bin_;i++)
 	{
 	    //printf("prob[0][%d]=%f,",i,prob_cpu_[i]);
+	    printf("%f,",prob_cpu_[i+n_spatial_bin_]);
 	}
-	//printf("\n");
+        printf("\n");
 	for (int i=0;i<n_spatial_bin_;i++)
 	{
 	    //printf("prob[1][%d]=%f,",i,prob_cpu_[i+n_spatial_bin_]);
 	}
 	//printf("\n");
-	
+*/	
+	// compute significance
+        //computeRwd(10);	
 	// update head
 	bin_head = (bin_head+1)%n_time_bin_;
 	if (bin_head==n_time_bin_-1 && full_==false)
 	    full_ = true;
-	
-	// compute significance
+        //printf("bin_head=%d,n_time_bin_=%d\n",bin_head,n_time_bin_);
 	
     }
 }
@@ -1413,6 +1524,18 @@ bool SignificanceAnalyzer::getProb(double* prob)
     }
     return true;
 }
+
+bool SignificanceAnalyzer::getRwd(double* rwd)
+{
+    if (n_pax_<shf_idx_size_)
+        return false;
+    for (int i=0;i<n_shuffle_;i++)
+    {
+	rwd[i] = rwd_cpu_[i];
+    }
+    return true;
+}
+
 /*void SignificanceAnalyzer::updateBin(double* pax, int* n_spikes_g, const int n_spikes, const int n_group)
 {
     // copy to pinned memory
@@ -1513,13 +1636,13 @@ bool SignificanceAnalyzer::getProb(double* prob)
     printf("head=%d\n",head);
 }*/
 
-float SignificanceAnalyzer::significance()
+void SignificanceAnalyzer::computeRwd(int n_assess_bin)
 {
-    // compute significance based on rwd
-    if (n_pax_>=shf_idx_size_)
-    {
-	float* p_prob = (float*)((char*)prob_ + (bin_head*n_shuffle_)*g_pitch_);
-	//launchSigKernel(p_prob, n_shuffle, n_time_bin_);
+    launch_rwd_kernel(prob_,dsmat_,n_shuffle_,g_pitch_,n_spatial_bin_,n_assess_bin,rwd_,dmax_,bin_head,n_time_bin_);
+    cudaMemcpy(rwd_cpu_, rwd_, n_shuffle_*sizeof(float),  cudaMemcpyDeviceToHost);
+    //printf("rwd_cpu_=%f,bin_idx=%d,n_assess_bin=%d\n",rwd_cpu_[0],bin_head,n_assess_bin);
+    cudaError_t cuda_result_code = cudaGetLastError();
+    if (cuda_result_code!=cudaSuccess) {
+	printf("message memory cpy  rwd to cpu: %s\n",cudaGetErrorString(cuda_result_code));
     }
-    return 0;
 }

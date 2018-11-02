@@ -1073,7 +1073,7 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
 
-/* "gmmcompression/fkmixture.pyx":109
+/* "gmmcompression/fkmixture.pyx":111
  *         void clear()
  * 
  * cdef class CovarianceClass:             # <<<<<<<<<<<<<<
@@ -1086,7 +1086,7 @@ struct __pyx_obj_14gmmcompression_9fkmixture_CovarianceClass {
 };
 
 
-/* "gmmcompression/fkmixture.pyx":140
+/* "gmmcompression/fkmixture.pyx":142
  * 
  * 
  * cdef class ComponentClass:             # <<<<<<<<<<<<<<
@@ -1099,7 +1099,7 @@ struct __pyx_obj_14gmmcompression_9fkmixture_ComponentClass {
 };
 
 
-/* "gmmcompression/fkmixture.pyx":180
+/* "gmmcompression/fkmixture.pyx":182
  * 
  * 
  * cdef class MixtureClass:             # <<<<<<<<<<<<<<
@@ -1112,7 +1112,7 @@ struct __pyx_obj_14gmmcompression_9fkmixture_MixtureClass {
 };
 
 
-/* "gmmcompression/fkmixture.pyx":417
+/* "gmmcompression/fkmixture.pyx":419
  *         return result
  * 
  * cdef class GpuDecoderClass:             # <<<<<<<<<<<<<<
@@ -1125,7 +1125,7 @@ struct __pyx_obj_14gmmcompression_9fkmixture_GpuDecoderClass {
 };
 
 
-/* "gmmcompression/fkmixture.pyx":482
+/* "gmmcompression/fkmixture.pyx":484
  *         print "memory cleared"
  * 
  * cdef class SignificanceAnalyzerClass:             # <<<<<<<<<<<<<<
@@ -1797,6 +1797,7 @@ static const char __pyx_k_pax[] = "pax";
 static const char __pyx_k_pdb[] = "pdb";
 static const char __pyx_k_pix[] = "pix";
 static const char __pyx_k_data[] = "data";
+static const char __pyx_k_dmax[] = "dmax";
 static const char __pyx_k_file[] = "file";
 static const char __pyx_k_full[] = "full";
 static const char __pyx_k_main[] = "__main__";
@@ -1804,6 +1805,7 @@ static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_ndim[] = "ndim";
 static const char __pyx_k_ones[] = "ones";
 static const char __pyx_k_test[] = "__test__";
+static const char __pyx_k_dsmat[] = "dsmat";
 static const char __pyx_k_dtype[] = "dtype";
 static const char __pyx_k_empty[] = "empty";
 static const char __pyx_k_index[] = "index";
@@ -1889,6 +1891,8 @@ static PyObject *__pyx_n_s_constant;
 static PyObject *__pyx_n_s_covariance_match;
 static PyObject *__pyx_n_s_data;
 static PyObject *__pyx_n_s_diagonal;
+static PyObject *__pyx_n_s_dmax;
+static PyObject *__pyx_n_s_dsmat;
 static PyObject *__pyx_n_s_dtype;
 static PyObject *__pyx_n_s_empty;
 static PyObject *__pyx_n_s_end;
@@ -2013,12 +2017,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_12decode
 static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_14clearMem(struct __pyx_obj_14gmmcompression_9fkmixture_GpuDecoderClass *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_16__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_14gmmcompression_9fkmixture_GpuDecoderClass *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_18__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_14gmmcompression_9fkmixture_GpuDecoderClass *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
-static int __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass___cinit__(struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self, int __pyx_v_n_pos, int __pyx_v_n_group, float __pyx_v_bin_size, int __pyx_v_n_shf, int __pyx_v_n_tbin, int __pyx_v_max_sp); /* proto */
-static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_2uploadParam(struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self, PyArrayObject *__pyx_v_pix, PyArrayObject *__pyx_v_lx); /* proto */
+static int __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass___cinit__(struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self, int __pyx_v_n_pos, int __pyx_v_n_group, float __pyx_v_bin_size, float __pyx_v_dmax, int __pyx_v_n_shf, int __pyx_v_n_tbin, int __pyx_v_max_sp); /* proto */
+static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_2uploadParam(struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self, PyArrayObject *__pyx_v_pix, PyArrayObject *__pyx_v_lx, PyArrayObject *__pyx_v_dsmat); /* proto */
 static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_4updateBin(struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self, PyObject *__pyx_v_pax, PyArrayObject *__pyx_v_n_spikes_g, PyArrayObject *__pyx_v_mu); /* proto */
-static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_6__deaclloc__(struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_8__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_10__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_6assess(struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self, PyObject *__pyx_v_n_assess_bin); /* proto */
+static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_8__deaclloc__(struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_10__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_12__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static PyObject *__pyx_tp_new_14gmmcompression_9fkmixture_CovarianceClass(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -2050,7 +2055,7 @@ static PyObject *__pyx_tuple__17;
 static PyObject *__pyx_tuple__18;
 static PyObject *__pyx_tuple__19;
 
-/* "gmmcompression/fkmixture.pyx":111
+/* "gmmcompression/fkmixture.pyx":113
  * cdef class CovarianceClass:
  *     cdef CovarianceMatrix* _c_covariance
  *     def __init__(self, np.ndarray[double, ndim=2, mode="c"] data):             # <<<<<<<<<<<<<<
@@ -2084,7 +2089,7 @@ static int __pyx_pw_14gmmcompression_9fkmixture_15CovarianceClass_1__init__(PyOb
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 111, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 113, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -2095,13 +2100,13 @@ static int __pyx_pw_14gmmcompression_9fkmixture_15CovarianceClass_1__init__(PyOb
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 111, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 113, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("gmmcompression.fkmixture.CovarianceClass.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), __pyx_ptype_5numpy_ndarray, 1, "data", 0))) __PYX_ERR(0, 111, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), __pyx_ptype_5numpy_ndarray, 1, "data", 0))) __PYX_ERR(0, 113, __pyx_L1_error)
   __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass___init__(((struct __pyx_obj_14gmmcompression_9fkmixture_CovarianceClass *)__pyx_v_self), __pyx_v_data);
 
   /* function exit code */
@@ -2131,11 +2136,11 @@ static int __pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass___init__(struc
   __pyx_pybuffernd_data.rcbuffer = &__pyx_pybuffer_data;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 111, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 113, __pyx_L1_error)
   }
   __pyx_pybuffernd_data.diminfo[0].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_data.diminfo[0].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_data.diminfo[1].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_data.diminfo[1].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[1];
 
-  /* "gmmcompression/fkmixture.pyx":112
+  /* "gmmcompression/fkmixture.pyx":114
  *     cdef CovarianceMatrix* _c_covariance
  *     def __init__(self, np.ndarray[double, ndim=2, mode="c"] data):
  *         nr = data.shape[0]             # <<<<<<<<<<<<<<
@@ -2144,7 +2149,7 @@ static int __pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass___init__(struc
  */
   __pyx_v_nr = (__pyx_v_data->dimensions[0]);
 
-  /* "gmmcompression/fkmixture.pyx":113
+  /* "gmmcompression/fkmixture.pyx":115
  *     def __init__(self, np.ndarray[double, ndim=2, mode="c"] data):
  *         nr = data.shape[0]
  *         nc = data.shape[1]             # <<<<<<<<<<<<<<
@@ -2153,7 +2158,7 @@ static int __pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass___init__(struc
  */
   __pyx_v_nc = (__pyx_v_data->dimensions[1]);
 
-  /* "gmmcompression/fkmixture.pyx":114
+  /* "gmmcompression/fkmixture.pyx":116
  *         nr = data.shape[0]
  *         nc = data.shape[1]
  *         assert nr==nc             # <<<<<<<<<<<<<<
@@ -2164,12 +2169,12 @@ static int __pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass___init__(struc
   if (unlikely(!Py_OptimizeFlag)) {
     if (unlikely(!((__pyx_v_nr == __pyx_v_nc) != 0))) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 114, __pyx_L1_error)
+      __PYX_ERR(0, 116, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "gmmcompression/fkmixture.pyx":115
+  /* "gmmcompression/fkmixture.pyx":117
  *         nc = data.shape[1]
  *         assert nr==nc
  *         assert nr>0             # <<<<<<<<<<<<<<
@@ -2180,12 +2185,12 @@ static int __pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass___init__(struc
   if (unlikely(!Py_OptimizeFlag)) {
     if (unlikely(!((__pyx_v_nr > 0) != 0))) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 115, __pyx_L1_error)
+      __PYX_ERR(0, 117, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "gmmcompression/fkmixture.pyx":117
+  /* "gmmcompression/fkmixture.pyx":119
  *         assert nr>0
  * 
  *         self._c_covariance = covariance_create(nr)             # <<<<<<<<<<<<<<
@@ -2194,7 +2199,7 @@ static int __pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass___init__(struc
  */
   __pyx_v_self->_c_covariance = covariance_create(__pyx_v_nr);
 
-  /* "gmmcompression/fkmixture.pyx":118
+  /* "gmmcompression/fkmixture.pyx":120
  * 
  *         self._c_covariance = covariance_create(nr)
  *         covariance_set_full( self._c_covariance, &data[0,0] )             # <<<<<<<<<<<<<<
@@ -2214,11 +2219,11 @@ static int __pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass___init__(struc
   } else if (unlikely(__pyx_t_2 >= __pyx_pybuffernd_data.diminfo[1].shape)) __pyx_t_3 = 1;
   if (unlikely(__pyx_t_3 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_3);
-    __PYX_ERR(0, 118, __pyx_L1_error)
+    __PYX_ERR(0, 120, __pyx_L1_error)
   }
   covariance_set_full(__pyx_v_self->_c_covariance, (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_data.rcbuffer->pybuffer.buf, __pyx_t_1, __pyx_pybuffernd_data.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_data.diminfo[1].strides))));
 
-  /* "gmmcompression/fkmixture.pyx":120
+  /* "gmmcompression/fkmixture.pyx":122
  *         covariance_set_full( self._c_covariance, &data[0,0] )
  * 
  *         if self._c_covariance is NULL:             # <<<<<<<<<<<<<<
@@ -2228,16 +2233,16 @@ static int __pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass___init__(struc
   __pyx_t_4 = ((__pyx_v_self->_c_covariance == NULL) != 0);
   if (__pyx_t_4) {
 
-    /* "gmmcompression/fkmixture.pyx":121
+    /* "gmmcompression/fkmixture.pyx":123
  * 
  *         if self._c_covariance is NULL:
  *             raise MemoryError             # <<<<<<<<<<<<<<
  * 
  *     def __dealloc__(self):
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 121, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 123, __pyx_L1_error)
 
-    /* "gmmcompression/fkmixture.pyx":120
+    /* "gmmcompression/fkmixture.pyx":122
  *         covariance_set_full( self._c_covariance, &data[0,0] )
  * 
  *         if self._c_covariance is NULL:             # <<<<<<<<<<<<<<
@@ -2246,7 +2251,7 @@ static int __pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass___init__(struc
  */
   }
 
-  /* "gmmcompression/fkmixture.pyx":111
+  /* "gmmcompression/fkmixture.pyx":113
  * cdef class CovarianceClass:
  *     cdef CovarianceMatrix* _c_covariance
  *     def __init__(self, np.ndarray[double, ndim=2, mode="c"] data):             # <<<<<<<<<<<<<<
@@ -2274,7 +2279,7 @@ static int __pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass___init__(struc
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":123
+/* "gmmcompression/fkmixture.pyx":125
  *             raise MemoryError
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2298,7 +2303,7 @@ static void __pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass_2__dealloc__(
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":124
+  /* "gmmcompression/fkmixture.pyx":126
  * 
  *     def __dealloc__(self):
  *         if self._c_covariance is not NULL:             # <<<<<<<<<<<<<<
@@ -2308,7 +2313,7 @@ static void __pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass_2__dealloc__(
   __pyx_t_1 = ((__pyx_v_self->_c_covariance != NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "gmmcompression/fkmixture.pyx":126
+    /* "gmmcompression/fkmixture.pyx":128
  *         if self._c_covariance is not NULL:
  *             #print("deleting covariance matrix")
  *             covariance_delete(self._c_covariance)             # <<<<<<<<<<<<<<
@@ -2317,7 +2322,7 @@ static void __pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass_2__dealloc__(
  */
     covariance_delete(__pyx_v_self->_c_covariance);
 
-    /* "gmmcompression/fkmixture.pyx":124
+    /* "gmmcompression/fkmixture.pyx":126
  * 
  *     def __dealloc__(self):
  *         if self._c_covariance is not NULL:             # <<<<<<<<<<<<<<
@@ -2326,7 +2331,7 @@ static void __pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass_2__dealloc__(
  */
   }
 
-  /* "gmmcompression/fkmixture.pyx":123
+  /* "gmmcompression/fkmixture.pyx":125
  *             raise MemoryError
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2338,7 +2343,7 @@ static void __pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass_2__dealloc__(
   __Pyx_RefNannyFinishContext();
 }
 
-/* "gmmcompression/fkmixture.pyx":128
+/* "gmmcompression/fkmixture.pyx":130
  *             covariance_delete(self._c_covariance)
  * 
  *     def show(self):             # <<<<<<<<<<<<<<
@@ -2364,7 +2369,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass_4show(st
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("show", 0);
 
-  /* "gmmcompression/fkmixture.pyx":129
+  /* "gmmcompression/fkmixture.pyx":131
  * 
  *     def show(self):
  *         covariance_print( self._c_covariance )             # <<<<<<<<<<<<<<
@@ -2373,7 +2378,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass_4show(st
  */
   covariance_print(__pyx_v_self->_c_covariance);
 
-  /* "gmmcompression/fkmixture.pyx":128
+  /* "gmmcompression/fkmixture.pyx":130
  *             covariance_delete(self._c_covariance)
  * 
  *     def show(self):             # <<<<<<<<<<<<<<
@@ -2388,7 +2393,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass_4show(st
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":132
+/* "gmmcompression/fkmixture.pyx":134
  * 
  *     @property
  *     def refcount(self):             # <<<<<<<<<<<<<<
@@ -2415,7 +2420,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass_8refcoun
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":133
+  /* "gmmcompression/fkmixture.pyx":135
  *     @property
  *     def refcount(self):
  *         return self._c_covariance.refcount             # <<<<<<<<<<<<<<
@@ -2423,13 +2428,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass_8refcoun
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_uint32_t(__pyx_v_self->_c_covariance->refcount); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_uint32_t(__pyx_v_self->_c_covariance->refcount); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 135, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":132
+  /* "gmmcompression/fkmixture.pyx":134
  * 
  *     @property
  *     def refcount(self):             # <<<<<<<<<<<<<<
@@ -2448,7 +2453,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass_8refcoun
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":136
+/* "gmmcompression/fkmixture.pyx":138
  * 
  *     @property
  *     def ndim(self):             # <<<<<<<<<<<<<<
@@ -2475,7 +2480,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass_4ndim___
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":137
+  /* "gmmcompression/fkmixture.pyx":139
  *     @property
  *     def ndim(self):
  *         return self._c_covariance.ndim             # <<<<<<<<<<<<<<
@@ -2483,13 +2488,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass_4ndim___
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_uint16_t(__pyx_v_self->_c_covariance->ndim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_uint16_t(__pyx_v_self->_c_covariance->ndim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 139, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":136
+  /* "gmmcompression/fkmixture.pyx":138
  * 
  *     @property
  *     def ndim(self):             # <<<<<<<<<<<<<<
@@ -2615,7 +2620,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15CovarianceClass_8__setst
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":142
+/* "gmmcompression/fkmixture.pyx":144
  * cdef class ComponentClass:
  *     cdef GaussianComponent* _c_component
  *     def __init__(self, ndim=1):             # <<<<<<<<<<<<<<
@@ -2652,7 +2657,7 @@ static int __pyx_pw_14gmmcompression_9fkmixture_14ComponentClass_1__init__(PyObj
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 142, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 144, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -2666,7 +2671,7 @@ static int __pyx_pw_14gmmcompression_9fkmixture_14ComponentClass_1__init__(PyObj
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 142, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 144, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("gmmcompression.fkmixture.ComponentClass.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2686,17 +2691,17 @@ static int __pyx_pf_14gmmcompression_9fkmixture_14ComponentClass___init__(struct
   int __pyx_t_2;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":143
+  /* "gmmcompression/fkmixture.pyx":145
  *     cdef GaussianComponent* _c_component
  *     def __init__(self, ndim=1):
  *         self._c_component = component_create_empty(ndim)             # <<<<<<<<<<<<<<
  *         if self._c_component is NULL:
  *             raise MemoryError
  */
-  __pyx_t_1 = __Pyx_PyInt_As_uint16_t(__pyx_v_ndim); if (unlikely((__pyx_t_1 == ((uint16_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 143, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_uint16_t(__pyx_v_ndim); if (unlikely((__pyx_t_1 == ((uint16_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 145, __pyx_L1_error)
   __pyx_v_self->_c_component = component_create_empty(__pyx_t_1);
 
-  /* "gmmcompression/fkmixture.pyx":144
+  /* "gmmcompression/fkmixture.pyx":146
  *     def __init__(self, ndim=1):
  *         self._c_component = component_create_empty(ndim)
  *         if self._c_component is NULL:             # <<<<<<<<<<<<<<
@@ -2706,16 +2711,16 @@ static int __pyx_pf_14gmmcompression_9fkmixture_14ComponentClass___init__(struct
   __pyx_t_2 = ((__pyx_v_self->_c_component == NULL) != 0);
   if (__pyx_t_2) {
 
-    /* "gmmcompression/fkmixture.pyx":145
+    /* "gmmcompression/fkmixture.pyx":147
  *         self._c_component = component_create_empty(ndim)
  *         if self._c_component is NULL:
  *             raise MemoryError             # <<<<<<<<<<<<<<
  * 
  *     def __dealloc__(self):
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 145, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 147, __pyx_L1_error)
 
-    /* "gmmcompression/fkmixture.pyx":144
+    /* "gmmcompression/fkmixture.pyx":146
  *     def __init__(self, ndim=1):
  *         self._c_component = component_create_empty(ndim)
  *         if self._c_component is NULL:             # <<<<<<<<<<<<<<
@@ -2724,7 +2729,7 @@ static int __pyx_pf_14gmmcompression_9fkmixture_14ComponentClass___init__(struct
  */
   }
 
-  /* "gmmcompression/fkmixture.pyx":142
+  /* "gmmcompression/fkmixture.pyx":144
  * cdef class ComponentClass:
  *     cdef GaussianComponent* _c_component
  *     def __init__(self, ndim=1):             # <<<<<<<<<<<<<<
@@ -2743,7 +2748,7 @@ static int __pyx_pf_14gmmcompression_9fkmixture_14ComponentClass___init__(struct
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":147
+/* "gmmcompression/fkmixture.pyx":149
  *             raise MemoryError
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2767,7 +2772,7 @@ static void __pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_2__dealloc__(s
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":148
+  /* "gmmcompression/fkmixture.pyx":150
  * 
  *     def __dealloc__(self):
  *         if self._c_component is not NULL:             # <<<<<<<<<<<<<<
@@ -2777,7 +2782,7 @@ static void __pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_2__dealloc__(s
   __pyx_t_1 = ((__pyx_v_self->_c_component != NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "gmmcompression/fkmixture.pyx":150
+    /* "gmmcompression/fkmixture.pyx":152
  *         if self._c_component is not NULL:
  *             #print("deleting component")
  *             component_delete(self._c_component)             # <<<<<<<<<<<<<<
@@ -2786,7 +2791,7 @@ static void __pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_2__dealloc__(s
  */
     component_delete(__pyx_v_self->_c_component);
 
-    /* "gmmcompression/fkmixture.pyx":148
+    /* "gmmcompression/fkmixture.pyx":150
  * 
  *     def __dealloc__(self):
  *         if self._c_component is not NULL:             # <<<<<<<<<<<<<<
@@ -2795,7 +2800,7 @@ static void __pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_2__dealloc__(s
  */
   }
 
-  /* "gmmcompression/fkmixture.pyx":147
+  /* "gmmcompression/fkmixture.pyx":149
  *             raise MemoryError
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -2807,7 +2812,7 @@ static void __pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_2__dealloc__(s
   __Pyx_RefNannyFinishContext();
 }
 
-/* "gmmcompression/fkmixture.pyx":153
+/* "gmmcompression/fkmixture.pyx":155
  * 
  *     @property
  *     def refcount(self):             # <<<<<<<<<<<<<<
@@ -2834,7 +2839,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_8refcount
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":154
+  /* "gmmcompression/fkmixture.pyx":156
  *     @property
  *     def refcount(self):
  *         return self._c_component.refcount             # <<<<<<<<<<<<<<
@@ -2842,13 +2847,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_8refcount
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_uint32_t(__pyx_v_self->_c_component->refcount); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_uint32_t(__pyx_v_self->_c_component->refcount); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 156, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":153
+  /* "gmmcompression/fkmixture.pyx":155
  * 
  *     @property
  *     def refcount(self):             # <<<<<<<<<<<<<<
@@ -2867,7 +2872,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_8refcount
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":157
+/* "gmmcompression/fkmixture.pyx":159
  * 
  *     @property
  *     def ndim(self):             # <<<<<<<<<<<<<<
@@ -2894,7 +2899,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_4ndim___g
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":158
+  /* "gmmcompression/fkmixture.pyx":160
  *     @property
  *     def ndim(self):
  *         return self._c_component.ndim             # <<<<<<<<<<<<<<
@@ -2902,13 +2907,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_4ndim___g
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_uint16_t(__pyx_v_self->_c_component->ndim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 158, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_uint16_t(__pyx_v_self->_c_component->ndim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 160, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":157
+  /* "gmmcompression/fkmixture.pyx":159
  * 
  *     @property
  *     def ndim(self):             # <<<<<<<<<<<<<<
@@ -2927,7 +2932,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_4ndim___g
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":161
+/* "gmmcompression/fkmixture.pyx":163
  * 
  *     @property
  *     def weight(self):             # <<<<<<<<<<<<<<
@@ -2954,7 +2959,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_6weight__
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":162
+  /* "gmmcompression/fkmixture.pyx":164
  *     @property
  *     def weight(self):
  *         return self._c_component.weight             # <<<<<<<<<<<<<<
@@ -2962,13 +2967,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_6weight__
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->_c_component->weight); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->_c_component->weight); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 164, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":161
+  /* "gmmcompression/fkmixture.pyx":163
  * 
  *     @property
  *     def weight(self):             # <<<<<<<<<<<<<<
@@ -2987,7 +2992,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_6weight__
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":165
+/* "gmmcompression/fkmixture.pyx":167
  * 
  *     @property
  *     def mean(self):             # <<<<<<<<<<<<<<
@@ -3031,41 +3036,41 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_4mean___g
   __pyx_pybuffernd_result.data = NULL;
   __pyx_pybuffernd_result.rcbuffer = &__pyx_pybuffer_result;
 
-  /* "gmmcompression/fkmixture.pyx":167
+  /* "gmmcompression/fkmixture.pyx":169
  *     def mean(self):
  *         cdef np.ndarray[np.double_t, ndim=1, mode="c"] result
  *         result = np.empty( (self.ndim), dtype=np.float64, order="C" )             # <<<<<<<<<<<<<<
  *         component_get_mean(self._c_component, &result[0] )
  *         return result
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 167, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 169, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 167, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 169, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -3081,13 +3086,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_4mean___g
       }
     }
     __pyx_pybuffernd_result.diminfo[0].strides = __pyx_pybuffernd_result.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_result.diminfo[0].shape = __pyx_pybuffernd_result.rcbuffer->pybuffer.shape[0];
-    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 167, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 169, __pyx_L1_error)
   }
   __pyx_t_6 = 0;
   __pyx_v_result = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":168
+  /* "gmmcompression/fkmixture.pyx":170
  *         cdef np.ndarray[np.double_t, ndim=1, mode="c"] result
  *         result = np.empty( (self.ndim), dtype=np.float64, order="C" )
  *         component_get_mean(self._c_component, &result[0] )             # <<<<<<<<<<<<<<
@@ -3102,11 +3107,11 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_4mean___g
   } else if (unlikely(__pyx_t_11 >= __pyx_pybuffernd_result.diminfo[0].shape)) __pyx_t_7 = 0;
   if (unlikely(__pyx_t_7 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_7);
-    __PYX_ERR(0, 168, __pyx_L1_error)
+    __PYX_ERR(0, 170, __pyx_L1_error)
   }
   component_get_mean(__pyx_v_self->_c_component, (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_double_t *, __pyx_pybuffernd_result.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_result.diminfo[0].strides))));
 
-  /* "gmmcompression/fkmixture.pyx":169
+  /* "gmmcompression/fkmixture.pyx":171
  *         result = np.empty( (self.ndim), dtype=np.float64, order="C" )
  *         component_get_mean(self._c_component, &result[0] )
  *         return result             # <<<<<<<<<<<<<<
@@ -3118,7 +3123,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_4mean___g
   __pyx_r = ((PyObject *)__pyx_v_result);
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":165
+  /* "gmmcompression/fkmixture.pyx":167
  * 
  *     @property
  *     def mean(self):             # <<<<<<<<<<<<<<
@@ -3151,7 +3156,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_4mean___g
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":172
+/* "gmmcompression/fkmixture.pyx":174
  * 
  *     @property
  *     def covariance(self):             # <<<<<<<<<<<<<<
@@ -3196,23 +3201,23 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_10covaria
   __pyx_pybuffernd_result.data = NULL;
   __pyx_pybuffernd_result.rcbuffer = &__pyx_pybuffer_result;
 
-  /* "gmmcompression/fkmixture.pyx":174
+  /* "gmmcompression/fkmixture.pyx":176
  *     def covariance(self):
  *         cdef np.ndarray[np.double_t, ndim=2, mode="c"] result
  *         result = np.empty( (self.ndim,self.ndim), dtype=np.float64, order="C" )             # <<<<<<<<<<<<<<
  *         component_get_covariance_array(self._c_component, &result[0,0] )
  *         return result
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 176, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 176, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 176, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 176, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 176, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
@@ -3220,27 +3225,27 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_10covaria
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3);
   __pyx_t_1 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 176, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = PyDict_New(); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_4 = PyDict_New(); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 176, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 176, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 176, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 174, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 176, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 174, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 174, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 176, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 176, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 174, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 176, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -3256,13 +3261,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_10covaria
       }
     }
     __pyx_pybuffernd_result.diminfo[0].strides = __pyx_pybuffernd_result.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_result.diminfo[0].shape = __pyx_pybuffernd_result.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_result.diminfo[1].strides = __pyx_pybuffernd_result.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_result.diminfo[1].shape = __pyx_pybuffernd_result.rcbuffer->pybuffer.shape[1];
-    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 174, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 176, __pyx_L1_error)
   }
   __pyx_t_6 = 0;
   __pyx_v_result = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":175
+  /* "gmmcompression/fkmixture.pyx":177
  *         cdef np.ndarray[np.double_t, ndim=2, mode="c"] result
  *         result = np.empty( (self.ndim,self.ndim), dtype=np.float64, order="C" )
  *         component_get_covariance_array(self._c_component, &result[0,0] )             # <<<<<<<<<<<<<<
@@ -3282,11 +3287,11 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_10covaria
   } else if (unlikely(__pyx_t_12 >= __pyx_pybuffernd_result.diminfo[1].shape)) __pyx_t_7 = 1;
   if (unlikely(__pyx_t_7 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_7);
-    __PYX_ERR(0, 175, __pyx_L1_error)
+    __PYX_ERR(0, 177, __pyx_L1_error)
   }
   component_get_covariance_array(__pyx_v_self->_c_component, (&(*__Pyx_BufPtrCContig2d(__pyx_t_5numpy_double_t *, __pyx_pybuffernd_result.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_result.diminfo[0].strides, __pyx_t_12, __pyx_pybuffernd_result.diminfo[1].strides))));
 
-  /* "gmmcompression/fkmixture.pyx":176
+  /* "gmmcompression/fkmixture.pyx":178
  *         result = np.empty( (self.ndim,self.ndim), dtype=np.float64, order="C" )
  *         component_get_covariance_array(self._c_component, &result[0,0] )
  *         return result             # <<<<<<<<<<<<<<
@@ -3298,7 +3303,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_10covaria
   __pyx_r = ((PyObject *)__pyx_v_result);
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":172
+  /* "gmmcompression/fkmixture.pyx":174
  * 
  *     @property
  *     def covariance(self):             # <<<<<<<<<<<<<<
@@ -3438,7 +3443,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_14ComponentClass_6__setsta
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":182
+/* "gmmcompression/fkmixture.pyx":184
  * cdef class MixtureClass:
  *     cdef Mixture* _c_mixture
  *     def __cinit__(self, ndim=1):             # <<<<<<<<<<<<<<
@@ -3475,7 +3480,7 @@ static int __pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_1__cinit__(PyObje
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 182, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 184, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3489,7 +3494,7 @@ static int __pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_1__cinit__(PyObje
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 182, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 184, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("gmmcompression.fkmixture.MixtureClass.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3510,20 +3515,20 @@ static int __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass___cinit__(struct 
   int __pyx_t_3;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":183
+  /* "gmmcompression/fkmixture.pyx":185
  *     cdef Mixture* _c_mixture
  *     def __cinit__(self, ndim=1):
  *         if ndim==0:             # <<<<<<<<<<<<<<
  *             self._c_mixture = NULL
  *         else:
  */
-  __pyx_t_1 = __Pyx_PyInt_EqObjC(__pyx_v_ndim, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 183, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_EqObjC(__pyx_v_ndim, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 185, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 183, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 185, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "gmmcompression/fkmixture.pyx":184
+    /* "gmmcompression/fkmixture.pyx":186
  *     def __cinit__(self, ndim=1):
  *         if ndim==0:
  *             self._c_mixture = NULL             # <<<<<<<<<<<<<<
@@ -3532,7 +3537,7 @@ static int __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass___cinit__(struct 
  */
     __pyx_v_self->_c_mixture = NULL;
 
-    /* "gmmcompression/fkmixture.pyx":183
+    /* "gmmcompression/fkmixture.pyx":185
  *     cdef Mixture* _c_mixture
  *     def __cinit__(self, ndim=1):
  *         if ndim==0:             # <<<<<<<<<<<<<<
@@ -3542,7 +3547,7 @@ static int __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass___cinit__(struct 
     goto __pyx_L3;
   }
 
-  /* "gmmcompression/fkmixture.pyx":186
+  /* "gmmcompression/fkmixture.pyx":188
  *             self._c_mixture = NULL
  *         else:
  *             self._c_mixture = mixture_create(ndim)             # <<<<<<<<<<<<<<
@@ -3550,10 +3555,10 @@ static int __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass___cinit__(struct 
  *                 raise MemoryError
  */
   /*else*/ {
-    __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_ndim); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 186, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_ndim); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 188, __pyx_L1_error)
     __pyx_v_self->_c_mixture = mixture_create(__pyx_t_3);
 
-    /* "gmmcompression/fkmixture.pyx":187
+    /* "gmmcompression/fkmixture.pyx":189
  *         else:
  *             self._c_mixture = mixture_create(ndim)
  *             if self._c_mixture is NULL:             # <<<<<<<<<<<<<<
@@ -3563,16 +3568,16 @@ static int __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass___cinit__(struct 
     __pyx_t_2 = ((__pyx_v_self->_c_mixture == NULL) != 0);
     if (__pyx_t_2) {
 
-      /* "gmmcompression/fkmixture.pyx":188
+      /* "gmmcompression/fkmixture.pyx":190
  *             self._c_mixture = mixture_create(ndim)
  *             if self._c_mixture is NULL:
  *                 raise MemoryError             # <<<<<<<<<<<<<<
  * 
  *     def __dealloc__(self):
  */
-      PyErr_NoMemory(); __PYX_ERR(0, 188, __pyx_L1_error)
+      PyErr_NoMemory(); __PYX_ERR(0, 190, __pyx_L1_error)
 
-      /* "gmmcompression/fkmixture.pyx":187
+      /* "gmmcompression/fkmixture.pyx":189
  *         else:
  *             self._c_mixture = mixture_create(ndim)
  *             if self._c_mixture is NULL:             # <<<<<<<<<<<<<<
@@ -3583,7 +3588,7 @@ static int __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass___cinit__(struct 
   }
   __pyx_L3:;
 
-  /* "gmmcompression/fkmixture.pyx":182
+  /* "gmmcompression/fkmixture.pyx":184
  * cdef class MixtureClass:
  *     cdef Mixture* _c_mixture
  *     def __cinit__(self, ndim=1):             # <<<<<<<<<<<<<<
@@ -3603,7 +3608,7 @@ static int __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass___cinit__(struct 
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":190
+/* "gmmcompression/fkmixture.pyx":192
  *                 raise MemoryError
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -3627,7 +3632,7 @@ static void __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_2__dealloc__(str
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":191
+  /* "gmmcompression/fkmixture.pyx":193
  * 
  *     def __dealloc__(self):
  *         if self._c_mixture is not NULL:             # <<<<<<<<<<<<<<
@@ -3637,7 +3642,7 @@ static void __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_2__dealloc__(str
   __pyx_t_1 = ((__pyx_v_self->_c_mixture != NULL) != 0);
   if (__pyx_t_1) {
 
-    /* "gmmcompression/fkmixture.pyx":193
+    /* "gmmcompression/fkmixture.pyx":195
  *         if self._c_mixture is not NULL:
  *             #print("deleting mixture")
  *             mixture_delete(self._c_mixture)             # <<<<<<<<<<<<<<
@@ -3646,7 +3651,7 @@ static void __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_2__dealloc__(str
  */
     mixture_delete(__pyx_v_self->_c_mixture);
 
-    /* "gmmcompression/fkmixture.pyx":191
+    /* "gmmcompression/fkmixture.pyx":193
  * 
  *     def __dealloc__(self):
  *         if self._c_mixture is not NULL:             # <<<<<<<<<<<<<<
@@ -3655,7 +3660,7 @@ static void __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_2__dealloc__(str
  */
   }
 
-  /* "gmmcompression/fkmixture.pyx":190
+  /* "gmmcompression/fkmixture.pyx":192
  *                 raise MemoryError
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -3667,7 +3672,7 @@ static void __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_2__dealloc__(str
   __Pyx_RefNannyFinishContext();
 }
 
-/* "gmmcompression/fkmixture.pyx":195
+/* "gmmcompression/fkmixture.pyx":197
  *             mixture_delete(self._c_mixture)
  * 
  *     def marginalize( self, np.ndarray[uint16_t, ndim=1, mode="c"] dims ):             # <<<<<<<<<<<<<<
@@ -3681,7 +3686,7 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_5marginaliz
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("marginalize (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dims), __pyx_ptype_5numpy_ndarray, 1, "dims", 0))) __PYX_ERR(0, 195, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dims), __pyx_ptype_5numpy_ndarray, 1, "dims", 0))) __PYX_ERR(0, 197, __pyx_L1_error)
   __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_4marginalize(((struct __pyx_obj_14gmmcompression_9fkmixture_MixtureClass *)__pyx_v_self), ((PyArrayObject *)__pyx_v_dims));
 
   /* function exit code */
@@ -3711,34 +3716,34 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_4marginaliz
   __pyx_pybuffernd_dims.rcbuffer = &__pyx_pybuffer_dims;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_dims.rcbuffer->pybuffer, (PyObject*)__pyx_v_dims, &__Pyx_TypeInfo_nn_uint16_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 195, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_dims.rcbuffer->pybuffer, (PyObject*)__pyx_v_dims, &__Pyx_TypeInfo_nn_uint16_t, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 197, __pyx_L1_error)
   }
   __pyx_pybuffernd_dims.diminfo[0].strides = __pyx_pybuffernd_dims.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_dims.diminfo[0].shape = __pyx_pybuffernd_dims.rcbuffer->pybuffer.shape[0];
 
-  /* "gmmcompression/fkmixture.pyx":196
+  /* "gmmcompression/fkmixture.pyx":198
  * 
  *     def marginalize( self, np.ndarray[uint16_t, ndim=1, mode="c"] dims ):
  *         result = MixtureClass(ndim=0)             # <<<<<<<<<<<<<<
  *         result._c_mixture = mixture_marginalize( self._c_mixture, len(dims), &dims[0] )
  *         return result
  */
-  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_ndim, __pyx_int_0) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_14gmmcompression_9fkmixture_MixtureClass), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_ndim, __pyx_int_0) < 0) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_14gmmcompression_9fkmixture_MixtureClass), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_result = ((struct __pyx_obj_14gmmcompression_9fkmixture_MixtureClass *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":197
+  /* "gmmcompression/fkmixture.pyx":199
  *     def marginalize( self, np.ndarray[uint16_t, ndim=1, mode="c"] dims ):
  *         result = MixtureClass(ndim=0)
  *         result._c_mixture = mixture_marginalize( self._c_mixture, len(dims), &dims[0] )             # <<<<<<<<<<<<<<
  *         return result
  * 
  */
-  __pyx_t_3 = PyObject_Length(((PyObject *)__pyx_v_dims)); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 197, __pyx_L1_error)
+  __pyx_t_3 = PyObject_Length(((PyObject *)__pyx_v_dims)); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 199, __pyx_L1_error)
   __pyx_t_4 = 0;
   __pyx_t_5 = -1;
   if (__pyx_t_4 < 0) {
@@ -3747,11 +3752,11 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_4marginaliz
   } else if (unlikely(__pyx_t_4 >= __pyx_pybuffernd_dims.diminfo[0].shape)) __pyx_t_5 = 0;
   if (unlikely(__pyx_t_5 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_5);
-    __PYX_ERR(0, 197, __pyx_L1_error)
+    __PYX_ERR(0, 199, __pyx_L1_error)
   }
   __pyx_v_result->_c_mixture = mixture_marginalize(__pyx_v_self->_c_mixture, __pyx_t_3, (&(*__Pyx_BufPtrCContig1d(uint16_t *, __pyx_pybuffernd_dims.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_dims.diminfo[0].strides))));
 
-  /* "gmmcompression/fkmixture.pyx":198
+  /* "gmmcompression/fkmixture.pyx":200
  *         result = MixtureClass(ndim=0)
  *         result._c_mixture = mixture_marginalize( self._c_mixture, len(dims), &dims[0] )
  *         return result             # <<<<<<<<<<<<<<
@@ -3763,7 +3768,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_4marginaliz
   __pyx_r = ((PyObject *)__pyx_v_result);
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":195
+  /* "gmmcompression/fkmixture.pyx":197
  *             mixture_delete(self._c_mixture)
  * 
  *     def marginalize( self, np.ndarray[uint16_t, ndim=1, mode="c"] dims ):             # <<<<<<<<<<<<<<
@@ -3793,7 +3798,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_4marginaliz
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":200
+/* "gmmcompression/fkmixture.pyx":202
  *         return result
  * 
  *     def hellinger( self, ComponentClass c, index=0, n=0, weighted=1):             # <<<<<<<<<<<<<<
@@ -3857,7 +3862,7 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_7hellinger(
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hellinger") < 0)) __PYX_ERR(0, 200, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "hellinger") < 0)) __PYX_ERR(0, 202, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3879,13 +3884,13 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_7hellinger(
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("hellinger", 0, 1, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 200, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("hellinger", 0, 1, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 202, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("gmmcompression.fkmixture.MixtureClass.hellinger", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_c), __pyx_ptype_14gmmcompression_9fkmixture_ComponentClass, 1, "c", 0))) __PYX_ERR(0, 200, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_c), __pyx_ptype_14gmmcompression_9fkmixture_ComponentClass, 1, "c", 0))) __PYX_ERR(0, 202, __pyx_L1_error)
   __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_6hellinger(((struct __pyx_obj_14gmmcompression_9fkmixture_MixtureClass *)__pyx_v_self), __pyx_v_c, __pyx_v_index, __pyx_v_n, __pyx_v_weighted);
 
   /* function exit code */
@@ -3912,43 +3917,43 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_6hellinger(
   __Pyx_INCREF(__pyx_v_n);
   __Pyx_INCREF(__pyx_v_weighted);
 
-  /* "gmmcompression/fkmixture.pyx":201
+  /* "gmmcompression/fkmixture.pyx":203
  * 
  *     def hellinger( self, ComponentClass c, index=0, n=0, weighted=1):
  *         index = int(index)             # <<<<<<<<<<<<<<
  *         n = int(n)
  *         weighted = int(weighted)
  */
-  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 201, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF_SET(__pyx_v_index, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":202
+  /* "gmmcompression/fkmixture.pyx":204
  *     def hellinger( self, ComponentClass c, index=0, n=0, weighted=1):
  *         index = int(index)
  *         n = int(n)             # <<<<<<<<<<<<<<
  *         weighted = int(weighted)
  * 
  */
-  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 202, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF_SET(__pyx_v_n, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":203
+  /* "gmmcompression/fkmixture.pyx":205
  *         index = int(index)
  *         n = int(n)
  *         weighted = int(weighted)             # <<<<<<<<<<<<<<
  * 
  *         assert index>=0 and index<self.ncomponents
  */
-  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_weighted); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_weighted); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF_SET(__pyx_v_weighted, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":205
+  /* "gmmcompression/fkmixture.pyx":207
  *         weighted = int(weighted)
  * 
  *         assert index>=0 and index<self.ncomponents             # <<<<<<<<<<<<<<
@@ -3957,58 +3962,58 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_6hellinger(
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_index, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 205, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_index, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 207, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 207, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_3) {
     } else {
       __pyx_t_2 = __pyx_t_3;
       goto __pyx_L3_bool_binop_done;
     }
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 207, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = PyObject_RichCompare(__pyx_v_index, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 205, __pyx_L1_error)
+    __pyx_t_4 = PyObject_RichCompare(__pyx_v_index, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 207, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 205, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 207, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_2 = __pyx_t_3;
     __pyx_L3_bool_binop_done:;
     if (unlikely(!__pyx_t_2)) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 205, __pyx_L1_error)
+      __PYX_ERR(0, 207, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "gmmcompression/fkmixture.pyx":207
+  /* "gmmcompression/fkmixture.pyx":209
  *         assert index>=0 and index<self.ncomponents
  * 
  *         if n==0:             # <<<<<<<<<<<<<<
  *             n = self.ncomponents - index
  * 
  */
-  __pyx_t_4 = __Pyx_PyInt_EqObjC(__pyx_v_n, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_EqObjC(__pyx_v_n, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_2) {
 
-    /* "gmmcompression/fkmixture.pyx":208
+    /* "gmmcompression/fkmixture.pyx":210
  * 
  *         if n==0:
  *             n = self.ncomponents - index             # <<<<<<<<<<<<<<
  * 
  *         assert n>0 and n<=(self.ncomponents-index)
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 208, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 210, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_1 = PyNumber_Subtract(__pyx_t_4, __pyx_v_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 208, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_Subtract(__pyx_t_4, __pyx_v_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 210, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF_SET(__pyx_v_n, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "gmmcompression/fkmixture.pyx":207
+    /* "gmmcompression/fkmixture.pyx":209
  *         assert index>=0 and index<self.ncomponents
  * 
  *         if n==0:             # <<<<<<<<<<<<<<
@@ -4017,7 +4022,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_6hellinger(
  */
   }
 
-  /* "gmmcompression/fkmixture.pyx":210
+  /* "gmmcompression/fkmixture.pyx":212
  *             n = self.ncomponents - index
  * 
  *         assert n>0 and n<=(self.ncomponents-index)             # <<<<<<<<<<<<<<
@@ -4026,33 +4031,33 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_6hellinger(
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_n, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 210, __pyx_L1_error)
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 210, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_n, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 212, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 212, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_3) {
     } else {
       __pyx_t_2 = __pyx_t_3;
       goto __pyx_L6_bool_binop_done;
     }
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 210, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 212, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = PyNumber_Subtract(__pyx_t_1, __pyx_v_index); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 210, __pyx_L1_error)
+    __pyx_t_4 = PyNumber_Subtract(__pyx_t_1, __pyx_v_index); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 212, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_n, __pyx_t_4, Py_LE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 210, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_n, __pyx_t_4, Py_LE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 212, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 210, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 212, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_2 = __pyx_t_3;
     __pyx_L6_bool_binop_done:;
     if (unlikely(!__pyx_t_2)) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 210, __pyx_L1_error)
+      __PYX_ERR(0, 212, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "gmmcompression/fkmixture.pyx":212
+  /* "gmmcompression/fkmixture.pyx":214
  *         assert n>0 and n<=(self.ncomponents-index)
  * 
  *         assert isinstance( c, ComponentClass )             # <<<<<<<<<<<<<<
@@ -4064,12 +4069,12 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_6hellinger(
     __pyx_t_2 = __Pyx_TypeCheck(((PyObject *)__pyx_v_c), __pyx_ptype_14gmmcompression_9fkmixture_ComponentClass); 
     if (unlikely(!(__pyx_t_2 != 0))) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 212, __pyx_L1_error)
+      __PYX_ERR(0, 214, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "gmmcompression/fkmixture.pyx":216
+  /* "gmmcompression/fkmixture.pyx":218
  *         #cdef GaussianComponent* comp = c._c_component
  * 
  *         return hellinger_single( &self._c_mixture.components[index], n, c._c_component, weighted )             # <<<<<<<<<<<<<<
@@ -4077,16 +4082,16 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_6hellinger(
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_5 = __Pyx_PyIndex_AsSsize_t(__pyx_v_index); if (unlikely((__pyx_t_5 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 216, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_PyInt_As_uint32_t(__pyx_v_n); if (unlikely((__pyx_t_6 == ((uint32_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 216, __pyx_L1_error)
-  __pyx_t_7 = __Pyx_PyInt_As_uint8_t(__pyx_v_weighted); if (unlikely((__pyx_t_7 == ((uint8_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 216, __pyx_L1_error)
-  __pyx_t_1 = PyFloat_FromDouble(hellinger_single((&(__pyx_v_self->_c_mixture->components[__pyx_t_5])), __pyx_t_6, __pyx_v_c->_c_component, __pyx_t_7)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyIndex_AsSsize_t(__pyx_v_index); if (unlikely((__pyx_t_5 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 218, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_uint32_t(__pyx_v_n); if (unlikely((__pyx_t_6 == ((uint32_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 218, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyInt_As_uint8_t(__pyx_v_weighted); if (unlikely((__pyx_t_7 == ((uint8_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 218, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(hellinger_single((&(__pyx_v_self->_c_mixture->components[__pyx_t_5])), __pyx_t_6, __pyx_v_c->_c_component, __pyx_t_7)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 218, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":200
+  /* "gmmcompression/fkmixture.pyx":202
  *         return result
  * 
  *     def hellinger( self, ComponentClass c, index=0, n=0, weighted=1):             # <<<<<<<<<<<<<<
@@ -4109,7 +4114,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_6hellinger(
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":219
+/* "gmmcompression/fkmixture.pyx":221
  * 
  * 
  *     def distance(self, c1, c2 ):             # <<<<<<<<<<<<<<
@@ -4148,11 +4153,11 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_9distance(P
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_c2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("distance", 1, 2, 2, 1); __PYX_ERR(0, 219, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("distance", 1, 2, 2, 1); __PYX_ERR(0, 221, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "distance") < 0)) __PYX_ERR(0, 219, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "distance") < 0)) __PYX_ERR(0, 221, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -4165,7 +4170,7 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_9distance(P
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("distance", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 219, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("distance", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 221, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("gmmcompression.fkmixture.MixtureClass.distance", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4191,31 +4196,31 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_8distance(s
   __Pyx_INCREF(__pyx_v_c1);
   __Pyx_INCREF(__pyx_v_c2);
 
-  /* "gmmcompression/fkmixture.pyx":220
+  /* "gmmcompression/fkmixture.pyx":222
  * 
  *     def distance(self, c1, c2 ):
  *         c1 = int(c1)             # <<<<<<<<<<<<<<
  *         c2 = int(c2)
  * 
  */
-  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_c1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_c1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF_SET(__pyx_v_c1, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":221
+  /* "gmmcompression/fkmixture.pyx":223
  *     def distance(self, c1, c2 ):
  *         c1 = int(c1)
  *         c2 = int(c2)             # <<<<<<<<<<<<<<
  * 
  *         assert c1>=0 and c1<self.ncomponents
  */
-  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_c2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_c2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 223, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF_SET(__pyx_v_c2, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":223
+  /* "gmmcompression/fkmixture.pyx":225
  *         c2 = int(c2)
  * 
  *         assert c1>=0 and c1<self.ncomponents             # <<<<<<<<<<<<<<
@@ -4224,30 +4229,30 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_8distance(s
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_c1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 223, __pyx_L1_error)
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 223, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_c1, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 225, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 225, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_3) {
     } else {
       __pyx_t_2 = __pyx_t_3;
       goto __pyx_L3_bool_binop_done;
     }
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 223, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 225, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = PyObject_RichCompare(__pyx_v_c1, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 223, __pyx_L1_error)
+    __pyx_t_4 = PyObject_RichCompare(__pyx_v_c1, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 225, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 223, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 225, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_2 = __pyx_t_3;
     __pyx_L3_bool_binop_done:;
     if (unlikely(!__pyx_t_2)) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 223, __pyx_L1_error)
+      __PYX_ERR(0, 225, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "gmmcompression/fkmixture.pyx":224
+  /* "gmmcompression/fkmixture.pyx":226
  * 
  *         assert c1>=0 and c1<self.ncomponents
  *         assert c2>=0 and c2<self.ncomponents             # <<<<<<<<<<<<<<
@@ -4256,30 +4261,30 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_8distance(s
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_4 = PyObject_RichCompare(__pyx_v_c2, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 224, __pyx_L1_error)
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 224, __pyx_L1_error)
+    __pyx_t_4 = PyObject_RichCompare(__pyx_v_c2, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 226, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 226, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_3) {
     } else {
       __pyx_t_2 = __pyx_t_3;
       goto __pyx_L5_bool_binop_done;
     }
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 224, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 226, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_c2, __pyx_t_4, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_c2, __pyx_t_4, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 224, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 226, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_2 = __pyx_t_3;
     __pyx_L5_bool_binop_done:;
     if (unlikely(!__pyx_t_2)) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 224, __pyx_L1_error)
+      __PYX_ERR(0, 226, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "gmmcompression/fkmixture.pyx":226
+  /* "gmmcompression/fkmixture.pyx":228
  *         assert c2>=0 and c2<self.ncomponents
  * 
  *         return compute_distance( self._c_mixture.components[c1], self._c_mixture.components[c2] )             # <<<<<<<<<<<<<<
@@ -4287,15 +4292,15 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_8distance(s
  *     def moment_match_components(self, index=0, n=0, normalize=1 ):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_5 = __Pyx_PyIndex_AsSsize_t(__pyx_v_c1); if (unlikely((__pyx_t_5 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 226, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_PyIndex_AsSsize_t(__pyx_v_c2); if (unlikely((__pyx_t_6 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 226, __pyx_L1_error)
-  __pyx_t_1 = PyFloat_FromDouble(compute_distance((__pyx_v_self->_c_mixture->components[__pyx_t_5]), (__pyx_v_self->_c_mixture->components[__pyx_t_6]))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyIndex_AsSsize_t(__pyx_v_c1); if (unlikely((__pyx_t_5 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 228, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyIndex_AsSsize_t(__pyx_v_c2); if (unlikely((__pyx_t_6 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 228, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(compute_distance((__pyx_v_self->_c_mixture->components[__pyx_t_5]), (__pyx_v_self->_c_mixture->components[__pyx_t_6]))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 228, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":219
+  /* "gmmcompression/fkmixture.pyx":221
  * 
  * 
  *     def distance(self, c1, c2 ):             # <<<<<<<<<<<<<<
@@ -4317,7 +4322,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_8distance(s
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":228
+/* "gmmcompression/fkmixture.pyx":230
  *         return compute_distance( self._c_mixture.components[c1], self._c_mixture.components[c2] )
  * 
  *     def moment_match_components(self, index=0, n=0, normalize=1 ):             # <<<<<<<<<<<<<<
@@ -4374,7 +4379,7 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_11moment_ma
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "moment_match_components") < 0)) __PYX_ERR(0, 228, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "moment_match_components") < 0)) __PYX_ERR(0, 230, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -4394,7 +4399,7 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_11moment_ma
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("moment_match_components", 0, 0, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 228, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("moment_match_components", 0, 0, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 230, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("gmmcompression.fkmixture.MixtureClass.moment_match_components", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4423,43 +4428,43 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_10moment_ma
   __Pyx_INCREF(__pyx_v_n);
   __Pyx_INCREF(__pyx_v_normalize);
 
-  /* "gmmcompression/fkmixture.pyx":230
+  /* "gmmcompression/fkmixture.pyx":232
  *     def moment_match_components(self, index=0, n=0, normalize=1 ):
  * 
  *         index = int(index)             # <<<<<<<<<<<<<<
  *         n = int(n)
  *         normalize = int(normalize)
  */
-  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF_SET(__pyx_v_index, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":231
+  /* "gmmcompression/fkmixture.pyx":233
  * 
  *         index = int(index)
  *         n = int(n)             # <<<<<<<<<<<<<<
  *         normalize = int(normalize)
  * 
  */
-  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 231, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 233, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF_SET(__pyx_v_n, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":232
+  /* "gmmcompression/fkmixture.pyx":234
  *         index = int(index)
  *         n = int(n)
  *         normalize = int(normalize)             # <<<<<<<<<<<<<<
  * 
  *         assert index>=0 and index<self.ncomponents
  */
-  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_normalize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_normalize); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF_SET(__pyx_v_normalize, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":234
+  /* "gmmcompression/fkmixture.pyx":236
  *         normalize = int(normalize)
  * 
  *         assert index>=0 and index<self.ncomponents             # <<<<<<<<<<<<<<
@@ -4468,58 +4473,58 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_10moment_ma
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_index, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_index, __pyx_int_0, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_3) {
     } else {
       __pyx_t_2 = __pyx_t_3;
       goto __pyx_L3_bool_binop_done;
     }
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = PyObject_RichCompare(__pyx_v_index, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_4 = PyObject_RichCompare(__pyx_v_index, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 236, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_2 = __pyx_t_3;
     __pyx_L3_bool_binop_done:;
     if (unlikely(!__pyx_t_2)) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 234, __pyx_L1_error)
+      __PYX_ERR(0, 236, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "gmmcompression/fkmixture.pyx":236
+  /* "gmmcompression/fkmixture.pyx":238
  *         assert index>=0 and index<self.ncomponents
  * 
  *         if n==0:             # <<<<<<<<<<<<<<
  *             n = self.ncomponents - index
  * 
  */
-  __pyx_t_4 = __Pyx_PyInt_EqObjC(__pyx_v_n, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 236, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_EqObjC(__pyx_v_n, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 238, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 236, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 238, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_2) {
 
-    /* "gmmcompression/fkmixture.pyx":237
+    /* "gmmcompression/fkmixture.pyx":239
  * 
  *         if n==0:
  *             n = self.ncomponents - index             # <<<<<<<<<<<<<<
  * 
  *         assert n>0 and n<=(self.ncomponents-index)
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 237, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 239, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_1 = PyNumber_Subtract(__pyx_t_4, __pyx_v_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 237, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_Subtract(__pyx_t_4, __pyx_v_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF_SET(__pyx_v_n, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "gmmcompression/fkmixture.pyx":236
+    /* "gmmcompression/fkmixture.pyx":238
  *         assert index>=0 and index<self.ncomponents
  * 
  *         if n==0:             # <<<<<<<<<<<<<<
@@ -4528,7 +4533,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_10moment_ma
  */
   }
 
-  /* "gmmcompression/fkmixture.pyx":239
+  /* "gmmcompression/fkmixture.pyx":241
  *             n = self.ncomponents - index
  * 
  *         assert n>0 and n<=(self.ncomponents-index)             # <<<<<<<<<<<<<<
@@ -4537,65 +4542,65 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_10moment_ma
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_n, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_n, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_3) {
     } else {
       __pyx_t_2 = __pyx_t_3;
       goto __pyx_L6_bool_binop_done;
     }
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = PyNumber_Subtract(__pyx_t_1, __pyx_v_index); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_4 = PyNumber_Subtract(__pyx_t_1, __pyx_v_index); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyObject_RichCompare(__pyx_v_n, __pyx_t_4, Py_LE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_n, __pyx_t_4, Py_LE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 241, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_2 = __pyx_t_3;
     __pyx_L6_bool_binop_done:;
     if (unlikely(!__pyx_t_2)) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 239, __pyx_L1_error)
+      __PYX_ERR(0, 241, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "gmmcompression/fkmixture.pyx":241
+  /* "gmmcompression/fkmixture.pyx":243
  *         assert n>0 and n<=(self.ncomponents-index)
  * 
  *         c = ComponentClass( self.ndim )             # <<<<<<<<<<<<<<
  * 
  *         moment_match( &self._c_mixture.components[index], n, c._c_component, normalize )
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 241, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 243, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_14gmmcompression_9fkmixture_ComponentClass), __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_14gmmcompression_9fkmixture_ComponentClass), __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_c = ((struct __pyx_obj_14gmmcompression_9fkmixture_ComponentClass *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":243
+  /* "gmmcompression/fkmixture.pyx":245
  *         c = ComponentClass( self.ndim )
  * 
  *         moment_match( &self._c_mixture.components[index], n, c._c_component, normalize )             # <<<<<<<<<<<<<<
  * 
  *         return c
  */
-  __pyx_t_5 = __Pyx_PyIndex_AsSsize_t(__pyx_v_index); if (unlikely((__pyx_t_5 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 243, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_PyInt_As_uint32_t(__pyx_v_n); if (unlikely((__pyx_t_6 == ((uint32_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 243, __pyx_L1_error)
-  __pyx_t_7 = __Pyx_PyInt_As_uint8_t(__pyx_v_normalize); if (unlikely((__pyx_t_7 == ((uint8_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 243, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyIndex_AsSsize_t(__pyx_v_index); if (unlikely((__pyx_t_5 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 245, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_uint32_t(__pyx_v_n); if (unlikely((__pyx_t_6 == ((uint32_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 245, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyInt_As_uint8_t(__pyx_v_normalize); if (unlikely((__pyx_t_7 == ((uint8_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 245, __pyx_L1_error)
   moment_match((&(__pyx_v_self->_c_mixture->components[__pyx_t_5])), __pyx_t_6, __pyx_v_c->_c_component, __pyx_t_7);
 
-  /* "gmmcompression/fkmixture.pyx":245
+  /* "gmmcompression/fkmixture.pyx":247
  *         moment_match( &self._c_mixture.components[index], n, c._c_component, normalize )
  * 
  *         return c             # <<<<<<<<<<<<<<
@@ -4607,7 +4612,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_10moment_ma
   __pyx_r = ((PyObject *)__pyx_v_c);
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":228
+  /* "gmmcompression/fkmixture.pyx":230
  *         return compute_distance( self._c_mixture.components[c1], self._c_mixture.components[c2] )
  * 
  *     def moment_match_components(self, index=0, n=0, normalize=1 ):             # <<<<<<<<<<<<<<
@@ -4631,7 +4636,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_10moment_ma
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":247
+/* "gmmcompression/fkmixture.pyx":249
  *         return c
  * 
  *     def set_sample_covariance(self, np.ndarray[double, ndim=2, mode="c"] data):             # <<<<<<<<<<<<<<
@@ -4645,7 +4650,7 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_13set_sampl
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("set_sample_covariance (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), __pyx_ptype_5numpy_ndarray, 1, "data", 0))) __PYX_ERR(0, 247, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), __pyx_ptype_5numpy_ndarray, 1, "data", 0))) __PYX_ERR(0, 249, __pyx_L1_error)
   __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_12set_sample_covariance(((struct __pyx_obj_14gmmcompression_9fkmixture_MixtureClass *)__pyx_v_self), ((PyArrayObject *)__pyx_v_data));
 
   /* function exit code */
@@ -4672,29 +4677,29 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_12set_sampl
   __pyx_pybuffernd_data.rcbuffer = &__pyx_pybuffer_data;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 247, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_data.rcbuffer->pybuffer, (PyObject*)__pyx_v_data, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 249, __pyx_L1_error)
   }
   __pyx_pybuffernd_data.diminfo[0].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_data.diminfo[0].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_data.diminfo[1].strides = __pyx_pybuffernd_data.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_data.diminfo[1].shape = __pyx_pybuffernd_data.rcbuffer->pybuffer.shape[1];
 
-  /* "gmmcompression/fkmixture.pyx":249
+  /* "gmmcompression/fkmixture.pyx":251
  *     def set_sample_covariance(self, np.ndarray[double, ndim=2, mode="c"] data):
  * 
  *         c = CovarianceClass( data )             # <<<<<<<<<<<<<<
  *         mixture_set_samplecovariance( self._c_mixture, c._c_covariance )
  *         del c
  */
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 249, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject *)__pyx_v_data));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_data));
   PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)__pyx_v_data));
-  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_14gmmcompression_9fkmixture_CovarianceClass), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 249, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_14gmmcompression_9fkmixture_CovarianceClass), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_c = ((struct __pyx_obj_14gmmcompression_9fkmixture_CovarianceClass *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":250
+  /* "gmmcompression/fkmixture.pyx":252
  * 
  *         c = CovarianceClass( data )
  *         mixture_set_samplecovariance( self._c_mixture, c._c_covariance )             # <<<<<<<<<<<<<<
@@ -4703,7 +4708,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_12set_sampl
  */
   mixture_set_samplecovariance(__pyx_v_self->_c_mixture, __pyx_v_c->_c_covariance);
 
-  /* "gmmcompression/fkmixture.pyx":251
+  /* "gmmcompression/fkmixture.pyx":253
  *         c = CovarianceClass( data )
  *         mixture_set_samplecovariance( self._c_mixture, c._c_covariance )
  *         del c             # <<<<<<<<<<<<<<
@@ -4713,7 +4718,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_12set_sampl
   __Pyx_DECREF(((PyObject *)__pyx_v_c));
   __pyx_v_c = NULL;
 
-  /* "gmmcompression/fkmixture.pyx":247
+  /* "gmmcompression/fkmixture.pyx":249
  *         return c
  * 
  *     def set_sample_covariance(self, np.ndarray[double, ndim=2, mode="c"] data):             # <<<<<<<<<<<<<<
@@ -4745,7 +4750,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_12set_sampl
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":253
+/* "gmmcompression/fkmixture.pyx":255
  *         del c
  * 
  *     def add_samples(self, np.ndarray[double, ndim=2, mode="c"] means ):             # <<<<<<<<<<<<<<
@@ -4759,7 +4764,7 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_15add_sampl
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("add_samples (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_means), __pyx_ptype_5numpy_ndarray, 1, "means", 0))) __PYX_ERR(0, 253, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_means), __pyx_ptype_5numpy_ndarray, 1, "means", 0))) __PYX_ERR(0, 255, __pyx_L1_error)
   __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_14add_samples(((struct __pyx_obj_14gmmcompression_9fkmixture_MixtureClass *)__pyx_v_self), ((PyArrayObject *)__pyx_v_means));
 
   /* function exit code */
@@ -4788,11 +4793,11 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_14add_sampl
   __pyx_pybuffernd_means.rcbuffer = &__pyx_pybuffer_means;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_means.rcbuffer->pybuffer, (PyObject*)__pyx_v_means, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 253, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_means.rcbuffer->pybuffer, (PyObject*)__pyx_v_means, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 255, __pyx_L1_error)
   }
   __pyx_pybuffernd_means.diminfo[0].strides = __pyx_pybuffernd_means.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_means.diminfo[0].shape = __pyx_pybuffernd_means.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_means.diminfo[1].strides = __pyx_pybuffernd_means.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_means.diminfo[1].shape = __pyx_pybuffernd_means.rcbuffer->pybuffer.shape[1];
 
-  /* "gmmcompression/fkmixture.pyx":255
+  /* "gmmcompression/fkmixture.pyx":257
  *     def add_samples(self, np.ndarray[double, ndim=2, mode="c"] means ):
  * 
  *         nsamples = means.shape[0]             # <<<<<<<<<<<<<<
@@ -4801,7 +4806,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_14add_sampl
  */
   __pyx_v_nsamples = (__pyx_v_means->dimensions[0]);
 
-  /* "gmmcompression/fkmixture.pyx":256
+  /* "gmmcompression/fkmixture.pyx":258
  * 
  *         nsamples = means.shape[0]
  *         ndim = means.shape[1]             # <<<<<<<<<<<<<<
@@ -4810,7 +4815,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_14add_sampl
  */
   __pyx_v_ndim = (__pyx_v_means->dimensions[1]);
 
-  /* "gmmcompression/fkmixture.pyx":258
+  /* "gmmcompression/fkmixture.pyx":260
  *         ndim = means.shape[1]
  * 
  *         mixture_addsamples( self._c_mixture, &means[0,0], nsamples, ndim )             # <<<<<<<<<<<<<<
@@ -4830,11 +4835,11 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_14add_sampl
   } else if (unlikely(__pyx_t_2 >= __pyx_pybuffernd_means.diminfo[1].shape)) __pyx_t_3 = 1;
   if (unlikely(__pyx_t_3 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_3);
-    __PYX_ERR(0, 258, __pyx_L1_error)
+    __PYX_ERR(0, 260, __pyx_L1_error)
   }
   mixture_addsamples(__pyx_v_self->_c_mixture, (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_means.rcbuffer->pybuffer.buf, __pyx_t_1, __pyx_pybuffernd_means.diminfo[0].strides, __pyx_t_2, __pyx_pybuffernd_means.diminfo[1].strides))), __pyx_v_nsamples, __pyx_v_ndim);
 
-  /* "gmmcompression/fkmixture.pyx":253
+  /* "gmmcompression/fkmixture.pyx":255
  *         del c
  * 
  *     def add_samples(self, np.ndarray[double, ndim=2, mode="c"] means ):             # <<<<<<<<<<<<<<
@@ -4863,7 +4868,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_14add_sampl
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":260
+/* "gmmcompression/fkmixture.pyx":262
  *         mixture_addsamples( self._c_mixture, &means[0,0], nsamples, ndim )
  * 
  *     def compress(self,threshold=0.01, weighted_hellinger=True):             # <<<<<<<<<<<<<<
@@ -4910,7 +4915,7 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_17compress(
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "compress") < 0)) __PYX_ERR(0, 260, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "compress") < 0)) __PYX_ERR(0, 262, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -4927,7 +4932,7 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_17compress(
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("compress", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 260, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("compress", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 262, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("gmmcompression.fkmixture.MixtureClass.compress", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4951,34 +4956,34 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_16compress(
   PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("compress", 0);
 
-  /* "gmmcompression/fkmixture.pyx":262
+  /* "gmmcompression/fkmixture.pyx":264
  *     def compress(self,threshold=0.01, weighted_hellinger=True):
  * 
  *         m = mixture_compress( self._c_mixture, threshold, weighted_hellinger )             # <<<<<<<<<<<<<<
  *         result = MixtureClass(ndim=0)
  *         result._c_mixture = m
  */
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_threshold); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 262, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_As_uint8_t(__pyx_v_weighted_hellinger); if (unlikely((__pyx_t_2 == ((uint8_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 262, __pyx_L1_error)
+  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_threshold); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_uint8_t(__pyx_v_weighted_hellinger); if (unlikely((__pyx_t_2 == ((uint8_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 264, __pyx_L1_error)
   __pyx_v_m = mixture_compress(__pyx_v_self->_c_mixture, __pyx_t_1, __pyx_t_2);
 
-  /* "gmmcompression/fkmixture.pyx":263
+  /* "gmmcompression/fkmixture.pyx":265
  * 
  *         m = mixture_compress( self._c_mixture, threshold, weighted_hellinger )
  *         result = MixtureClass(ndim=0)             # <<<<<<<<<<<<<<
  *         result._c_mixture = m
  * 
  */
-  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 263, __pyx_L1_error)
+  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 265, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_ndim, __pyx_int_0) < 0) __PYX_ERR(0, 263, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_14gmmcompression_9fkmixture_MixtureClass), __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 263, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_ndim, __pyx_int_0) < 0) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_14gmmcompression_9fkmixture_MixtureClass), __pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 265, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_result = ((struct __pyx_obj_14gmmcompression_9fkmixture_MixtureClass *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":264
+  /* "gmmcompression/fkmixture.pyx":266
  *         m = mixture_compress( self._c_mixture, threshold, weighted_hellinger )
  *         result = MixtureClass(ndim=0)
  *         result._c_mixture = m             # <<<<<<<<<<<<<<
@@ -4987,7 +4992,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_16compress(
  */
   __pyx_v_result->_c_mixture = __pyx_v_m;
 
-  /* "gmmcompression/fkmixture.pyx":266
+  /* "gmmcompression/fkmixture.pyx":268
  *         result._c_mixture = m
  * 
  *         return result             # <<<<<<<<<<<<<<
@@ -4999,7 +5004,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_16compress(
   __pyx_r = ((PyObject *)__pyx_v_result);
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":260
+  /* "gmmcompression/fkmixture.pyx":262
  *         mixture_addsamples( self._c_mixture, &means[0,0], nsamples, ndim )
  * 
  *     def compress(self,threshold=0.01, weighted_hellinger=True):             # <<<<<<<<<<<<<<
@@ -5020,7 +5025,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_16compress(
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":268
+/* "gmmcompression/fkmixture.pyx":270
  *         return result
  * 
  *     def merge_samples( self, np.ndarray[double, ndim=2, mode="c"] samples, threshold=1.0, covariance_match = 'full'):             # <<<<<<<<<<<<<<
@@ -5074,7 +5079,7 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_19merge_sam
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "merge_samples") < 0)) __PYX_ERR(0, 268, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "merge_samples") < 0)) __PYX_ERR(0, 270, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -5093,13 +5098,13 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_19merge_sam
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("merge_samples", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 268, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("merge_samples", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 270, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("gmmcompression.fkmixture.MixtureClass.merge_samples", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_samples), __pyx_ptype_5numpy_ndarray, 1, "samples", 0))) __PYX_ERR(0, 268, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_samples), __pyx_ptype_5numpy_ndarray, 1, "samples", 0))) __PYX_ERR(0, 270, __pyx_L1_error)
   __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_18merge_samples(((struct __pyx_obj_14gmmcompression_9fkmixture_MixtureClass *)__pyx_v_self), __pyx_v_samples, __pyx_v_threshold, __pyx_v_covariance_match);
 
   /* function exit code */
@@ -5135,11 +5140,11 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_18merge_sam
   __pyx_pybuffernd_samples.rcbuffer = &__pyx_pybuffer_samples;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_samples.rcbuffer->pybuffer, (PyObject*)__pyx_v_samples, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 268, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_samples.rcbuffer->pybuffer, (PyObject*)__pyx_v_samples, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 270, __pyx_L1_error)
   }
   __pyx_pybuffernd_samples.diminfo[0].strides = __pyx_pybuffernd_samples.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_samples.diminfo[0].shape = __pyx_pybuffernd_samples.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_samples.diminfo[1].strides = __pyx_pybuffernd_samples.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_samples.diminfo[1].shape = __pyx_pybuffernd_samples.rcbuffer->pybuffer.shape[1];
 
-  /* "gmmcompression/fkmixture.pyx":269
+  /* "gmmcompression/fkmixture.pyx":271
  * 
  *     def merge_samples( self, np.ndarray[double, ndim=2, mode="c"] samples, threshold=1.0, covariance_match = 'full'):
  *         nsamples = samples.shape[0]             # <<<<<<<<<<<<<<
@@ -5148,7 +5153,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_18merge_sam
  */
   __pyx_v_nsamples = (__pyx_v_samples->dimensions[0]);
 
-  /* "gmmcompression/fkmixture.pyx":270
+  /* "gmmcompression/fkmixture.pyx":272
  *     def merge_samples( self, np.ndarray[double, ndim=2, mode="c"] samples, threshold=1.0, covariance_match = 'full'):
  *         nsamples = samples.shape[0]
  *         ndim = samples.shape[1]             # <<<<<<<<<<<<<<
@@ -5157,7 +5162,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_18merge_sam
  */
   __pyx_v_ndim = (__pyx_v_samples->dimensions[1]);
 
-  /* "gmmcompression/fkmixture.pyx":272
+  /* "gmmcompression/fkmixture.pyx":274
  *         ndim = samples.shape[1]
  * 
  *         assert ndim==self.ndim             # <<<<<<<<<<<<<<
@@ -5166,42 +5171,42 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_18merge_sam
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_ndim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 272, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_ndim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 274, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 272, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 274, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 272, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 274, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 272, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 274, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 272, __pyx_L1_error)
+      __PYX_ERR(0, 274, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "gmmcompression/fkmixture.pyx":274
+  /* "gmmcompression/fkmixture.pyx":276
  *         assert ndim==self.ndim
  * 
  *         if covariance_match == 'constant':             # <<<<<<<<<<<<<<
  *             print "Not there"
  * #            mixture_merge_samples_constant_covariance( self._c_mixture, &samples[0,0], nsamples, threshold )
  */
-  __pyx_t_4 = (__Pyx_PyString_Equals(__pyx_v_covariance_match, __pyx_n_s_constant, Py_EQ)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __pyx_t_4 = (__Pyx_PyString_Equals(__pyx_v_covariance_match, __pyx_n_s_constant, Py_EQ)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 276, __pyx_L1_error)
   if (__pyx_t_4) {
 
-    /* "gmmcompression/fkmixture.pyx":275
+    /* "gmmcompression/fkmixture.pyx":277
  * 
  *         if covariance_match == 'constant':
  *             print "Not there"             # <<<<<<<<<<<<<<
  * #            mixture_merge_samples_constant_covariance( self._c_mixture, &samples[0,0], nsamples, threshold )
  *         elif covariance_match == 'bandwidth':
  */
-    if (__Pyx_PrintOne(0, __pyx_kp_s_Not_there) < 0) __PYX_ERR(0, 275, __pyx_L1_error)
+    if (__Pyx_PrintOne(0, __pyx_kp_s_Not_there) < 0) __PYX_ERR(0, 277, __pyx_L1_error)
 
-    /* "gmmcompression/fkmixture.pyx":274
+    /* "gmmcompression/fkmixture.pyx":276
  *         assert ndim==self.ndim
  * 
  *         if covariance_match == 'constant':             # <<<<<<<<<<<<<<
@@ -5211,17 +5216,17 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_18merge_sam
     goto __pyx_L3;
   }
 
-  /* "gmmcompression/fkmixture.pyx":277
+  /* "gmmcompression/fkmixture.pyx":279
  *             print "Not there"
  * #            mixture_merge_samples_constant_covariance( self._c_mixture, &samples[0,0], nsamples, threshold )
  *         elif covariance_match == 'bandwidth':             # <<<<<<<<<<<<<<
  *             mixture_merge_samples_match_bandwidth( self._c_mixture, &samples[0,0], nsamples, threshold )
  *         else: #'full'
  */
-  __pyx_t_4 = (__Pyx_PyString_Equals(__pyx_v_covariance_match, __pyx_n_s_bandwidth, Py_EQ)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 277, __pyx_L1_error)
+  __pyx_t_4 = (__Pyx_PyString_Equals(__pyx_v_covariance_match, __pyx_n_s_bandwidth, Py_EQ)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 279, __pyx_L1_error)
   if (__pyx_t_4) {
 
-    /* "gmmcompression/fkmixture.pyx":278
+    /* "gmmcompression/fkmixture.pyx":280
  * #            mixture_merge_samples_constant_covariance( self._c_mixture, &samples[0,0], nsamples, threshold )
  *         elif covariance_match == 'bandwidth':
  *             mixture_merge_samples_match_bandwidth( self._c_mixture, &samples[0,0], nsamples, threshold )             # <<<<<<<<<<<<<<
@@ -5241,12 +5246,12 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_18merge_sam
     } else if (unlikely(__pyx_t_6 >= __pyx_pybuffernd_samples.diminfo[1].shape)) __pyx_t_7 = 1;
     if (unlikely(__pyx_t_7 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_7);
-      __PYX_ERR(0, 278, __pyx_L1_error)
+      __PYX_ERR(0, 280, __pyx_L1_error)
     }
-    __pyx_t_8 = __pyx_PyFloat_AsDouble(__pyx_v_threshold); if (unlikely((__pyx_t_8 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 278, __pyx_L1_error)
+    __pyx_t_8 = __pyx_PyFloat_AsDouble(__pyx_v_threshold); if (unlikely((__pyx_t_8 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 280, __pyx_L1_error)
     mixture_merge_samples_match_bandwidth(__pyx_v_self->_c_mixture, (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_samples.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_samples.diminfo[0].strides, __pyx_t_6, __pyx_pybuffernd_samples.diminfo[1].strides))), __pyx_v_nsamples, __pyx_t_8);
 
-    /* "gmmcompression/fkmixture.pyx":277
+    /* "gmmcompression/fkmixture.pyx":279
  *             print "Not there"
  * #            mixture_merge_samples_constant_covariance( self._c_mixture, &samples[0,0], nsamples, threshold )
  *         elif covariance_match == 'bandwidth':             # <<<<<<<<<<<<<<
@@ -5256,7 +5261,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_18merge_sam
     goto __pyx_L3;
   }
 
-  /* "gmmcompression/fkmixture.pyx":280
+  /* "gmmcompression/fkmixture.pyx":282
  *             mixture_merge_samples_match_bandwidth( self._c_mixture, &samples[0,0], nsamples, threshold )
  *         else: #'full'
  *             mixture_merge_samples( self._c_mixture, &samples[0,0], nsamples, threshold )             # <<<<<<<<<<<<<<
@@ -5277,14 +5282,14 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_18merge_sam
     } else if (unlikely(__pyx_t_10 >= __pyx_pybuffernd_samples.diminfo[1].shape)) __pyx_t_7 = 1;
     if (unlikely(__pyx_t_7 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_7);
-      __PYX_ERR(0, 280, __pyx_L1_error)
+      __PYX_ERR(0, 282, __pyx_L1_error)
     }
-    __pyx_t_8 = __pyx_PyFloat_AsDouble(__pyx_v_threshold); if (unlikely((__pyx_t_8 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 280, __pyx_L1_error)
+    __pyx_t_8 = __pyx_PyFloat_AsDouble(__pyx_v_threshold); if (unlikely((__pyx_t_8 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 282, __pyx_L1_error)
     mixture_merge_samples(__pyx_v_self->_c_mixture, (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_samples.rcbuffer->pybuffer.buf, __pyx_t_9, __pyx_pybuffernd_samples.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_samples.diminfo[1].strides))), __pyx_v_nsamples, __pyx_t_8);
   }
   __pyx_L3:;
 
-  /* "gmmcompression/fkmixture.pyx":268
+  /* "gmmcompression/fkmixture.pyx":270
  *         return result
  * 
  *     def merge_samples( self, np.ndarray[double, ndim=2, mode="c"] samples, threshold=1.0, covariance_match = 'full'):             # <<<<<<<<<<<<<<
@@ -5316,7 +5321,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_18merge_sam
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":283
+/* "gmmcompression/fkmixture.pyx":285
  * 
  * 
  *     def evaluate(self, np.ndarray[double, ndim=2, mode="c"] x, diagonal=False):             # <<<<<<<<<<<<<<
@@ -5360,7 +5365,7 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_21evaluate(
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "evaluate") < 0)) __PYX_ERR(0, 283, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "evaluate") < 0)) __PYX_ERR(0, 285, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -5376,13 +5381,13 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_21evaluate(
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("evaluate", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 283, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("evaluate", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 285, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("gmmcompression.fkmixture.MixtureClass.evaluate", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_x), __pyx_ptype_5numpy_ndarray, 1, "x", 0))) __PYX_ERR(0, 283, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_x), __pyx_ptype_5numpy_ndarray, 1, "x", 0))) __PYX_ERR(0, 285, __pyx_L1_error)
   __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_20evaluate(((struct __pyx_obj_14gmmcompression_9fkmixture_MixtureClass *)__pyx_v_self), __pyx_v_x, __pyx_v_diagonal);
 
   /* function exit code */
@@ -5432,11 +5437,11 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_20evaluate(
   __pyx_pybuffernd_x.rcbuffer = &__pyx_pybuffer_x;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x.rcbuffer->pybuffer, (PyObject*)__pyx_v_x, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 283, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x.rcbuffer->pybuffer, (PyObject*)__pyx_v_x, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 285, __pyx_L1_error)
   }
   __pyx_pybuffernd_x.diminfo[0].strides = __pyx_pybuffernd_x.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_x.diminfo[0].shape = __pyx_pybuffernd_x.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_x.diminfo[1].strides = __pyx_pybuffernd_x.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_x.diminfo[1].shape = __pyx_pybuffernd_x.rcbuffer->pybuffer.shape[1];
 
-  /* "gmmcompression/fkmixture.pyx":285
+  /* "gmmcompression/fkmixture.pyx":287
  *     def evaluate(self, np.ndarray[double, ndim=2, mode="c"] x, diagonal=False):
  * 
  *         npoints = x.shape[0]             # <<<<<<<<<<<<<<
@@ -5445,7 +5450,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_20evaluate(
  */
   __pyx_v_npoints = (__pyx_v_x->dimensions[0]);
 
-  /* "gmmcompression/fkmixture.pyx":286
+  /* "gmmcompression/fkmixture.pyx":288
  * 
  *         npoints = x.shape[0]
  *         ndim = x.shape[1]             # <<<<<<<<<<<<<<
@@ -5454,7 +5459,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_20evaluate(
  */
   __pyx_v_ndim = (__pyx_v_x->dimensions[1]);
 
-  /* "gmmcompression/fkmixture.pyx":288
+  /* "gmmcompression/fkmixture.pyx":290
  *         ndim = x.shape[1]
  * 
  *         assert ndim==self.ndim             # <<<<<<<<<<<<<<
@@ -5463,57 +5468,57 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_20evaluate(
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_ndim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_ndim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 290, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 288, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 290, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 288, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 290, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 288, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 290, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (unlikely(!__pyx_t_4)) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 288, __pyx_L1_error)
+      __PYX_ERR(0, 290, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "gmmcompression/fkmixture.pyx":291
+  /* "gmmcompression/fkmixture.pyx":293
  * 
  *         cdef np.ndarray[np.double_t, ndim=1, mode="c"] result
  *         result = np.zeros( npoints, dtype=np.float64, order='C' )             # <<<<<<<<<<<<<<
  * 
  *         if npoints<1:
  */
-  __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 291, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 293, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 291, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 293, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_npoints); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 291, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_npoints); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 293, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 291, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 293, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 291, __pyx_L1_error)
+  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 293, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 291, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 293, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_float64); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 291, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_float64); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 293, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_6) < 0) __PYX_ERR(0, 291, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_6) < 0) __PYX_ERR(0, 293, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 291, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 291, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 293, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 293, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(((__pyx_t_6) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_6, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 291, __pyx_L1_error)
+  if (!(likely(((__pyx_t_6) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_6, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 293, __pyx_L1_error)
   __pyx_t_7 = ((PyArrayObject *)__pyx_t_6);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -5529,13 +5534,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_20evaluate(
       }
     }
     __pyx_pybuffernd_result.diminfo[0].strides = __pyx_pybuffernd_result.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_result.diminfo[0].shape = __pyx_pybuffernd_result.rcbuffer->pybuffer.shape[0];
-    if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 291, __pyx_L1_error)
+    if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 293, __pyx_L1_error)
   }
   __pyx_t_7 = 0;
   __pyx_v_result = ((PyArrayObject *)__pyx_t_6);
   __pyx_t_6 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":293
+  /* "gmmcompression/fkmixture.pyx":295
  *         result = np.zeros( npoints, dtype=np.float64, order='C' )
  * 
  *         if npoints<1:             # <<<<<<<<<<<<<<
@@ -5545,7 +5550,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_20evaluate(
   __pyx_t_4 = ((__pyx_v_npoints < 1) != 0);
   if (__pyx_t_4) {
 
-    /* "gmmcompression/fkmixture.pyx":294
+    /* "gmmcompression/fkmixture.pyx":296
  * 
  *         if npoints<1:
  *             return result             # <<<<<<<<<<<<<<
@@ -5557,7 +5562,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_20evaluate(
     __pyx_r = ((PyObject *)__pyx_v_result);
     goto __pyx_L0;
 
-    /* "gmmcompression/fkmixture.pyx":293
+    /* "gmmcompression/fkmixture.pyx":295
  *         result = np.zeros( npoints, dtype=np.float64, order='C' )
  * 
  *         if npoints<1:             # <<<<<<<<<<<<<<
@@ -5566,17 +5571,17 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_20evaluate(
  */
   }
 
-  /* "gmmcompression/fkmixture.pyx":296
+  /* "gmmcompression/fkmixture.pyx":298
  *             return result
  * 
  *         if diagonal:             # <<<<<<<<<<<<<<
  *             mixture_evaluate_diagonal( self._c_mixture, &x[0,0], npoints, &result[0])
  *         else:
  */
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_diagonal); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 296, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_diagonal); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 298, __pyx_L1_error)
   if (__pyx_t_4) {
 
-    /* "gmmcompression/fkmixture.pyx":297
+    /* "gmmcompression/fkmixture.pyx":299
  * 
  *         if diagonal:
  *             mixture_evaluate_diagonal( self._c_mixture, &x[0,0], npoints, &result[0])             # <<<<<<<<<<<<<<
@@ -5596,7 +5601,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_20evaluate(
     } else if (unlikely(__pyx_t_13 >= __pyx_pybuffernd_x.diminfo[1].shape)) __pyx_t_8 = 1;
     if (unlikely(__pyx_t_8 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_8);
-      __PYX_ERR(0, 297, __pyx_L1_error)
+      __PYX_ERR(0, 299, __pyx_L1_error)
     }
     __pyx_t_14 = 0;
     __pyx_t_8 = -1;
@@ -5606,11 +5611,11 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_20evaluate(
     } else if (unlikely(__pyx_t_14 >= __pyx_pybuffernd_result.diminfo[0].shape)) __pyx_t_8 = 0;
     if (unlikely(__pyx_t_8 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_8);
-      __PYX_ERR(0, 297, __pyx_L1_error)
+      __PYX_ERR(0, 299, __pyx_L1_error)
     }
     mixture_evaluate_diagonal(__pyx_v_self->_c_mixture, (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_x.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_x.diminfo[0].strides, __pyx_t_13, __pyx_pybuffernd_x.diminfo[1].strides))), __pyx_v_npoints, (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_double_t *, __pyx_pybuffernd_result.rcbuffer->pybuffer.buf, __pyx_t_14, __pyx_pybuffernd_result.diminfo[0].strides))));
 
-    /* "gmmcompression/fkmixture.pyx":296
+    /* "gmmcompression/fkmixture.pyx":298
  *             return result
  * 
  *         if diagonal:             # <<<<<<<<<<<<<<
@@ -5620,7 +5625,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_20evaluate(
     goto __pyx_L4;
   }
 
-  /* "gmmcompression/fkmixture.pyx":299
+  /* "gmmcompression/fkmixture.pyx":301
  *             mixture_evaluate_diagonal( self._c_mixture, &x[0,0], npoints, &result[0])
  *         else:
  *             mixture_evaluate( self._c_mixture, &x[0,0], npoints, &result[0])             # <<<<<<<<<<<<<<
@@ -5641,7 +5646,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_20evaluate(
     } else if (unlikely(__pyx_t_16 >= __pyx_pybuffernd_x.diminfo[1].shape)) __pyx_t_8 = 1;
     if (unlikely(__pyx_t_8 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_8);
-      __PYX_ERR(0, 299, __pyx_L1_error)
+      __PYX_ERR(0, 301, __pyx_L1_error)
     }
     __pyx_t_17 = 0;
     __pyx_t_8 = -1;
@@ -5651,13 +5656,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_20evaluate(
     } else if (unlikely(__pyx_t_17 >= __pyx_pybuffernd_result.diminfo[0].shape)) __pyx_t_8 = 0;
     if (unlikely(__pyx_t_8 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_8);
-      __PYX_ERR(0, 299, __pyx_L1_error)
+      __PYX_ERR(0, 301, __pyx_L1_error)
     }
     mixture_evaluate(__pyx_v_self->_c_mixture, (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_x.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_x.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_x.diminfo[1].strides))), __pyx_v_npoints, (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_double_t *, __pyx_pybuffernd_result.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_result.diminfo[0].strides))));
   }
   __pyx_L4:;
 
-  /* "gmmcompression/fkmixture.pyx":301
+  /* "gmmcompression/fkmixture.pyx":303
  *             mixture_evaluate( self._c_mixture, &x[0,0], npoints, &result[0])
  * 
  *         return result             # <<<<<<<<<<<<<<
@@ -5669,7 +5674,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_20evaluate(
   __pyx_r = ((PyObject *)__pyx_v_result);
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":283
+  /* "gmmcompression/fkmixture.pyx":285
  * 
  * 
  *     def evaluate(self, np.ndarray[double, ndim=2, mode="c"] x, diagonal=False):             # <<<<<<<<<<<<<<
@@ -5704,7 +5709,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_20evaluate(
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":303
+/* "gmmcompression/fkmixture.pyx":305
  *         return result
  * 
  *     def build_grid_accumulator(self, np.ndarray[double, ndim=2, mode="c"] grid):             # <<<<<<<<<<<<<<
@@ -5718,7 +5723,7 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_23build_gri
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("build_grid_accumulator (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_grid), __pyx_ptype_5numpy_ndarray, 1, "grid", 0))) __PYX_ERR(0, 303, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_grid), __pyx_ptype_5numpy_ndarray, 1, "grid", 0))) __PYX_ERR(0, 305, __pyx_L1_error)
   __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_22build_grid_accumulator(((struct __pyx_obj_14gmmcompression_9fkmixture_MixtureClass *)__pyx_v_self), ((PyArrayObject *)__pyx_v_grid));
 
   /* function exit code */
@@ -5774,11 +5779,11 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_22build_gri
   __pyx_pybuffernd_grid.rcbuffer = &__pyx_pybuffer_grid;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_grid.rcbuffer->pybuffer, (PyObject*)__pyx_v_grid, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 303, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_grid.rcbuffer->pybuffer, (PyObject*)__pyx_v_grid, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 305, __pyx_L1_error)
   }
   __pyx_pybuffernd_grid.diminfo[0].strides = __pyx_pybuffernd_grid.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_grid.diminfo[0].shape = __pyx_pybuffernd_grid.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_grid.diminfo[1].strides = __pyx_pybuffernd_grid.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_grid.diminfo[1].shape = __pyx_pybuffernd_grid.rcbuffer->pybuffer.shape[1];
 
-  /* "gmmcompression/fkmixture.pyx":305
+  /* "gmmcompression/fkmixture.pyx":307
  *     def build_grid_accumulator(self, np.ndarray[double, ndim=2, mode="c"] grid):
  * 
  *         ngrid = grid.shape[0]             # <<<<<<<<<<<<<<
@@ -5787,7 +5792,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_22build_gri
  */
   __pyx_v_ngrid = (__pyx_v_grid->dimensions[0]);
 
-  /* "gmmcompression/fkmixture.pyx":306
+  /* "gmmcompression/fkmixture.pyx":308
  * 
  *         ngrid = grid.shape[0]
  *         ngriddim = grid.shape[1]             # <<<<<<<<<<<<<<
@@ -5796,40 +5801,40 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_22build_gri
  */
   __pyx_v_ngriddim = (__pyx_v_grid->dimensions[1]);
 
-  /* "gmmcompression/fkmixture.pyx":309
+  /* "gmmcompression/fkmixture.pyx":311
  * 
  *         cdef np.ndarray[np.uint16_t, ndim=1, mode="c"] griddim
  *         griddim = np.arange( ngriddim, dtype=np.uint16 )             # <<<<<<<<<<<<<<
  * 
  *         cdef np.ndarray[np.double_t, ndim=2, mode="c"] grid_acc
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 309, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_arange); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 309, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_arange); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_ngriddim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 309, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_ngriddim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 309, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 309, __pyx_L1_error)
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 309, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_uint16); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 309, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_uint16); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 309, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 309, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 309, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 311, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -5845,29 +5850,29 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_22build_gri
       }
     }
     __pyx_pybuffernd_griddim.diminfo[0].strides = __pyx_pybuffernd_griddim.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_griddim.diminfo[0].shape = __pyx_pybuffernd_griddim.rcbuffer->pybuffer.shape[0];
-    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 309, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 311, __pyx_L1_error)
   }
   __pyx_t_6 = 0;
   __pyx_v_griddim = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":312
+  /* "gmmcompression/fkmixture.pyx":314
  * 
  *         cdef np.ndarray[np.double_t, ndim=2, mode="c"] grid_acc
  *         grid_acc = np.zeros( (self.ncomponents,ngrid), dtype=np.float64, order="C" )             # <<<<<<<<<<<<<<
  * 
  *         mixture_prepare_grid_accumulator( self._c_mixture, &grid[0,0], ngrid, ngriddim, &griddim[0], &grid_acc[0,0] )
  */
-  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_zeros); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_zeros); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_ngrid); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_ngrid); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_5);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_5);
@@ -5875,27 +5880,27 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_22build_gri
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_3);
   __pyx_t_5 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = PyDict_New(); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_2 = PyDict_New(); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_float64); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_float64); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 312, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 312, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 312, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 314, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 312, __pyx_L1_error)
+  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 314, __pyx_L1_error)
   __pyx_t_11 = ((PyArrayObject *)__pyx_t_4);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -5911,13 +5916,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_22build_gri
       }
     }
     __pyx_pybuffernd_grid_acc.diminfo[0].strides = __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_grid_acc.diminfo[0].shape = __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_grid_acc.diminfo[1].strides = __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_grid_acc.diminfo[1].shape = __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.shape[1];
-    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 312, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 314, __pyx_L1_error)
   }
   __pyx_t_11 = 0;
   __pyx_v_grid_acc = ((PyArrayObject *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":314
+  /* "gmmcompression/fkmixture.pyx":316
  *         grid_acc = np.zeros( (self.ncomponents,ngrid), dtype=np.float64, order="C" )
  * 
  *         mixture_prepare_grid_accumulator( self._c_mixture, &grid[0,0], ngrid, ngriddim, &griddim[0], &grid_acc[0,0] )             # <<<<<<<<<<<<<<
@@ -5937,7 +5942,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_22build_gri
   } else if (unlikely(__pyx_t_13 >= __pyx_pybuffernd_grid.diminfo[1].shape)) __pyx_t_7 = 1;
   if (unlikely(__pyx_t_7 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_7);
-    __PYX_ERR(0, 314, __pyx_L1_error)
+    __PYX_ERR(0, 316, __pyx_L1_error)
   }
   __pyx_t_14 = 0;
   __pyx_t_7 = -1;
@@ -5947,7 +5952,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_22build_gri
   } else if (unlikely(__pyx_t_14 >= __pyx_pybuffernd_griddim.diminfo[0].shape)) __pyx_t_7 = 0;
   if (unlikely(__pyx_t_7 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_7);
-    __PYX_ERR(0, 314, __pyx_L1_error)
+    __PYX_ERR(0, 316, __pyx_L1_error)
   }
   __pyx_t_15 = 0;
   __pyx_t_16 = 0;
@@ -5962,11 +5967,11 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_22build_gri
   } else if (unlikely(__pyx_t_16 >= __pyx_pybuffernd_grid_acc.diminfo[1].shape)) __pyx_t_7 = 1;
   if (unlikely(__pyx_t_7 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_7);
-    __PYX_ERR(0, 314, __pyx_L1_error)
+    __PYX_ERR(0, 316, __pyx_L1_error)
   }
   mixture_prepare_grid_accumulator(__pyx_v_self->_c_mixture, (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_grid.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_grid.diminfo[0].strides, __pyx_t_13, __pyx_pybuffernd_grid.diminfo[1].strides))), __pyx_v_ngrid, __pyx_v_ngriddim, (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_uint16_t *, __pyx_pybuffernd_griddim.rcbuffer->pybuffer.buf, __pyx_t_14, __pyx_pybuffernd_griddim.diminfo[0].strides))), (&(*__Pyx_BufPtrCContig2d(__pyx_t_5numpy_double_t *, __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_grid_acc.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_grid_acc.diminfo[1].strides))));
 
-  /* "gmmcompression/fkmixture.pyx":316
+  /* "gmmcompression/fkmixture.pyx":318
  *         mixture_prepare_grid_accumulator( self._c_mixture, &grid[0,0], ngrid, ngriddim, &griddim[0], &grid_acc[0,0] )
  * 
  *         return grid_acc             # <<<<<<<<<<<<<<
@@ -5978,7 +5983,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_22build_gri
   __pyx_r = ((PyObject *)__pyx_v_grid_acc);
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":303
+  /* "gmmcompression/fkmixture.pyx":305
  *         return result
  * 
  *     def build_grid_accumulator(self, np.ndarray[double, ndim=2, mode="c"] grid):             # <<<<<<<<<<<<<<
@@ -6016,7 +6021,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_22build_gri
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":318
+/* "gmmcompression/fkmixture.pyx":320
  *         return grid_acc
  * 
  *     def evaluate_grid_multi(self, np.ndarray[double, ndim=2, mode="c"] grid_acc, np.ndarray[double, ndim=2, mode="c"] x ):             # <<<<<<<<<<<<<<
@@ -6055,11 +6060,11 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_25evaluate_
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("evaluate_grid_multi", 1, 2, 2, 1); __PYX_ERR(0, 318, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("evaluate_grid_multi", 1, 2, 2, 1); __PYX_ERR(0, 320, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "evaluate_grid_multi") < 0)) __PYX_ERR(0, 318, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "evaluate_grid_multi") < 0)) __PYX_ERR(0, 320, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -6072,14 +6077,14 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_25evaluate_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("evaluate_grid_multi", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 318, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("evaluate_grid_multi", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 320, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("gmmcompression.fkmixture.MixtureClass.evaluate_grid_multi", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_grid_acc), __pyx_ptype_5numpy_ndarray, 1, "grid_acc", 0))) __PYX_ERR(0, 318, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_x), __pyx_ptype_5numpy_ndarray, 1, "x", 0))) __PYX_ERR(0, 318, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_grid_acc), __pyx_ptype_5numpy_ndarray, 1, "grid_acc", 0))) __PYX_ERR(0, 320, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_x), __pyx_ptype_5numpy_ndarray, 1, "x", 0))) __PYX_ERR(0, 320, __pyx_L1_error)
   __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_24evaluate_grid_multi(((struct __pyx_obj_14gmmcompression_9fkmixture_MixtureClass *)__pyx_v_self), __pyx_v_grid_acc, __pyx_v_x);
 
   /* function exit code */
@@ -6144,16 +6149,16 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_24evaluate_
   __pyx_pybuffernd_x.rcbuffer = &__pyx_pybuffer_x;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_grid_acc.rcbuffer->pybuffer, (PyObject*)__pyx_v_grid_acc, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 318, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_grid_acc.rcbuffer->pybuffer, (PyObject*)__pyx_v_grid_acc, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 320, __pyx_L1_error)
   }
   __pyx_pybuffernd_grid_acc.diminfo[0].strides = __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_grid_acc.diminfo[0].shape = __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_grid_acc.diminfo[1].strides = __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_grid_acc.diminfo[1].shape = __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x.rcbuffer->pybuffer, (PyObject*)__pyx_v_x, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 318, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x.rcbuffer->pybuffer, (PyObject*)__pyx_v_x, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 320, __pyx_L1_error)
   }
   __pyx_pybuffernd_x.diminfo[0].strides = __pyx_pybuffernd_x.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_x.diminfo[0].shape = __pyx_pybuffernd_x.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_x.diminfo[1].strides = __pyx_pybuffernd_x.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_x.diminfo[1].shape = __pyx_pybuffernd_x.rcbuffer->pybuffer.shape[1];
 
-  /* "gmmcompression/fkmixture.pyx":321
+  /* "gmmcompression/fkmixture.pyx":323
  * 
  *         cdef int ngrid
  *         ngrid = grid_acc.shape[1]             # <<<<<<<<<<<<<<
@@ -6162,7 +6167,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_24evaluate_
  */
   __pyx_v_ngrid = (__pyx_v_grid_acc->dimensions[1]);
 
-  /* "gmmcompression/fkmixture.pyx":324
+  /* "gmmcompression/fkmixture.pyx":326
  * 
  *         cdef int npoints
  *         npoints = x.shape[0]             # <<<<<<<<<<<<<<
@@ -6171,7 +6176,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_24evaluate_
  */
   __pyx_v_npoints = (__pyx_v_x->dimensions[0]);
 
-  /* "gmmcompression/fkmixture.pyx":326
+  /* "gmmcompression/fkmixture.pyx":328
  *         npoints = x.shape[0]
  *         cdef int npointsdim
  *         npointsdim = x.shape[1]             # <<<<<<<<<<<<<<
@@ -6180,23 +6185,23 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_24evaluate_
  */
   __pyx_v_npointsdim = (__pyx_v_x->dimensions[1]);
 
-  /* "gmmcompression/fkmixture.pyx":329
+  /* "gmmcompression/fkmixture.pyx":331
  * 
  *         cdef np.ndarray[np.double_t, ndim=2, mode="c"] result
  *         result = np.zeros( (npoints,ngrid), dtype=np.float64, order="C" )             # <<<<<<<<<<<<<<
  * 
  *         cdef np.ndarray[np.uint16_t, ndim=1, mode="c"] pointsdim
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 329, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 331, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 329, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 331, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_npoints); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 329, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_npoints); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 331, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_ngrid); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 329, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_ngrid); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 331, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 329, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 331, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
@@ -6204,27 +6209,27 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_24evaluate_
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3);
   __pyx_t_1 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 329, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 331, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = PyDict_New(); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 329, __pyx_L1_error)
+  __pyx_t_4 = PyDict_New(); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 331, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 329, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 331, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 329, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 331, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 329, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 331, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 329, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 329, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 331, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 331, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 329, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 331, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -6240,35 +6245,35 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_24evaluate_
       }
     }
     __pyx_pybuffernd_result.diminfo[0].strides = __pyx_pybuffernd_result.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_result.diminfo[0].shape = __pyx_pybuffernd_result.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_result.diminfo[1].strides = __pyx_pybuffernd_result.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_result.diminfo[1].shape = __pyx_pybuffernd_result.rcbuffer->pybuffer.shape[1];
-    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 329, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 331, __pyx_L1_error)
   }
   __pyx_t_6 = 0;
   __pyx_v_result = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":332
+  /* "gmmcompression/fkmixture.pyx":334
  * 
  *         cdef np.ndarray[np.uint16_t, ndim=1, mode="c"] pointsdim
  *         pointsdim = np.arange( self.ndim-npointsdim, self.ndim, dtype=np.uint16 )             # <<<<<<<<<<<<<<
  * 
  *         with nogil:
  */
-  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_arange); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_arange); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_npointsdim); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_npointsdim); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = PyNumber_Subtract(__pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Subtract(__pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2);
@@ -6276,21 +6281,21 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_24evaluate_
   PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_3);
   __pyx_t_2 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_uint16); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_uint16); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 332, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 332, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 332, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 334, __pyx_L1_error)
   __pyx_t_11 = ((PyArrayObject *)__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -6306,13 +6311,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_24evaluate_
       }
     }
     __pyx_pybuffernd_pointsdim.diminfo[0].strides = __pyx_pybuffernd_pointsdim.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_pointsdim.diminfo[0].shape = __pyx_pybuffernd_pointsdim.rcbuffer->pybuffer.shape[0];
-    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 332, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 334, __pyx_L1_error)
   }
   __pyx_t_11 = 0;
   __pyx_v_pointsdim = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":334
+  /* "gmmcompression/fkmixture.pyx":336
  *         pointsdim = np.arange( self.ndim-npointsdim, self.ndim, dtype=np.uint16 )
  * 
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -6327,7 +6332,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_24evaluate_
       #endif
       /*try:*/ {
 
-        /* "gmmcompression/fkmixture.pyx":335
+        /* "gmmcompression/fkmixture.pyx":337
  * 
  *         with nogil:
  *             mixture_evaluategrid_diagonal_multi( self._c_mixture, &grid_acc[0,0], ngrid, &x[0,0], npoints, npointsdim, &pointsdim[0], &result[0,0] )             # <<<<<<<<<<<<<<
@@ -6347,7 +6352,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_24evaluate_
         } else if (unlikely(__pyx_t_13 >= __pyx_pybuffernd_grid_acc.diminfo[1].shape)) __pyx_t_7 = 1;
         if (unlikely(__pyx_t_7 != -1)) {
           __Pyx_RaiseBufferIndexErrorNogil(__pyx_t_7);
-          __PYX_ERR(0, 335, __pyx_L4_error)
+          __PYX_ERR(0, 337, __pyx_L4_error)
         }
         __pyx_t_14 = 0;
         __pyx_t_15 = 0;
@@ -6362,7 +6367,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_24evaluate_
         } else if (unlikely(__pyx_t_15 >= __pyx_pybuffernd_x.diminfo[1].shape)) __pyx_t_7 = 1;
         if (unlikely(__pyx_t_7 != -1)) {
           __Pyx_RaiseBufferIndexErrorNogil(__pyx_t_7);
-          __PYX_ERR(0, 335, __pyx_L4_error)
+          __PYX_ERR(0, 337, __pyx_L4_error)
         }
         __pyx_t_16 = 0;
         __pyx_t_7 = -1;
@@ -6372,7 +6377,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_24evaluate_
         } else if (unlikely(__pyx_t_16 >= __pyx_pybuffernd_pointsdim.diminfo[0].shape)) __pyx_t_7 = 0;
         if (unlikely(__pyx_t_7 != -1)) {
           __Pyx_RaiseBufferIndexErrorNogil(__pyx_t_7);
-          __PYX_ERR(0, 335, __pyx_L4_error)
+          __PYX_ERR(0, 337, __pyx_L4_error)
         }
         __pyx_t_17 = 0;
         __pyx_t_18 = 0;
@@ -6387,12 +6392,12 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_24evaluate_
         } else if (unlikely(__pyx_t_18 >= __pyx_pybuffernd_result.diminfo[1].shape)) __pyx_t_7 = 1;
         if (unlikely(__pyx_t_7 != -1)) {
           __Pyx_RaiseBufferIndexErrorNogil(__pyx_t_7);
-          __PYX_ERR(0, 335, __pyx_L4_error)
+          __PYX_ERR(0, 337, __pyx_L4_error)
         }
         mixture_evaluategrid_diagonal_multi(__pyx_v_self->_c_mixture, (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_grid_acc.diminfo[0].strides, __pyx_t_13, __pyx_pybuffernd_grid_acc.diminfo[1].strides))), __pyx_v_ngrid, (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_x.rcbuffer->pybuffer.buf, __pyx_t_14, __pyx_pybuffernd_x.diminfo[0].strides, __pyx_t_15, __pyx_pybuffernd_x.diminfo[1].strides))), __pyx_v_npoints, __pyx_v_npointsdim, (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_uint16_t *, __pyx_pybuffernd_pointsdim.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_pointsdim.diminfo[0].strides))), (&(*__Pyx_BufPtrCContig2d(__pyx_t_5numpy_double_t *, __pyx_pybuffernd_result.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_result.diminfo[0].strides, __pyx_t_18, __pyx_pybuffernd_result.diminfo[1].strides))));
       }
 
-      /* "gmmcompression/fkmixture.pyx":334
+      /* "gmmcompression/fkmixture.pyx":336
  *         pointsdim = np.arange( self.ndim-npointsdim, self.ndim, dtype=np.uint16 )
  * 
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -6418,7 +6423,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_24evaluate_
       }
   }
 
-  /* "gmmcompression/fkmixture.pyx":337
+  /* "gmmcompression/fkmixture.pyx":339
  *             mixture_evaluategrid_diagonal_multi( self._c_mixture, &grid_acc[0,0], ngrid, &x[0,0], npoints, npointsdim, &pointsdim[0], &result[0,0] )
  * 
  *         return result             # <<<<<<<<<<<<<<
@@ -6430,7 +6435,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_24evaluate_
   __pyx_r = ((PyObject *)__pyx_v_result);
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":318
+  /* "gmmcompression/fkmixture.pyx":320
  *         return grid_acc
  * 
  *     def evaluate_grid_multi(self, np.ndarray[double, ndim=2, mode="c"] grid_acc, np.ndarray[double, ndim=2, mode="c"] x ):             # <<<<<<<<<<<<<<
@@ -6470,7 +6475,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_24evaluate_
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":339
+/* "gmmcompression/fkmixture.pyx":341
  *         return result
  * 
  *     def evaluate_grid(self, np.ndarray[double, ndim=2, mode="c"] grid_acc, np.ndarray[double, ndim=2, mode="c"] x):             # <<<<<<<<<<<<<<
@@ -6509,11 +6514,11 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_27evaluate_
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("evaluate_grid", 1, 2, 2, 1); __PYX_ERR(0, 339, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("evaluate_grid", 1, 2, 2, 1); __PYX_ERR(0, 341, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "evaluate_grid") < 0)) __PYX_ERR(0, 339, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "evaluate_grid") < 0)) __PYX_ERR(0, 341, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -6526,14 +6531,14 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_12MixtureClass_27evaluate_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("evaluate_grid", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 339, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("evaluate_grid", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 341, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("gmmcompression.fkmixture.MixtureClass.evaluate_grid", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_grid_acc), __pyx_ptype_5numpy_ndarray, 1, "grid_acc", 0))) __PYX_ERR(0, 339, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_x), __pyx_ptype_5numpy_ndarray, 1, "x", 0))) __PYX_ERR(0, 339, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_grid_acc), __pyx_ptype_5numpy_ndarray, 1, "grid_acc", 0))) __PYX_ERR(0, 341, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_x), __pyx_ptype_5numpy_ndarray, 1, "x", 0))) __PYX_ERR(0, 341, __pyx_L1_error)
   __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_26evaluate_grid(((struct __pyx_obj_14gmmcompression_9fkmixture_MixtureClass *)__pyx_v_self), __pyx_v_grid_acc, __pyx_v_x);
 
   /* function exit code */
@@ -6598,16 +6603,16 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_26evaluate_
   __pyx_pybuffernd_x.rcbuffer = &__pyx_pybuffer_x;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_grid_acc.rcbuffer->pybuffer, (PyObject*)__pyx_v_grid_acc, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 339, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_grid_acc.rcbuffer->pybuffer, (PyObject*)__pyx_v_grid_acc, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 341, __pyx_L1_error)
   }
   __pyx_pybuffernd_grid_acc.diminfo[0].strides = __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_grid_acc.diminfo[0].shape = __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_grid_acc.diminfo[1].strides = __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_grid_acc.diminfo[1].shape = __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x.rcbuffer->pybuffer, (PyObject*)__pyx_v_x, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 339, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x.rcbuffer->pybuffer, (PyObject*)__pyx_v_x, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 341, __pyx_L1_error)
   }
   __pyx_pybuffernd_x.diminfo[0].strides = __pyx_pybuffernd_x.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_x.diminfo[0].shape = __pyx_pybuffernd_x.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_x.diminfo[1].strides = __pyx_pybuffernd_x.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_x.diminfo[1].shape = __pyx_pybuffernd_x.rcbuffer->pybuffer.shape[1];
 
-  /* "gmmcompression/fkmixture.pyx":341
+  /* "gmmcompression/fkmixture.pyx":343
  *     def evaluate_grid(self, np.ndarray[double, ndim=2, mode="c"] grid_acc, np.ndarray[double, ndim=2, mode="c"] x):
  * 
  *         ngrid = grid_acc.shape[1]             # <<<<<<<<<<<<<<
@@ -6616,33 +6621,33 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_26evaluate_
  */
   __pyx_v_ngrid = (__pyx_v_grid_acc->dimensions[1]);
 
-  /* "gmmcompression/fkmixture.pyx":342
+  /* "gmmcompression/fkmixture.pyx":344
  * 
  *         ngrid = grid_acc.shape[1]
  *         npointsdim = x.shape[1]             # <<<<<<<<<<<<<<
  * 
  *         cdef np.ndarray[np.double_t, ndim=2, mode="c"] result
  */
-  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t((__pyx_v_x->dimensions[1])); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 342, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t((__pyx_v_x->dimensions[1])); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_npointsdim = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":345
+  /* "gmmcompression/fkmixture.pyx":347
  * 
  *         cdef np.ndarray[np.double_t, ndim=2, mode="c"] result
  *         result = np.zeros( (1,ngrid), dtype=np.float64, order="C" )             # <<<<<<<<<<<<<<
  * 
  *         cdef np.ndarray[np.uint16_t, ndim=1, mode="c"] pointsdim
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_ngrid); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_Py_intptr_t(__pyx_v_ngrid); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -6650,27 +6655,27 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_26evaluate_
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 345, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 345, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 345, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 347, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 345, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 347, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -6686,32 +6691,32 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_26evaluate_
       }
     }
     __pyx_pybuffernd_result.diminfo[0].strides = __pyx_pybuffernd_result.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_result.diminfo[0].shape = __pyx_pybuffernd_result.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_result.diminfo[1].strides = __pyx_pybuffernd_result.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_result.diminfo[1].shape = __pyx_pybuffernd_result.rcbuffer->pybuffer.shape[1];
-    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 345, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 347, __pyx_L1_error)
   }
   __pyx_t_6 = 0;
   __pyx_v_result = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":348
+  /* "gmmcompression/fkmixture.pyx":350
  * 
  *         cdef np.ndarray[np.uint16_t, ndim=1, mode="c"] pointsdim
  *         pointsdim = np.arange( self.ndim-npointsdim, self.ndim, dtype=np.uint16 )             # <<<<<<<<<<<<<<
  * 
  *         mixture_evaluategrid_diagonal( self._c_mixture, &grid_acc[0,0], ngrid, &x[0,0], npointsdim, &pointsdim[0], &result[0,0] )
  */
-  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_arange); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_arange); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_1 = PyNumber_Subtract(__pyx_t_5, __pyx_v_npointsdim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Subtract(__pyx_t_5, __pyx_v_npointsdim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
@@ -6719,21 +6724,21 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_26evaluate_
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_5);
   __pyx_t_1 = 0;
   __pyx_t_5 = 0;
-  __pyx_t_5 = PyDict_New(); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_5 = PyDict_New(); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_uint16); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_uint16); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 348, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 350, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_2, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 348, __pyx_L1_error)
+  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 350, __pyx_L1_error)
   __pyx_t_11 = ((PyArrayObject *)__pyx_t_4);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -6749,13 +6754,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_26evaluate_
       }
     }
     __pyx_pybuffernd_pointsdim.diminfo[0].strides = __pyx_pybuffernd_pointsdim.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_pointsdim.diminfo[0].shape = __pyx_pybuffernd_pointsdim.rcbuffer->pybuffer.shape[0];
-    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 348, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 350, __pyx_L1_error)
   }
   __pyx_t_11 = 0;
   __pyx_v_pointsdim = ((PyArrayObject *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":350
+  /* "gmmcompression/fkmixture.pyx":352
  *         pointsdim = np.arange( self.ndim-npointsdim, self.ndim, dtype=np.uint16 )
  * 
  *         mixture_evaluategrid_diagonal( self._c_mixture, &grid_acc[0,0], ngrid, &x[0,0], npointsdim, &pointsdim[0], &result[0,0] )             # <<<<<<<<<<<<<<
@@ -6775,7 +6780,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_26evaluate_
   } else if (unlikely(__pyx_t_13 >= __pyx_pybuffernd_grid_acc.diminfo[1].shape)) __pyx_t_7 = 1;
   if (unlikely(__pyx_t_7 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_7);
-    __PYX_ERR(0, 350, __pyx_L1_error)
+    __PYX_ERR(0, 352, __pyx_L1_error)
   }
   __pyx_t_14 = 0;
   __pyx_t_15 = 0;
@@ -6790,9 +6795,9 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_26evaluate_
   } else if (unlikely(__pyx_t_15 >= __pyx_pybuffernd_x.diminfo[1].shape)) __pyx_t_7 = 1;
   if (unlikely(__pyx_t_7 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_7);
-    __PYX_ERR(0, 350, __pyx_L1_error)
+    __PYX_ERR(0, 352, __pyx_L1_error)
   }
-  __pyx_t_16 = __Pyx_PyInt_As_uint16_t(__pyx_v_npointsdim); if (unlikely((__pyx_t_16 == ((uint16_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 350, __pyx_L1_error)
+  __pyx_t_16 = __Pyx_PyInt_As_uint16_t(__pyx_v_npointsdim); if (unlikely((__pyx_t_16 == ((uint16_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 352, __pyx_L1_error)
   __pyx_t_17 = 0;
   __pyx_t_7 = -1;
   if (__pyx_t_17 < 0) {
@@ -6801,7 +6806,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_26evaluate_
   } else if (unlikely(__pyx_t_17 >= __pyx_pybuffernd_pointsdim.diminfo[0].shape)) __pyx_t_7 = 0;
   if (unlikely(__pyx_t_7 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_7);
-    __PYX_ERR(0, 350, __pyx_L1_error)
+    __PYX_ERR(0, 352, __pyx_L1_error)
   }
   __pyx_t_18 = 0;
   __pyx_t_19 = 0;
@@ -6816,11 +6821,11 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_26evaluate_
   } else if (unlikely(__pyx_t_19 >= __pyx_pybuffernd_result.diminfo[1].shape)) __pyx_t_7 = 1;
   if (unlikely(__pyx_t_7 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_7);
-    __PYX_ERR(0, 350, __pyx_L1_error)
+    __PYX_ERR(0, 352, __pyx_L1_error)
   }
   mixture_evaluategrid_diagonal(__pyx_v_self->_c_mixture, (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_grid_acc.diminfo[0].strides, __pyx_t_13, __pyx_pybuffernd_grid_acc.diminfo[1].strides))), __pyx_v_ngrid, (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_x.rcbuffer->pybuffer.buf, __pyx_t_14, __pyx_pybuffernd_x.diminfo[0].strides, __pyx_t_15, __pyx_pybuffernd_x.diminfo[1].strides))), __pyx_t_16, (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_uint16_t *, __pyx_pybuffernd_pointsdim.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_pointsdim.diminfo[0].strides))), (&(*__Pyx_BufPtrCContig2d(__pyx_t_5numpy_double_t *, __pyx_pybuffernd_result.rcbuffer->pybuffer.buf, __pyx_t_18, __pyx_pybuffernd_result.diminfo[0].strides, __pyx_t_19, __pyx_pybuffernd_result.diminfo[1].strides))));
 
-  /* "gmmcompression/fkmixture.pyx":352
+  /* "gmmcompression/fkmixture.pyx":354
  *         mixture_evaluategrid_diagonal( self._c_mixture, &grid_acc[0,0], ngrid, &x[0,0], npointsdim, &pointsdim[0], &result[0,0] )
  * 
  *         return result             # <<<<<<<<<<<<<<
@@ -6832,7 +6837,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_26evaluate_
   __pyx_r = ((PyObject *)__pyx_v_result);
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":339
+  /* "gmmcompression/fkmixture.pyx":341
  *         return result
  * 
  *     def evaluate_grid(self, np.ndarray[double, ndim=2, mode="c"] grid_acc, np.ndarray[double, ndim=2, mode="c"] x):             # <<<<<<<<<<<<<<
@@ -6873,7 +6878,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_26evaluate_
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":354
+/* "gmmcompression/fkmixture.pyx":356
  *         return result
  * 
  *     def update_cache( self ):             # <<<<<<<<<<<<<<
@@ -6899,7 +6904,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_28update_ca
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("update_cache", 0);
 
-  /* "gmmcompression/fkmixture.pyx":355
+  /* "gmmcompression/fkmixture.pyx":357
  * 
  *     def update_cache( self ):
  *         mixture_update_cache( self._c_mixture )             # <<<<<<<<<<<<<<
@@ -6908,7 +6913,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_28update_ca
  */
   mixture_update_cache(__pyx_v_self->_c_mixture);
 
-  /* "gmmcompression/fkmixture.pyx":354
+  /* "gmmcompression/fkmixture.pyx":356
  *         return result
  * 
  *     def update_cache( self ):             # <<<<<<<<<<<<<<
@@ -6923,7 +6928,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_28update_ca
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":358
+/* "gmmcompression/fkmixture.pyx":360
  * 
  *     @property
  *     def ncomponents(self):             # <<<<<<<<<<<<<<
@@ -6950,7 +6955,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_11ncomponen
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":359
+  /* "gmmcompression/fkmixture.pyx":361
  *     @property
  *     def ncomponents(self):
  *         return self._c_mixture.ncomponents             # <<<<<<<<<<<<<<
@@ -6958,13 +6963,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_11ncomponen
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_uint32_t(__pyx_v_self->_c_mixture->ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 359, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_uint32_t(__pyx_v_self->_c_mixture->ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 361, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":358
+  /* "gmmcompression/fkmixture.pyx":360
  * 
  *     @property
  *     def ncomponents(self):             # <<<<<<<<<<<<<<
@@ -6983,7 +6988,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_11ncomponen
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":362
+/* "gmmcompression/fkmixture.pyx":364
  * 
  *     @property
  *     def ndim(self):             # <<<<<<<<<<<<<<
@@ -7010,7 +7015,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_4ndim___get
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":363
+  /* "gmmcompression/fkmixture.pyx":365
  *     @property
  *     def ndim(self):
  *         return self._c_mixture.ndim             # <<<<<<<<<<<<<<
@@ -7018,13 +7023,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_4ndim___get
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_uint16_t(__pyx_v_self->_c_mixture->ndim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 363, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_uint16_t(__pyx_v_self->_c_mixture->ndim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 365, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":362
+  /* "gmmcompression/fkmixture.pyx":364
  * 
  *     @property
  *     def ndim(self):             # <<<<<<<<<<<<<<
@@ -7043,7 +7048,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_4ndim___get
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":366
+/* "gmmcompression/fkmixture.pyx":368
  * 
  *     @property
  *     def refcount(self):             # <<<<<<<<<<<<<<
@@ -7070,7 +7075,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_8refcount__
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":367
+  /* "gmmcompression/fkmixture.pyx":369
  *     @property
  *     def refcount(self):
  *         return self._c_mixture.refcount             # <<<<<<<<<<<<<<
@@ -7078,13 +7083,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_8refcount__
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_uint32_t(__pyx_v_self->_c_mixture->refcount); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 367, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_uint32_t(__pyx_v_self->_c_mixture->refcount); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 369, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":366
+  /* "gmmcompression/fkmixture.pyx":368
  * 
  *     @property
  *     def refcount(self):             # <<<<<<<<<<<<<<
@@ -7103,7 +7108,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_8refcount__
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":370
+/* "gmmcompression/fkmixture.pyx":372
  * 
  *     @property
  *     def sum_n(self):             # <<<<<<<<<<<<<<
@@ -7130,7 +7135,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_5sum_n___ge
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":371
+  /* "gmmcompression/fkmixture.pyx":373
  *     @property
  *     def sum_n(self):
  *         return self._c_mixture.sum_n             # <<<<<<<<<<<<<<
@@ -7138,13 +7143,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_5sum_n___ge
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->_c_mixture->sum_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 371, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->_c_mixture->sum_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 373, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":370
+  /* "gmmcompression/fkmixture.pyx":372
  * 
  *     @property
  *     def sum_n(self):             # <<<<<<<<<<<<<<
@@ -7163,7 +7168,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_5sum_n___ge
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":374
+/* "gmmcompression/fkmixture.pyx":376
  * 
  *     @property
  *     def sum_weights(self):             # <<<<<<<<<<<<<<
@@ -7190,7 +7195,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_11sum_weigh
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":375
+  /* "gmmcompression/fkmixture.pyx":377
  *     @property
  *     def sum_weights(self):
  *         return self._c_mixture.sum_weights             # <<<<<<<<<<<<<<
@@ -7198,13 +7203,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_11sum_weigh
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->_c_mixture->sum_weights); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 375, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->_c_mixture->sum_weights); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 377, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":374
+  /* "gmmcompression/fkmixture.pyx":376
  * 
  *     @property
  *     def sum_weights(self):             # <<<<<<<<<<<<<<
@@ -7223,7 +7228,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_11sum_weigh
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":378
+/* "gmmcompression/fkmixture.pyx":380
  * 
  *     @property
  *     def means(self):             # <<<<<<<<<<<<<<
@@ -7268,23 +7273,23 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_5means___ge
   __pyx_pybuffernd_result.data = NULL;
   __pyx_pybuffernd_result.rcbuffer = &__pyx_pybuffer_result;
 
-  /* "gmmcompression/fkmixture.pyx":380
+  /* "gmmcompression/fkmixture.pyx":382
  *     def means(self):
  *         cdef np.ndarray[np.double_t, ndim=2, mode="c"] result
  *         result = np.empty( (self.ncomponents,self.ndim), dtype=np.float64, order="C" )             # <<<<<<<<<<<<<<
  *         mixture_get_means( self._c_mixture, &result[0,0] )
  *         return result
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 380, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 382, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 380, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 382, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 380, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 382, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 380, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 382, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 380, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 382, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
@@ -7292,27 +7297,27 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_5means___ge
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3);
   __pyx_t_1 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 380, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 382, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = PyDict_New(); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 380, __pyx_L1_error)
+  __pyx_t_4 = PyDict_New(); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 382, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 380, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 382, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 380, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 382, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 380, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 382, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 380, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 380, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 382, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 382, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 380, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 382, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -7328,13 +7333,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_5means___ge
       }
     }
     __pyx_pybuffernd_result.diminfo[0].strides = __pyx_pybuffernd_result.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_result.diminfo[0].shape = __pyx_pybuffernd_result.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_result.diminfo[1].strides = __pyx_pybuffernd_result.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_result.diminfo[1].shape = __pyx_pybuffernd_result.rcbuffer->pybuffer.shape[1];
-    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 380, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 382, __pyx_L1_error)
   }
   __pyx_t_6 = 0;
   __pyx_v_result = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":381
+  /* "gmmcompression/fkmixture.pyx":383
  *         cdef np.ndarray[np.double_t, ndim=2, mode="c"] result
  *         result = np.empty( (self.ncomponents,self.ndim), dtype=np.float64, order="C" )
  *         mixture_get_means( self._c_mixture, &result[0,0] )             # <<<<<<<<<<<<<<
@@ -7354,11 +7359,11 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_5means___ge
   } else if (unlikely(__pyx_t_12 >= __pyx_pybuffernd_result.diminfo[1].shape)) __pyx_t_7 = 1;
   if (unlikely(__pyx_t_7 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_7);
-    __PYX_ERR(0, 381, __pyx_L1_error)
+    __PYX_ERR(0, 383, __pyx_L1_error)
   }
   mixture_get_means(__pyx_v_self->_c_mixture, (&(*__Pyx_BufPtrCContig2d(__pyx_t_5numpy_double_t *, __pyx_pybuffernd_result.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_result.diminfo[0].strides, __pyx_t_12, __pyx_pybuffernd_result.diminfo[1].strides))));
 
-  /* "gmmcompression/fkmixture.pyx":382
+  /* "gmmcompression/fkmixture.pyx":384
  *         result = np.empty( (self.ncomponents,self.ndim), dtype=np.float64, order="C" )
  *         mixture_get_means( self._c_mixture, &result[0,0] )
  *         return result             # <<<<<<<<<<<<<<
@@ -7370,7 +7375,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_5means___ge
   __pyx_r = ((PyObject *)__pyx_v_result);
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":378
+  /* "gmmcompression/fkmixture.pyx":380
  * 
  *     @property
  *     def means(self):             # <<<<<<<<<<<<<<
@@ -7403,7 +7408,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_5means___ge
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":385
+/* "gmmcompression/fkmixture.pyx":387
  * 
  *     @property
  *     def scaling_factors(self):             # <<<<<<<<<<<<<<
@@ -7447,41 +7452,41 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_15scaling_f
   __pyx_pybuffernd_result.data = NULL;
   __pyx_pybuffernd_result.rcbuffer = &__pyx_pybuffer_result;
 
-  /* "gmmcompression/fkmixture.pyx":387
+  /* "gmmcompression/fkmixture.pyx":389
  *     def scaling_factors(self):
  *         cdef np.ndarray[np.double_t, ndim=1, mode="c"] result
  *         result = np.empty( (self.ncomponents), dtype=np.float64, order="C" )             # <<<<<<<<<<<<<<
  *         mixture_get_scaling_factors( self._c_mixture, &result[0] )
  *         return result
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 387, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 389, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 387, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 389, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 387, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 389, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 387, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 389, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 387, __pyx_L1_error)
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 389, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 387, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 389, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 387, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 389, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 387, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 389, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 387, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 387, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 389, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 389, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 387, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 389, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -7497,13 +7502,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_15scaling_f
       }
     }
     __pyx_pybuffernd_result.diminfo[0].strides = __pyx_pybuffernd_result.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_result.diminfo[0].shape = __pyx_pybuffernd_result.rcbuffer->pybuffer.shape[0];
-    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 387, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 389, __pyx_L1_error)
   }
   __pyx_t_6 = 0;
   __pyx_v_result = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":388
+  /* "gmmcompression/fkmixture.pyx":390
  *         cdef np.ndarray[np.double_t, ndim=1, mode="c"] result
  *         result = np.empty( (self.ncomponents), dtype=np.float64, order="C" )
  *         mixture_get_scaling_factors( self._c_mixture, &result[0] )             # <<<<<<<<<<<<<<
@@ -7518,11 +7523,11 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_15scaling_f
   } else if (unlikely(__pyx_t_11 >= __pyx_pybuffernd_result.diminfo[0].shape)) __pyx_t_7 = 0;
   if (unlikely(__pyx_t_7 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_7);
-    __PYX_ERR(0, 388, __pyx_L1_error)
+    __PYX_ERR(0, 390, __pyx_L1_error)
   }
   mixture_get_scaling_factors(__pyx_v_self->_c_mixture, (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_double_t *, __pyx_pybuffernd_result.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_result.diminfo[0].strides))));
 
-  /* "gmmcompression/fkmixture.pyx":389
+  /* "gmmcompression/fkmixture.pyx":391
  *         result = np.empty( (self.ncomponents), dtype=np.float64, order="C" )
  *         mixture_get_scaling_factors( self._c_mixture, &result[0] )
  *         return result             # <<<<<<<<<<<<<<
@@ -7534,7 +7539,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_15scaling_f
   __pyx_r = ((PyObject *)__pyx_v_result);
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":385
+  /* "gmmcompression/fkmixture.pyx":387
  * 
  *     @property
  *     def scaling_factors(self):             # <<<<<<<<<<<<<<
@@ -7567,7 +7572,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_15scaling_f
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":392
+/* "gmmcompression/fkmixture.pyx":394
  * 
  *     @property
  *     def weights(self):             # <<<<<<<<<<<<<<
@@ -7611,41 +7616,41 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_7weights___
   __pyx_pybuffernd_result.data = NULL;
   __pyx_pybuffernd_result.rcbuffer = &__pyx_pybuffer_result;
 
-  /* "gmmcompression/fkmixture.pyx":394
+  /* "gmmcompression/fkmixture.pyx":396
  *     def weights(self):
  *         cdef np.ndarray[np.double_t, ndim=1, mode="c"] result
  *         result = np.empty( (self.ncomponents), dtype=np.float64, order="C" )             # <<<<<<<<<<<<<<
  *         mixture_get_weights( self._c_mixture, &result[0] )
  *         return result
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 394, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 396, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 394, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 396, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 394, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 396, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 394, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 396, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 394, __pyx_L1_error)
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 396, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 394, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 396, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 394, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 396, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 394, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 396, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 394, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 394, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 396, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 396, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 394, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 396, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -7661,13 +7666,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_7weights___
       }
     }
     __pyx_pybuffernd_result.diminfo[0].strides = __pyx_pybuffernd_result.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_result.diminfo[0].shape = __pyx_pybuffernd_result.rcbuffer->pybuffer.shape[0];
-    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 394, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 396, __pyx_L1_error)
   }
   __pyx_t_6 = 0;
   __pyx_v_result = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":395
+  /* "gmmcompression/fkmixture.pyx":397
  *         cdef np.ndarray[np.double_t, ndim=1, mode="c"] result
  *         result = np.empty( (self.ncomponents), dtype=np.float64, order="C" )
  *         mixture_get_weights( self._c_mixture, &result[0] )             # <<<<<<<<<<<<<<
@@ -7682,11 +7687,11 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_7weights___
   } else if (unlikely(__pyx_t_11 >= __pyx_pybuffernd_result.diminfo[0].shape)) __pyx_t_7 = 0;
   if (unlikely(__pyx_t_7 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_7);
-    __PYX_ERR(0, 395, __pyx_L1_error)
+    __PYX_ERR(0, 397, __pyx_L1_error)
   }
   mixture_get_weights(__pyx_v_self->_c_mixture, (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_double_t *, __pyx_pybuffernd_result.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_result.diminfo[0].strides))));
 
-  /* "gmmcompression/fkmixture.pyx":396
+  /* "gmmcompression/fkmixture.pyx":398
  *         result = np.empty( (self.ncomponents), dtype=np.float64, order="C" )
  *         mixture_get_weights( self._c_mixture, &result[0] )
  *         return result             # <<<<<<<<<<<<<<
@@ -7698,7 +7703,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_7weights___
   __pyx_r = ((PyObject *)__pyx_v_result);
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":392
+  /* "gmmcompression/fkmixture.pyx":394
  * 
  *     @property
  *     def weights(self):             # <<<<<<<<<<<<<<
@@ -7731,7 +7736,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_7weights___
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":399
+/* "gmmcompression/fkmixture.pyx":401
  * 
  *     @property
  *     def covariances(self):             # <<<<<<<<<<<<<<
@@ -7777,25 +7782,25 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_11covarianc
   __pyx_pybuffernd_result.data = NULL;
   __pyx_pybuffernd_result.rcbuffer = &__pyx_pybuffer_result;
 
-  /* "gmmcompression/fkmixture.pyx":401
+  /* "gmmcompression/fkmixture.pyx":403
  *     def covariances(self):
  *         cdef np.ndarray[np.double_t, ndim=3, mode="c"] result
  *         result = np.empty( (self.ncomponents, self.ndim, self.ndim), dtype=np.float64, order="C" )             # <<<<<<<<<<<<<<
  *         mixture_get_covariances( self._c_mixture, &result[0,0,0] )
  *         return result
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 401, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 403, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 401, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 403, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 401, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ncomponents); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 403, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 401, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 403, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 401, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ndim); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 403, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 401, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 403, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_1);
@@ -7806,27 +7811,27 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_11covarianc
   __pyx_t_1 = 0;
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
-  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 401, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 403, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_5);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5);
   __pyx_t_5 = 0;
-  __pyx_t_5 = PyDict_New(); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 401, __pyx_L1_error)
+  __pyx_t_5 = PyDict_New(); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 403, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 401, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 403, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_float64); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 401, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_float64); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 403, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 401, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_dtype, __pyx_t_1) < 0) __PYX_ERR(0, 403, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 401, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 401, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 403, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 403, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 401, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 403, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -7842,13 +7847,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_11covarianc
       }
     }
     __pyx_pybuffernd_result.diminfo[0].strides = __pyx_pybuffernd_result.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_result.diminfo[0].shape = __pyx_pybuffernd_result.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_result.diminfo[1].strides = __pyx_pybuffernd_result.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_result.diminfo[1].shape = __pyx_pybuffernd_result.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_result.diminfo[2].strides = __pyx_pybuffernd_result.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_result.diminfo[2].shape = __pyx_pybuffernd_result.rcbuffer->pybuffer.shape[2];
-    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 401, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 403, __pyx_L1_error)
   }
   __pyx_t_6 = 0;
   __pyx_v_result = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":402
+  /* "gmmcompression/fkmixture.pyx":404
  *         cdef np.ndarray[np.double_t, ndim=3, mode="c"] result
  *         result = np.empty( (self.ncomponents, self.ndim, self.ndim), dtype=np.float64, order="C" )
  *         mixture_get_covariances( self._c_mixture, &result[0,0,0] )             # <<<<<<<<<<<<<<
@@ -7873,11 +7878,11 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_11covarianc
   } else if (unlikely(__pyx_t_13 >= __pyx_pybuffernd_result.diminfo[2].shape)) __pyx_t_7 = 2;
   if (unlikely(__pyx_t_7 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_7);
-    __PYX_ERR(0, 402, __pyx_L1_error)
+    __PYX_ERR(0, 404, __pyx_L1_error)
   }
   mixture_get_covariances(__pyx_v_self->_c_mixture, (&(*__Pyx_BufPtrCContig3d(__pyx_t_5numpy_double_t *, __pyx_pybuffernd_result.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_result.diminfo[0].strides, __pyx_t_12, __pyx_pybuffernd_result.diminfo[1].strides, __pyx_t_13, __pyx_pybuffernd_result.diminfo[2].strides))));
 
-  /* "gmmcompression/fkmixture.pyx":403
+  /* "gmmcompression/fkmixture.pyx":405
  *         result = np.empty( (self.ncomponents, self.ndim, self.ndim), dtype=np.float64, order="C" )
  *         mixture_get_covariances( self._c_mixture, &result[0,0,0] )
  *         return result             # <<<<<<<<<<<<<<
@@ -7889,7 +7894,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_11covarianc
   __pyx_r = ((PyObject *)__pyx_v_result);
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":399
+  /* "gmmcompression/fkmixture.pyx":401
  * 
  *     @property
  *     def covariances(self):             # <<<<<<<<<<<<<<
@@ -7922,7 +7927,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_11covarianc
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":405
+/* "gmmcompression/fkmixture.pyx":407
  *         return result
  * 
  *     def tofile(self, filename):             # <<<<<<<<<<<<<<
@@ -7950,7 +7955,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_30tofile(st
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("tofile", 0);
 
-  /* "gmmcompression/fkmixture.pyx":406
+  /* "gmmcompression/fkmixture.pyx":408
  * 
  *     def tofile(self, filename):
  *         return mixture_save_to_file( self._c_mixture, filename )             # <<<<<<<<<<<<<<
@@ -7958,14 +7963,14 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_30tofile(st
  *     @classmethod
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_1) && PyErr_Occurred())) __PYX_ERR(0, 406, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_From_int(mixture_save_to_file(__pyx_v_self->_c_mixture, __pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 406, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_1) && PyErr_Occurred())) __PYX_ERR(0, 408, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(mixture_save_to_file(__pyx_v_self->_c_mixture, __pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 408, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":405
+  /* "gmmcompression/fkmixture.pyx":407
  *         return result
  * 
  *     def tofile(self, filename):             # <<<<<<<<<<<<<<
@@ -7984,7 +7989,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_30tofile(st
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":409
+/* "gmmcompression/fkmixture.pyx":411
  * 
  *     @classmethod
  *     def fromfile(cls, filename):             # <<<<<<<<<<<<<<
@@ -8015,40 +8020,40 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_32fromfile(
   PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("fromfile", 0);
 
-  /* "gmmcompression/fkmixture.pyx":410
+  /* "gmmcompression/fkmixture.pyx":412
  *     @classmethod
  *     def fromfile(cls, filename):
  *         result = MixtureClass(ndim=0)             # <<<<<<<<<<<<<<
  *         result._c_mixture = mixture_load_from_file( filename )
  *         # update scaling factors
  */
-  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 410, __pyx_L1_error)
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 412, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_ndim, __pyx_int_0) < 0) __PYX_ERR(0, 410, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_14gmmcompression_9fkmixture_MixtureClass), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 410, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_ndim, __pyx_int_0) < 0) __PYX_ERR(0, 412, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_14gmmcompression_9fkmixture_MixtureClass), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 412, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_result = ((struct __pyx_obj_14gmmcompression_9fkmixture_MixtureClass *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":411
+  /* "gmmcompression/fkmixture.pyx":413
  *     def fromfile(cls, filename):
  *         result = MixtureClass(ndim=0)
  *         result._c_mixture = mixture_load_from_file( filename )             # <<<<<<<<<<<<<<
  *         # update scaling factors
  *         result.update_cache()
  */
-  __pyx_t_3 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) __PYX_ERR(0, 411, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_AsWritableString(__pyx_v_filename); if (unlikely((!__pyx_t_3) && PyErr_Occurred())) __PYX_ERR(0, 413, __pyx_L1_error)
   __pyx_v_result->_c_mixture = mixture_load_from_file(__pyx_t_3);
 
-  /* "gmmcompression/fkmixture.pyx":413
+  /* "gmmcompression/fkmixture.pyx":415
  *         result._c_mixture = mixture_load_from_file( filename )
  *         # update scaling factors
  *         result.update_cache()             # <<<<<<<<<<<<<<
  * 
  *         return result
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_result), __pyx_n_s_update_cache); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 413, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_result), __pyx_n_s_update_cache); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 415, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -8061,16 +8066,16 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_32fromfile(
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 413, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 415, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 413, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 415, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":415
+  /* "gmmcompression/fkmixture.pyx":417
  *         result.update_cache()
  * 
  *         return result             # <<<<<<<<<<<<<<
@@ -8082,7 +8087,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_32fromfile(
   __pyx_r = ((PyObject *)__pyx_v_result);
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":409
+  /* "gmmcompression/fkmixture.pyx":411
  * 
  *     @classmethod
  *     def fromfile(cls, filename):             # <<<<<<<<<<<<<<
@@ -8211,7 +8216,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_12MixtureClass_36__setstat
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":419
+/* "gmmcompression/fkmixture.pyx":421
  * cdef class GpuDecoderClass:
  *     cdef GpuDecoder* _cpp_gpudecoder
  *     def __cinit__(self, int gridDim, int maxBatchSize=8192):             # <<<<<<<<<<<<<<
@@ -8254,7 +8259,7 @@ static int __pyx_pw_14gmmcompression_9fkmixture_15GpuDecoderClass_1__cinit__(PyO
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 419, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 421, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -8265,16 +8270,16 @@ static int __pyx_pw_14gmmcompression_9fkmixture_15GpuDecoderClass_1__cinit__(PyO
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_gridDim = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_gridDim == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 419, __pyx_L3_error)
+    __pyx_v_gridDim = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_gridDim == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 421, __pyx_L3_error)
     if (values[1]) {
-      __pyx_v_maxBatchSize = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_maxBatchSize == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 419, __pyx_L3_error)
+      __pyx_v_maxBatchSize = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_maxBatchSize == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 421, __pyx_L3_error)
     } else {
       __pyx_v_maxBatchSize = ((int)0x2000);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 419, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 421, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("gmmcompression.fkmixture.GpuDecoderClass.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -8294,7 +8299,7 @@ static int __pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass___cinit__(stru
   GpuDecoder *__pyx_t_1;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":420
+  /* "gmmcompression/fkmixture.pyx":422
  *     cdef GpuDecoder* _cpp_gpudecoder
  *     def __cinit__(self, int gridDim, int maxBatchSize=8192):
  *         _cpp_gpudecoder = new GpuDecoder(gridDim, maxBatchSize)             # <<<<<<<<<<<<<<
@@ -8305,11 +8310,11 @@ static int __pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass___cinit__(stru
     __pyx_t_1 = new GpuDecoder(__pyx_v_gridDim, __pyx_v_maxBatchSize);
   } catch(...) {
     __Pyx_CppExn2PyErr();
-    __PYX_ERR(0, 420, __pyx_L1_error)
+    __PYX_ERR(0, 422, __pyx_L1_error)
   }
   __pyx_v__cpp_gpudecoder = __pyx_t_1;
 
-  /* "gmmcompression/fkmixture.pyx":421
+  /* "gmmcompression/fkmixture.pyx":423
  *     def __cinit__(self, int gridDim, int maxBatchSize=8192):
  *         _cpp_gpudecoder = new GpuDecoder(gridDim, maxBatchSize)
  *         self._cpp_gpudecoder = _cpp_gpudecoder             # <<<<<<<<<<<<<<
@@ -8318,7 +8323,7 @@ static int __pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass___cinit__(stru
  */
   __pyx_v_self->_cpp_gpudecoder = __pyx_v__cpp_gpudecoder;
 
-  /* "gmmcompression/fkmixture.pyx":419
+  /* "gmmcompression/fkmixture.pyx":421
  * cdef class GpuDecoderClass:
  *     cdef GpuDecoder* _cpp_gpudecoder
  *     def __cinit__(self, int gridDim, int maxBatchSize=8192):             # <<<<<<<<<<<<<<
@@ -8337,7 +8342,7 @@ static int __pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass___cinit__(stru
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":423
+/* "gmmcompression/fkmixture.pyx":425
  *         self._cpp_gpudecoder = _cpp_gpudecoder
  * 
  *     def __deaclloc__(self):             # <<<<<<<<<<<<<<
@@ -8363,7 +8368,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_2__deacl
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__deaclloc__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":424
+  /* "gmmcompression/fkmixture.pyx":426
  * 
  *     def __deaclloc__(self):
  *         del self._cpp_gpudecoder             # <<<<<<<<<<<<<<
@@ -8372,7 +8377,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_2__deacl
  */
   delete __pyx_v_self->_cpp_gpudecoder;
 
-  /* "gmmcompression/fkmixture.pyx":423
+  /* "gmmcompression/fkmixture.pyx":425
  *         self._cpp_gpudecoder = _cpp_gpudecoder
  * 
  *     def __deaclloc__(self):             # <<<<<<<<<<<<<<
@@ -8387,7 +8392,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_2__deacl
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":427
+/* "gmmcompression/fkmixture.pyx":429
  * 
  *     @property
  *     def n_tt(self):             # <<<<<<<<<<<<<<
@@ -8414,7 +8419,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_4n_tt___
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":428
+  /* "gmmcompression/fkmixture.pyx":430
  *     @property
  *     def n_tt(self):
  *         return self._cpp_gpudecoder.n_tt()             # <<<<<<<<<<<<<<
@@ -8422,13 +8427,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_4n_tt___
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_cpp_gpudecoder->n_tt()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 428, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_cpp_gpudecoder->n_tt()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 430, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":427
+  /* "gmmcompression/fkmixture.pyx":429
  * 
  *     @property
  *     def n_tt(self):             # <<<<<<<<<<<<<<
@@ -8447,7 +8452,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_4n_tt___
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":431
+/* "gmmcompression/fkmixture.pyx":433
  * 
  *     @property
  *     def maxBatchSize(self):             # <<<<<<<<<<<<<<
@@ -8474,7 +8479,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_12maxBat
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":432
+  /* "gmmcompression/fkmixture.pyx":434
  *     @property
  *     def maxBatchSize(self):
  *         return self._cpp_gpudecoder.maxBatchSize()             # <<<<<<<<<<<<<<
@@ -8482,13 +8487,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_12maxBat
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_cpp_gpudecoder->maxBatchSize()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 432, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_cpp_gpudecoder->maxBatchSize()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 434, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":431
+  /* "gmmcompression/fkmixture.pyx":433
  * 
  *     @property
  *     def maxBatchSize(self):             # <<<<<<<<<<<<<<
@@ -8507,7 +8512,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_12maxBat
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":435
+/* "gmmcompression/fkmixture.pyx":437
  * 
  *     @property
  *     def batchSize(self):             # <<<<<<<<<<<<<<
@@ -8534,7 +8539,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_9batchSi
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":436
+  /* "gmmcompression/fkmixture.pyx":438
  *     @property
  *     def batchSize(self):
  *         return self._cpp_gpudecoder.batchSize()             # <<<<<<<<<<<<<<
@@ -8542,13 +8547,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_9batchSi
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_cpp_gpudecoder->batchSize()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 436, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_cpp_gpudecoder->batchSize()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 438, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":435
+  /* "gmmcompression/fkmixture.pyx":437
  * 
  *     @property
  *     def batchSize(self):             # <<<<<<<<<<<<<<
@@ -8567,7 +8572,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_9batchSi
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":439
+/* "gmmcompression/fkmixture.pyx":441
  * 
  *     @property
  *     def gridDim(self):             # <<<<<<<<<<<<<<
@@ -8594,7 +8599,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_7gridDim
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":440
+  /* "gmmcompression/fkmixture.pyx":442
  *     @property
  *     def gridDim(self):
  *         return self._cpp_gpudecoder.gridDim()             # <<<<<<<<<<<<<<
@@ -8602,13 +8607,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_7gridDim
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_cpp_gpudecoder->gridDim()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 440, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_cpp_gpudecoder->gridDim()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":439
+  /* "gmmcompression/fkmixture.pyx":441
  * 
  *     @property
  *     def gridDim(self):             # <<<<<<<<<<<<<<
@@ -8627,7 +8632,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_7gridDim
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":443
+/* "gmmcompression/fkmixture.pyx":445
  * 
  *     @property
  *     def component_acc_block_size(self):             # <<<<<<<<<<<<<<
@@ -8654,7 +8659,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_24compon
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":444
+  /* "gmmcompression/fkmixture.pyx":446
  *     @property
  *     def component_acc_block_size(self):
  *         return self._cpp_gpudecoder.component_acc_block_size()             # <<<<<<<<<<<<<<
@@ -8662,13 +8667,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_24compon
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_cpp_gpudecoder->component_acc_block_size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 444, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_cpp_gpudecoder->component_acc_block_size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 446, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":443
+  /* "gmmcompression/fkmixture.pyx":445
  * 
  *     @property
  *     def component_acc_block_size(self):             # <<<<<<<<<<<<<<
@@ -8687,7 +8692,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_24compon
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":447
+/* "gmmcompression/fkmixture.pyx":449
  * 
  *     @property
  *     def evaluation_block_size(self):             # <<<<<<<<<<<<<<
@@ -8714,7 +8719,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_21evalua
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":448
+  /* "gmmcompression/fkmixture.pyx":450
  *     @property
  *     def evaluation_block_size(self):
  *         return self._cpp_gpudecoder.evaluation_block_size()             # <<<<<<<<<<<<<<
@@ -8722,13 +8727,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_21evalua
  *     def setBatchSize(self, int bs):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_cpp_gpudecoder->evaluation_block_size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 448, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_cpp_gpudecoder->evaluation_block_size()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 450, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":447
+  /* "gmmcompression/fkmixture.pyx":449
  * 
  *     @property
  *     def evaluation_block_size(self):             # <<<<<<<<<<<<<<
@@ -8747,7 +8752,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_21evalua
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":450
+/* "gmmcompression/fkmixture.pyx":452
  *         return self._cpp_gpudecoder.evaluation_block_size()
  * 
  *     def setBatchSize(self, int bs):             # <<<<<<<<<<<<<<
@@ -8763,7 +8768,7 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_15GpuDecoderClass_5setBatc
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("setBatchSize (wrapper)", 0);
   assert(__pyx_arg_bs); {
-    __pyx_v_bs = __Pyx_PyInt_As_int(__pyx_arg_bs); if (unlikely((__pyx_v_bs == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 450, __pyx_L3_error)
+    __pyx_v_bs = __Pyx_PyInt_As_int(__pyx_arg_bs); if (unlikely((__pyx_v_bs == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 452, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -8784,7 +8789,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_4setBatc
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("setBatchSize", 0);
 
-  /* "gmmcompression/fkmixture.pyx":451
+  /* "gmmcompression/fkmixture.pyx":453
  * 
  *     def setBatchSize(self, int bs):
  *         return self._cpp_gpudecoder.setBatchSize(bs)             # <<<<<<<<<<<<<<
@@ -8792,13 +8797,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_4setBatc
  *     def set_component_acc_block_size(self, int bs):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->_cpp_gpudecoder->setBatchSize(__pyx_v_bs)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 451, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->_cpp_gpudecoder->setBatchSize(__pyx_v_bs)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 453, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":450
+  /* "gmmcompression/fkmixture.pyx":452
  *         return self._cpp_gpudecoder.evaluation_block_size()
  * 
  *     def setBatchSize(self, int bs):             # <<<<<<<<<<<<<<
@@ -8817,7 +8822,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_4setBatc
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":453
+/* "gmmcompression/fkmixture.pyx":455
  *         return self._cpp_gpudecoder.setBatchSize(bs)
  * 
  *     def set_component_acc_block_size(self, int bs):             # <<<<<<<<<<<<<<
@@ -8833,7 +8838,7 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_15GpuDecoderClass_7set_com
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("set_component_acc_block_size (wrapper)", 0);
   assert(__pyx_arg_bs); {
-    __pyx_v_bs = __Pyx_PyInt_As_int(__pyx_arg_bs); if (unlikely((__pyx_v_bs == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 453, __pyx_L3_error)
+    __pyx_v_bs = __Pyx_PyInt_As_int(__pyx_arg_bs); if (unlikely((__pyx_v_bs == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 455, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -8854,7 +8859,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_6set_com
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("set_component_acc_block_size", 0);
 
-  /* "gmmcompression/fkmixture.pyx":454
+  /* "gmmcompression/fkmixture.pyx":456
  * 
  *     def set_component_acc_block_size(self, int bs):
  *         return self._cpp_gpudecoder.set_component_acc_block_size(bs)             # <<<<<<<<<<<<<<
@@ -8862,13 +8867,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_6set_com
  *     def set_evaluation_block_size(self, int bs):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->_cpp_gpudecoder->set_component_acc_block_size(__pyx_v_bs)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 454, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->_cpp_gpudecoder->set_component_acc_block_size(__pyx_v_bs)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 456, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":453
+  /* "gmmcompression/fkmixture.pyx":455
  *         return self._cpp_gpudecoder.setBatchSize(bs)
  * 
  *     def set_component_acc_block_size(self, int bs):             # <<<<<<<<<<<<<<
@@ -8887,7 +8892,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_6set_com
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":456
+/* "gmmcompression/fkmixture.pyx":458
  *         return self._cpp_gpudecoder.set_component_acc_block_size(bs)
  * 
  *     def set_evaluation_block_size(self, int bs):             # <<<<<<<<<<<<<<
@@ -8903,7 +8908,7 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_15GpuDecoderClass_9set_eva
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("set_evaluation_block_size (wrapper)", 0);
   assert(__pyx_arg_bs); {
-    __pyx_v_bs = __Pyx_PyInt_As_int(__pyx_arg_bs); if (unlikely((__pyx_v_bs == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 456, __pyx_L3_error)
+    __pyx_v_bs = __Pyx_PyInt_As_int(__pyx_arg_bs); if (unlikely((__pyx_v_bs == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 458, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -8924,7 +8929,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_8set_eva
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("set_evaluation_block_size", 0);
 
-  /* "gmmcompression/fkmixture.pyx":457
+  /* "gmmcompression/fkmixture.pyx":459
  * 
  *     def set_evaluation_block_size(self, int bs):
  *         return self._cpp_gpudecoder.set_evaluation_block_size(bs)             # <<<<<<<<<<<<<<
@@ -8932,13 +8937,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_8set_eva
  *     def addTT(self, MixtureClass mixture,\
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->_cpp_gpudecoder->set_evaluation_block_size(__pyx_v_bs)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 457, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->_cpp_gpudecoder->set_evaluation_block_size(__pyx_v_bs)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 459, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":456
+  /* "gmmcompression/fkmixture.pyx":458
  *         return self._cpp_gpudecoder.set_component_acc_block_size(bs)
  * 
  *     def set_evaluation_block_size(self, int bs):             # <<<<<<<<<<<<<<
@@ -8957,7 +8962,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_8set_eva
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":459
+/* "gmmcompression/fkmixture.pyx":461
  *         return self._cpp_gpudecoder.set_evaluation_block_size(bs)
  * 
  *     def addTT(self, MixtureClass mixture,\             # <<<<<<<<<<<<<<
@@ -9002,23 +9007,23 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_15GpuDecoderClass_11addTT(
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_grid_acc)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("addTT", 1, 4, 4, 1); __PYX_ERR(0, 459, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("addTT", 1, 4, 4, 1); __PYX_ERR(0, 461, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_n_spikes_features)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("addTT", 1, 4, 4, 2); __PYX_ERR(0, 459, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("addTT", 1, 4, 4, 2); __PYX_ERR(0, 461, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_gridDim)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("addTT", 1, 4, 4, 3); __PYX_ERR(0, 459, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("addTT", 1, 4, 4, 3); __PYX_ERR(0, 461, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "addTT") < 0)) __PYX_ERR(0, 459, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "addTT") < 0)) __PYX_ERR(0, 461, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -9035,14 +9040,14 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_15GpuDecoderClass_11addTT(
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("addTT", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 459, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("addTT", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 461, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("gmmcompression.fkmixture.GpuDecoderClass.addTT", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mixture), __pyx_ptype_14gmmcompression_9fkmixture_MixtureClass, 1, "mixture", 0))) __PYX_ERR(0, 459, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_grid_acc), __pyx_ptype_5numpy_ndarray, 1, "grid_acc", 0))) __PYX_ERR(0, 460, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mixture), __pyx_ptype_14gmmcompression_9fkmixture_MixtureClass, 1, "mixture", 0))) __PYX_ERR(0, 461, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_grid_acc), __pyx_ptype_5numpy_ndarray, 1, "grid_acc", 0))) __PYX_ERR(0, 462, __pyx_L1_error)
   __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_10addTT(((struct __pyx_obj_14gmmcompression_9fkmixture_GpuDecoderClass *)__pyx_v_self), __pyx_v_mixture, __pyx_v_grid_acc, __pyx_v_n_spikes_features, __pyx_v_gridDim);
 
   /* function exit code */
@@ -9087,25 +9092,25 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_10addTT(
   __pyx_pybuffernd_grid_acc.rcbuffer = &__pyx_pybuffer_grid_acc;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_grid_acc.rcbuffer->pybuffer, (PyObject*)__pyx_v_grid_acc, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 459, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_grid_acc.rcbuffer->pybuffer, (PyObject*)__pyx_v_grid_acc, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 461, __pyx_L1_error)
   }
   __pyx_pybuffernd_grid_acc.diminfo[0].strides = __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_grid_acc.diminfo[0].shape = __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_grid_acc.diminfo[1].strides = __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_grid_acc.diminfo[1].shape = __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.shape[1];
 
-  /* "gmmcompression/fkmixture.pyx":463
+  /* "gmmcompression/fkmixture.pyx":465
  *               n_spikes_features, gridDim):
  *         cdef np.ndarray[np.uint16_t, ndim=1, mode="c"] pointsdim
  *         pointsdim = np.arange( gridDim, n_spikes_features+gridDim, dtype=np.uint16 )             # <<<<<<<<<<<<<<
  *         return self._cpp_gpudecoder.addTT(mixture._c_mixture,&grid_acc[0,0],n_spikes_features,&pointsdim[0])
  * 
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 463, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 465, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_arange); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 463, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_arange); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 465, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_Add(__pyx_v_n_spikes_features, __pyx_v_gridDim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 463, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Add(__pyx_v_n_spikes_features, __pyx_v_gridDim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 465, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 463, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 465, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_v_gridDim);
   __Pyx_GIVEREF(__pyx_v_gridDim);
@@ -9113,21 +9118,21 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_10addTT(
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 463, __pyx_L1_error)
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 465, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 463, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 465, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_uint16); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 463, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_uint16); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 465, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 463, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 465, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 463, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 465, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 463, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 465, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -9143,13 +9148,13 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_10addTT(
       }
     }
     __pyx_pybuffernd_pointsdim.diminfo[0].strides = __pyx_pybuffernd_pointsdim.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_pointsdim.diminfo[0].shape = __pyx_pybuffernd_pointsdim.rcbuffer->pybuffer.shape[0];
-    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 463, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 465, __pyx_L1_error)
   }
   __pyx_t_6 = 0;
   __pyx_v_pointsdim = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":464
+  /* "gmmcompression/fkmixture.pyx":466
  *         cdef np.ndarray[np.uint16_t, ndim=1, mode="c"] pointsdim
  *         pointsdim = np.arange( gridDim, n_spikes_features+gridDim, dtype=np.uint16 )
  *         return self._cpp_gpudecoder.addTT(mixture._c_mixture,&grid_acc[0,0],n_spikes_features,&pointsdim[0])             # <<<<<<<<<<<<<<
@@ -9170,9 +9175,9 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_10addTT(
   } else if (unlikely(__pyx_t_12 >= __pyx_pybuffernd_grid_acc.diminfo[1].shape)) __pyx_t_7 = 1;
   if (unlikely(__pyx_t_7 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_7);
-    __PYX_ERR(0, 464, __pyx_L1_error)
+    __PYX_ERR(0, 466, __pyx_L1_error)
   }
-  __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_v_n_spikes_features); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 464, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_v_n_spikes_features); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 466, __pyx_L1_error)
   __pyx_t_13 = 0;
   __pyx_t_14 = -1;
   if (__pyx_t_13 < 0) {
@@ -9181,15 +9186,15 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_10addTT(
   } else if (unlikely(__pyx_t_13 >= __pyx_pybuffernd_pointsdim.diminfo[0].shape)) __pyx_t_14 = 0;
   if (unlikely(__pyx_t_14 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_14);
-    __PYX_ERR(0, 464, __pyx_L1_error)
+    __PYX_ERR(0, 466, __pyx_L1_error)
   }
-  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_self->_cpp_gpudecoder->addTT(__pyx_v_mixture->_c_mixture, (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_grid_acc.diminfo[0].strides, __pyx_t_12, __pyx_pybuffernd_grid_acc.diminfo[1].strides))), __pyx_t_7, (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_uint16_t *, __pyx_pybuffernd_pointsdim.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_pointsdim.diminfo[0].strides))))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 464, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_self->_cpp_gpudecoder->addTT(__pyx_v_mixture->_c_mixture, (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_grid_acc.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_grid_acc.diminfo[0].strides, __pyx_t_12, __pyx_pybuffernd_grid_acc.diminfo[1].strides))), __pyx_t_7, (&(*__Pyx_BufPtrCContig1d(__pyx_t_5numpy_uint16_t *, __pyx_pybuffernd_pointsdim.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_pointsdim.diminfo[0].strides))))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 466, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":459
+  /* "gmmcompression/fkmixture.pyx":461
  *         return self._cpp_gpudecoder.set_evaluation_block_size(bs)
  * 
  *     def addTT(self, MixtureClass mixture,\             # <<<<<<<<<<<<<<
@@ -9224,7 +9229,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_10addTT(
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":466
+/* "gmmcompression/fkmixture.pyx":468
  *         return self._cpp_gpudecoder.addTT(mixture._c_mixture,&grid_acc[0,0],n_spikes_features,&pointsdim[0])
  * 
  *     def decodeTT(self, int tt_idx,\             # <<<<<<<<<<<<<<
@@ -9266,17 +9271,17 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_15GpuDecoderClass_13decode
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_spikes)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("decodeTT", 1, 3, 3, 1); __PYX_ERR(0, 466, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("decodeTT", 1, 3, 3, 1); __PYX_ERR(0, 468, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_n_spikes)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("decodeTT", 1, 3, 3, 2); __PYX_ERR(0, 466, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("decodeTT", 1, 3, 3, 2); __PYX_ERR(0, 468, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "decodeTT") < 0)) __PYX_ERR(0, 466, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "decodeTT") < 0)) __PYX_ERR(0, 468, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -9285,19 +9290,19 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_15GpuDecoderClass_13decode
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_tt_idx = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_tt_idx == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 466, __pyx_L3_error)
+    __pyx_v_tt_idx = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_tt_idx == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 468, __pyx_L3_error)
     __pyx_v_spikes = ((PyArrayObject *)values[1]);
-    __pyx_v_n_spikes = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_n_spikes == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 468, __pyx_L3_error)
+    __pyx_v_n_spikes = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_n_spikes == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 470, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("decodeTT", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 466, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("decodeTT", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 468, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("gmmcompression.fkmixture.GpuDecoderClass.decodeTT", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_spikes), __pyx_ptype_5numpy_ndarray, 1, "spikes", 0))) __PYX_ERR(0, 467, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_spikes), __pyx_ptype_5numpy_ndarray, 1, "spikes", 0))) __PYX_ERR(0, 469, __pyx_L1_error)
   __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_12decodeTT(((struct __pyx_obj_14gmmcompression_9fkmixture_GpuDecoderClass *)__pyx_v_self), __pyx_v_tt_idx, __pyx_v_spikes, __pyx_v_n_spikes);
 
   /* function exit code */
@@ -9342,37 +9347,37 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_12decode
   __pyx_pybuffernd_spikes.rcbuffer = &__pyx_pybuffer_spikes;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_spikes.rcbuffer->pybuffer, (PyObject*)__pyx_v_spikes, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 466, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_spikes.rcbuffer->pybuffer, (PyObject*)__pyx_v_spikes, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 468, __pyx_L1_error)
   }
   __pyx_pybuffernd_spikes.diminfo[0].strides = __pyx_pybuffernd_spikes.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_spikes.diminfo[0].shape = __pyx_pybuffernd_spikes.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_spikes.diminfo[1].strides = __pyx_pybuffernd_spikes.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_spikes.diminfo[1].shape = __pyx_pybuffernd_spikes.rcbuffer->pybuffer.shape[1];
 
-  /* "gmmcompression/fkmixture.pyx":470
+  /* "gmmcompression/fkmixture.pyx":472
  *                  int n_spikes):
  *         cdef int ret
  *         ngrid = self.gridDim             # <<<<<<<<<<<<<<
  * 
  *         cdef np.ndarray[double, ndim=2, mode="c"] results = np.ones((n_spikes, ngrid),dtype=np.float64, order="C")
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_gridDim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 470, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_gridDim); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 472, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_ngrid = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":472
+  /* "gmmcompression/fkmixture.pyx":474
  *         ngrid = self.gridDim
  * 
  *         cdef np.ndarray[double, ndim=2, mode="c"] results = np.ones((n_spikes, ngrid),dtype=np.float64, order="C")             # <<<<<<<<<<<<<<
  *         if n_spikes>0:
  *             with nogil:
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 472, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 474, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ones); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 472, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ones); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 474, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n_spikes); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 472, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n_spikes); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 474, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 472, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 474, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -9380,33 +9385,33 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_12decode
   __Pyx_GIVEREF(__pyx_v_ngrid);
   PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_v_ngrid);
   __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 472, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 474, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 472, __pyx_L1_error)
+  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 474, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 472, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 474, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 472, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_float64); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 474, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 472, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 474, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 472, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 472, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 474, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 474, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 472, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 474, __pyx_L1_error)
   __pyx_t_6 = ((PyArrayObject *)__pyx_t_5);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_results.rcbuffer->pybuffer, (PyObject*)__pyx_t_6, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) {
       __pyx_v_results = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_results.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 472, __pyx_L1_error)
+      __PYX_ERR(0, 474, __pyx_L1_error)
     } else {__pyx_pybuffernd_results.diminfo[0].strides = __pyx_pybuffernd_results.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_results.diminfo[0].shape = __pyx_pybuffernd_results.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_results.diminfo[1].strides = __pyx_pybuffernd_results.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_results.diminfo[1].shape = __pyx_pybuffernd_results.rcbuffer->pybuffer.shape[1];
     }
   }
@@ -9414,7 +9419,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_12decode
   __pyx_v_results = ((PyArrayObject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":473
+  /* "gmmcompression/fkmixture.pyx":475
  * 
  *         cdef np.ndarray[double, ndim=2, mode="c"] results = np.ones((n_spikes, ngrid),dtype=np.float64, order="C")
  *         if n_spikes>0:             # <<<<<<<<<<<<<<
@@ -9424,7 +9429,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_12decode
   __pyx_t_7 = ((__pyx_v_n_spikes > 0) != 0);
   if (__pyx_t_7) {
 
-    /* "gmmcompression/fkmixture.pyx":474
+    /* "gmmcompression/fkmixture.pyx":476
  *         cdef np.ndarray[double, ndim=2, mode="c"] results = np.ones((n_spikes, ngrid),dtype=np.float64, order="C")
  *         if n_spikes>0:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -9439,7 +9444,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_12decode
         #endif
         /*try:*/ {
 
-          /* "gmmcompression/fkmixture.pyx":475
+          /* "gmmcompression/fkmixture.pyx":477
  *         if n_spikes>0:
  *             with nogil:
  *                 ret = self._cpp_gpudecoder.decodeTT(tt_idx,&spikes[0,0],n_spikes,&results[0,0])             # <<<<<<<<<<<<<<
@@ -9459,7 +9464,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_12decode
           } else if (unlikely(__pyx_t_9 >= __pyx_pybuffernd_spikes.diminfo[1].shape)) __pyx_t_10 = 1;
           if (unlikely(__pyx_t_10 != -1)) {
             __Pyx_RaiseBufferIndexErrorNogil(__pyx_t_10);
-            __PYX_ERR(0, 475, __pyx_L5_error)
+            __PYX_ERR(0, 477, __pyx_L5_error)
           }
           __pyx_t_11 = 0;
           __pyx_t_12 = 0;
@@ -9474,12 +9479,12 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_12decode
           } else if (unlikely(__pyx_t_12 >= __pyx_pybuffernd_results.diminfo[1].shape)) __pyx_t_10 = 1;
           if (unlikely(__pyx_t_10 != -1)) {
             __Pyx_RaiseBufferIndexErrorNogil(__pyx_t_10);
-            __PYX_ERR(0, 475, __pyx_L5_error)
+            __PYX_ERR(0, 477, __pyx_L5_error)
           }
           __pyx_v_ret = __pyx_v_self->_cpp_gpudecoder->decodeTT(__pyx_v_tt_idx, (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_spikes.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_spikes.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_spikes.diminfo[1].strides))), __pyx_v_n_spikes, (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_results.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_results.diminfo[0].strides, __pyx_t_12, __pyx_pybuffernd_results.diminfo[1].strides))));
         }
 
-        /* "gmmcompression/fkmixture.pyx":474
+        /* "gmmcompression/fkmixture.pyx":476
  *         cdef np.ndarray[double, ndim=2, mode="c"] results = np.ones((n_spikes, ngrid),dtype=np.float64, order="C")
  *         if n_spikes>0:
  *             with nogil:             # <<<<<<<<<<<<<<
@@ -9505,7 +9510,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_12decode
         }
     }
 
-    /* "gmmcompression/fkmixture.pyx":473
+    /* "gmmcompression/fkmixture.pyx":475
  * 
  *         cdef np.ndarray[double, ndim=2, mode="c"] results = np.ones((n_spikes, ngrid),dtype=np.float64, order="C")
  *         if n_spikes>0:             # <<<<<<<<<<<<<<
@@ -9514,7 +9519,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_12decode
  */
   }
 
-  /* "gmmcompression/fkmixture.pyx":476
+  /* "gmmcompression/fkmixture.pyx":478
  *             with nogil:
  *                 ret = self._cpp_gpudecoder.decodeTT(tt_idx,&spikes[0,0],n_spikes,&results[0,0])
  *         return results             # <<<<<<<<<<<<<<
@@ -9526,7 +9531,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_12decode
   __pyx_r = ((PyObject *)__pyx_v_results);
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":466
+  /* "gmmcompression/fkmixture.pyx":468
  *         return self._cpp_gpudecoder.addTT(mixture._c_mixture,&grid_acc[0,0],n_spikes_features,&pointsdim[0])
  * 
  *     def decodeTT(self, int tt_idx,\             # <<<<<<<<<<<<<<
@@ -9562,7 +9567,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_12decode
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":478
+/* "gmmcompression/fkmixture.pyx":480
  *         return results
  * 
  *     def clearMem(self):             # <<<<<<<<<<<<<<
@@ -9588,7 +9593,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_14clearM
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("clearMem", 0);
 
-  /* "gmmcompression/fkmixture.pyx":479
+  /* "gmmcompression/fkmixture.pyx":481
  * 
  *     def clearMem(self):
  *         self._cpp_gpudecoder.clear()             # <<<<<<<<<<<<<<
@@ -9597,16 +9602,16 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_14clearM
  */
   __pyx_v_self->_cpp_gpudecoder->clear();
 
-  /* "gmmcompression/fkmixture.pyx":480
+  /* "gmmcompression/fkmixture.pyx":482
  *     def clearMem(self):
  *         self._cpp_gpudecoder.clear()
  *         print "memory cleared"             # <<<<<<<<<<<<<<
  * 
  * cdef class SignificanceAnalyzerClass:
  */
-  if (__Pyx_PrintOne(0, __pyx_kp_s_memory_cleared) < 0) __PYX_ERR(0, 480, __pyx_L1_error)
+  if (__Pyx_PrintOne(0, __pyx_kp_s_memory_cleared) < 0) __PYX_ERR(0, 482, __pyx_L1_error)
 
-  /* "gmmcompression/fkmixture.pyx":478
+  /* "gmmcompression/fkmixture.pyx":480
  *         return results
  * 
  *     def clearMem(self):             # <<<<<<<<<<<<<<
@@ -9733,11 +9738,11 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_15GpuDecoderClass_18__sets
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":488
+/* "gmmcompression/fkmixture.pyx":490
  *     cdef int ngrid
  * 
- *     def __cinit__(self, int n_pos, int n_group, float bin_size, int n_shf=1000, int n_tbin=10,int max_sp=100):             # <<<<<<<<<<<<<<
- *         _cpp_significanceanalyzer = new SignificanceAnalyzer(n_pos,n_group,bin_size,n_shf,n_tbin,max_sp)
+ *     def __cinit__(self, int n_pos, int n_group, float bin_size, float dmax, int n_shf=1000, int n_tbin=10,int max_sp=100):             # <<<<<<<<<<<<<<
+ *         _cpp_significanceanalyzer = new SignificanceAnalyzer(n_pos,n_group,bin_size, dmax, n_shf,n_tbin,max_sp)
  *         self._cpp_significanceanalyzer = _cpp_significanceanalyzer
  */
 
@@ -9747,6 +9752,7 @@ static int __pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_1__c
   int __pyx_v_n_pos;
   int __pyx_v_n_group;
   float __pyx_v_bin_size;
+  float __pyx_v_dmax;
   int __pyx_v_n_shf;
   int __pyx_v_n_tbin;
   int __pyx_v_max_sp;
@@ -9754,12 +9760,14 @@ static int __pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_1__c
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__ (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_n_pos,&__pyx_n_s_n_group,&__pyx_n_s_bin_size,&__pyx_n_s_n_shf,&__pyx_n_s_n_tbin,&__pyx_n_s_max_sp,0};
-    PyObject* values[6] = {0,0,0,0,0,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_n_pos,&__pyx_n_s_n_group,&__pyx_n_s_bin_size,&__pyx_n_s_dmax,&__pyx_n_s_n_shf,&__pyx_n_s_n_tbin,&__pyx_n_s_max_sp,0};
+    PyObject* values[7] = {0,0,0,0,0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
+        case  7: values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
+        CYTHON_FALLTHROUGH;
         case  6: values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
         CYTHON_FALLTHROUGH;
         case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
@@ -9784,118 +9792,126 @@ static int __pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_1__c
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_n_group)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 3, 6, 1); __PYX_ERR(0, 488, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 4, 7, 1); __PYX_ERR(0, 490, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_bin_size)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 3, 6, 2); __PYX_ERR(0, 488, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 4, 7, 2); __PYX_ERR(0, 490, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
-        if (kw_args > 0) {
-          PyObject* value = PyDict_GetItem(__pyx_kwds, __pyx_n_s_n_shf);
-          if (value) { values[3] = value; kw_args--; }
+        if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_dmax)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 4, 7, 3); __PYX_ERR(0, 490, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (kw_args > 0) {
-          PyObject* value = PyDict_GetItem(__pyx_kwds, __pyx_n_s_n_tbin);
+          PyObject* value = PyDict_GetItem(__pyx_kwds, __pyx_n_s_n_shf);
           if (value) { values[4] = value; kw_args--; }
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (kw_args > 0) {
-          PyObject* value = PyDict_GetItem(__pyx_kwds, __pyx_n_s_max_sp);
+          PyObject* value = PyDict_GetItem(__pyx_kwds, __pyx_n_s_n_tbin);
           if (value) { values[5] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  6:
+        if (kw_args > 0) {
+          PyObject* value = PyDict_GetItem(__pyx_kwds, __pyx_n_s_max_sp);
+          if (value) { values[6] = value; kw_args--; }
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 488, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 490, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  7: values[6] = PyTuple_GET_ITEM(__pyx_args, 6);
+        CYTHON_FALLTHROUGH;
         case  6: values[5] = PyTuple_GET_ITEM(__pyx_args, 5);
         CYTHON_FALLTHROUGH;
         case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
         CYTHON_FALLTHROUGH;
         case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
-        CYTHON_FALLTHROUGH;
-        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
         values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
         values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
         break;
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_n_pos = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_n_pos == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 488, __pyx_L3_error)
-    __pyx_v_n_group = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_n_group == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 488, __pyx_L3_error)
-    __pyx_v_bin_size = __pyx_PyFloat_AsFloat(values[2]); if (unlikely((__pyx_v_bin_size == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 488, __pyx_L3_error)
-    if (values[3]) {
-      __pyx_v_n_shf = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_n_shf == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 488, __pyx_L3_error)
+    __pyx_v_n_pos = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_n_pos == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 490, __pyx_L3_error)
+    __pyx_v_n_group = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_n_group == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 490, __pyx_L3_error)
+    __pyx_v_bin_size = __pyx_PyFloat_AsFloat(values[2]); if (unlikely((__pyx_v_bin_size == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 490, __pyx_L3_error)
+    __pyx_v_dmax = __pyx_PyFloat_AsFloat(values[3]); if (unlikely((__pyx_v_dmax == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 490, __pyx_L3_error)
+    if (values[4]) {
+      __pyx_v_n_shf = __Pyx_PyInt_As_int(values[4]); if (unlikely((__pyx_v_n_shf == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 490, __pyx_L3_error)
     } else {
       __pyx_v_n_shf = ((int)0x3E8);
     }
-    if (values[4]) {
-      __pyx_v_n_tbin = __Pyx_PyInt_As_int(values[4]); if (unlikely((__pyx_v_n_tbin == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 488, __pyx_L3_error)
+    if (values[5]) {
+      __pyx_v_n_tbin = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_n_tbin == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 490, __pyx_L3_error)
     } else {
       __pyx_v_n_tbin = ((int)10);
     }
-    if (values[5]) {
-      __pyx_v_max_sp = __Pyx_PyInt_As_int(values[5]); if (unlikely((__pyx_v_max_sp == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 488, __pyx_L3_error)
+    if (values[6]) {
+      __pyx_v_max_sp = __Pyx_PyInt_As_int(values[6]); if (unlikely((__pyx_v_max_sp == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 490, __pyx_L3_error)
     } else {
       __pyx_v_max_sp = ((int)0x64);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 3, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 488, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 4, 7, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 490, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("gmmcompression.fkmixture.SignificanceAnalyzerClass.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass___cinit__(((struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *)__pyx_v_self), __pyx_v_n_pos, __pyx_v_n_group, __pyx_v_bin_size, __pyx_v_n_shf, __pyx_v_n_tbin, __pyx_v_max_sp);
+  __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass___cinit__(((struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *)__pyx_v_self), __pyx_v_n_pos, __pyx_v_n_group, __pyx_v_bin_size, __pyx_v_dmax, __pyx_v_n_shf, __pyx_v_n_tbin, __pyx_v_max_sp);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass___cinit__(struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self, int __pyx_v_n_pos, int __pyx_v_n_group, float __pyx_v_bin_size, int __pyx_v_n_shf, int __pyx_v_n_tbin, int __pyx_v_max_sp) {
+static int __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass___cinit__(struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self, int __pyx_v_n_pos, int __pyx_v_n_group, float __pyx_v_bin_size, float __pyx_v_dmax, int __pyx_v_n_shf, int __pyx_v_n_tbin, int __pyx_v_max_sp) {
   SignificanceAnalyzer *__pyx_v__cpp_significanceanalyzer;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   SignificanceAnalyzer *__pyx_t_1;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":489
+  /* "gmmcompression/fkmixture.pyx":491
  * 
- *     def __cinit__(self, int n_pos, int n_group, float bin_size, int n_shf=1000, int n_tbin=10,int max_sp=100):
- *         _cpp_significanceanalyzer = new SignificanceAnalyzer(n_pos,n_group,bin_size,n_shf,n_tbin,max_sp)             # <<<<<<<<<<<<<<
+ *     def __cinit__(self, int n_pos, int n_group, float bin_size, float dmax, int n_shf=1000, int n_tbin=10,int max_sp=100):
+ *         _cpp_significanceanalyzer = new SignificanceAnalyzer(n_pos,n_group,bin_size, dmax, n_shf,n_tbin,max_sp)             # <<<<<<<<<<<<<<
  *         self._cpp_significanceanalyzer = _cpp_significanceanalyzer
  *         self.n_pos = n_pos
  */
   try {
-    __pyx_t_1 = new SignificanceAnalyzer(__pyx_v_n_pos, __pyx_v_n_group, __pyx_v_bin_size, __pyx_v_n_shf, __pyx_v_n_tbin, __pyx_v_max_sp);
+    __pyx_t_1 = new SignificanceAnalyzer(__pyx_v_n_pos, __pyx_v_n_group, __pyx_v_bin_size, __pyx_v_dmax, __pyx_v_n_shf, __pyx_v_n_tbin, __pyx_v_max_sp);
   } catch(...) {
     __Pyx_CppExn2PyErr();
-    __PYX_ERR(0, 489, __pyx_L1_error)
+    __PYX_ERR(0, 491, __pyx_L1_error)
   }
   __pyx_v__cpp_significanceanalyzer = __pyx_t_1;
 
-  /* "gmmcompression/fkmixture.pyx":490
- *     def __cinit__(self, int n_pos, int n_group, float bin_size, int n_shf=1000, int n_tbin=10,int max_sp=100):
- *         _cpp_significanceanalyzer = new SignificanceAnalyzer(n_pos,n_group,bin_size,n_shf,n_tbin,max_sp)
+  /* "gmmcompression/fkmixture.pyx":492
+ *     def __cinit__(self, int n_pos, int n_group, float bin_size, float dmax, int n_shf=1000, int n_tbin=10,int max_sp=100):
+ *         _cpp_significanceanalyzer = new SignificanceAnalyzer(n_pos,n_group,bin_size, dmax, n_shf,n_tbin,max_sp)
  *         self._cpp_significanceanalyzer = _cpp_significanceanalyzer             # <<<<<<<<<<<<<<
  *         self.n_pos = n_pos
  *         self.n_shuffle = n_shf
  */
   __pyx_v_self->_cpp_significanceanalyzer = __pyx_v__cpp_significanceanalyzer;
 
-  /* "gmmcompression/fkmixture.pyx":491
- *         _cpp_significanceanalyzer = new SignificanceAnalyzer(n_pos,n_group,bin_size,n_shf,n_tbin,max_sp)
+  /* "gmmcompression/fkmixture.pyx":493
+ *         _cpp_significanceanalyzer = new SignificanceAnalyzer(n_pos,n_group,bin_size, dmax, n_shf,n_tbin,max_sp)
  *         self._cpp_significanceanalyzer = _cpp_significanceanalyzer
  *         self.n_pos = n_pos             # <<<<<<<<<<<<<<
  *         self.n_shuffle = n_shf
@@ -9903,7 +9919,7 @@ static int __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass___ci
  */
   __pyx_v_self->n_pos = __pyx_v_n_pos;
 
-  /* "gmmcompression/fkmixture.pyx":492
+  /* "gmmcompression/fkmixture.pyx":494
  *         self._cpp_significanceanalyzer = _cpp_significanceanalyzer
  *         self.n_pos = n_pos
  *         self.n_shuffle = n_shf             # <<<<<<<<<<<<<<
@@ -9912,20 +9928,20 @@ static int __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass___ci
  */
   __pyx_v_self->n_shuffle = __pyx_v_n_shf;
 
-  /* "gmmcompression/fkmixture.pyx":493
+  /* "gmmcompression/fkmixture.pyx":495
  *         self.n_pos = n_pos
  *         self.n_shuffle = n_shf
  *         self.n_pos = n_pos             # <<<<<<<<<<<<<<
  * 
- *     def uploadParam(self, np.ndarray[double, ndim=1, mode="c"] pix,np.ndarray[double, ndim=2, mode="c"] lx):
+ *     def uploadParam(self, np.ndarray[double, ndim=1, mode="c"] pix, np.ndarray[double, ndim=2, mode="c"] lx, np.ndarray[double, ndim=2, mode="c"] dsmat):
  */
   __pyx_v_self->n_pos = __pyx_v_n_pos;
 
-  /* "gmmcompression/fkmixture.pyx":488
+  /* "gmmcompression/fkmixture.pyx":490
  *     cdef int ngrid
  * 
- *     def __cinit__(self, int n_pos, int n_group, float bin_size, int n_shf=1000, int n_tbin=10,int max_sp=100):             # <<<<<<<<<<<<<<
- *         _cpp_significanceanalyzer = new SignificanceAnalyzer(n_pos,n_group,bin_size,n_shf,n_tbin,max_sp)
+ *     def __cinit__(self, int n_pos, int n_group, float bin_size, float dmax, int n_shf=1000, int n_tbin=10,int max_sp=100):             # <<<<<<<<<<<<<<
+ *         _cpp_significanceanalyzer = new SignificanceAnalyzer(n_pos,n_group,bin_size, dmax, n_shf,n_tbin,max_sp)
  *         self._cpp_significanceanalyzer = _cpp_significanceanalyzer
  */
 
@@ -9940,11 +9956,11 @@ static int __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass___ci
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":495
+/* "gmmcompression/fkmixture.pyx":497
  *         self.n_pos = n_pos
  * 
- *     def uploadParam(self, np.ndarray[double, ndim=1, mode="c"] pix,np.ndarray[double, ndim=2, mode="c"] lx):             # <<<<<<<<<<<<<<
- *         self._cpp_significanceanalyzer.uploadParam(&pix[0],&lx[0,0])
+ *     def uploadParam(self, np.ndarray[double, ndim=1, mode="c"] pix, np.ndarray[double, ndim=2, mode="c"] lx, np.ndarray[double, ndim=2, mode="c"] dsmat):             # <<<<<<<<<<<<<<
+ *         self._cpp_significanceanalyzer.uploadParam(&pix[0],&lx[0,0],&dsmat[0,0])
  * 
  */
 
@@ -9953,16 +9969,19 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
 static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_3uploadParam(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyArrayObject *__pyx_v_pix = 0;
   PyArrayObject *__pyx_v_lx = 0;
+  PyArrayObject *__pyx_v_dsmat = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("uploadParam (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_pix,&__pyx_n_s_lx,0};
-    PyObject* values[2] = {0,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_pix,&__pyx_n_s_lx,&__pyx_n_s_dsmat,0};
+    PyObject* values[3] = {0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
         case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
         CYTHON_FALLTHROUGH;
         case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
@@ -9979,32 +9998,41 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_lx)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("uploadParam", 1, 2, 2, 1); __PYX_ERR(0, 495, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("uploadParam", 1, 3, 3, 1); __PYX_ERR(0, 497, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_dsmat)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("uploadParam", 1, 3, 3, 2); __PYX_ERR(0, 497, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "uploadParam") < 0)) __PYX_ERR(0, 495, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "uploadParam") < 0)) __PYX_ERR(0, 497, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
     __pyx_v_pix = ((PyArrayObject *)values[0]);
     __pyx_v_lx = ((PyArrayObject *)values[1]);
+    __pyx_v_dsmat = ((PyArrayObject *)values[2]);
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("uploadParam", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 495, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("uploadParam", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 497, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("gmmcompression.fkmixture.SignificanceAnalyzerClass.uploadParam", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_pix), __pyx_ptype_5numpy_ndarray, 1, "pix", 0))) __PYX_ERR(0, 495, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_lx), __pyx_ptype_5numpy_ndarray, 1, "lx", 0))) __PYX_ERR(0, 495, __pyx_L1_error)
-  __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_2uploadParam(((struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *)__pyx_v_self), __pyx_v_pix, __pyx_v_lx);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_pix), __pyx_ptype_5numpy_ndarray, 1, "pix", 0))) __PYX_ERR(0, 497, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_lx), __pyx_ptype_5numpy_ndarray, 1, "lx", 0))) __PYX_ERR(0, 497, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dsmat), __pyx_ptype_5numpy_ndarray, 1, "dsmat", 0))) __PYX_ERR(0, 497, __pyx_L1_error)
+  __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_2uploadParam(((struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *)__pyx_v_self), __pyx_v_pix, __pyx_v_lx, __pyx_v_dsmat);
 
   /* function exit code */
   goto __pyx_L0;
@@ -10015,7 +10043,9 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_2uploadParam(struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self, PyArrayObject *__pyx_v_pix, PyArrayObject *__pyx_v_lx) {
+static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_2uploadParam(struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self, PyArrayObject *__pyx_v_pix, PyArrayObject *__pyx_v_lx, PyArrayObject *__pyx_v_dsmat) {
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_dsmat;
+  __Pyx_Buffer __pyx_pybuffer_dsmat;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_lx;
   __Pyx_Buffer __pyx_pybuffer_lx;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_pix;
@@ -10026,6 +10056,8 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   int __pyx_t_2;
   Py_ssize_t __pyx_t_3;
   Py_ssize_t __pyx_t_4;
+  Py_ssize_t __pyx_t_5;
+  Py_ssize_t __pyx_t_6;
   __Pyx_RefNannySetupContext("uploadParam", 0);
   __pyx_pybuffer_pix.pybuffer.buf = NULL;
   __pyx_pybuffer_pix.refcount = 0;
@@ -10035,21 +10067,30 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   __pyx_pybuffer_lx.refcount = 0;
   __pyx_pybuffernd_lx.data = NULL;
   __pyx_pybuffernd_lx.rcbuffer = &__pyx_pybuffer_lx;
+  __pyx_pybuffer_dsmat.pybuffer.buf = NULL;
+  __pyx_pybuffer_dsmat.refcount = 0;
+  __pyx_pybuffernd_dsmat.data = NULL;
+  __pyx_pybuffernd_dsmat.rcbuffer = &__pyx_pybuffer_dsmat;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_pix.rcbuffer->pybuffer, (PyObject*)__pyx_v_pix, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 495, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_pix.rcbuffer->pybuffer, (PyObject*)__pyx_v_pix, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 497, __pyx_L1_error)
   }
   __pyx_pybuffernd_pix.diminfo[0].strides = __pyx_pybuffernd_pix.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_pix.diminfo[0].shape = __pyx_pybuffernd_pix.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_lx.rcbuffer->pybuffer, (PyObject*)__pyx_v_lx, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 495, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_lx.rcbuffer->pybuffer, (PyObject*)__pyx_v_lx, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 497, __pyx_L1_error)
   }
   __pyx_pybuffernd_lx.diminfo[0].strides = __pyx_pybuffernd_lx.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_lx.diminfo[0].shape = __pyx_pybuffernd_lx.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_lx.diminfo[1].strides = __pyx_pybuffernd_lx.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_lx.diminfo[1].shape = __pyx_pybuffernd_lx.rcbuffer->pybuffer.shape[1];
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_dsmat.rcbuffer->pybuffer, (PyObject*)__pyx_v_dsmat, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 497, __pyx_L1_error)
+  }
+  __pyx_pybuffernd_dsmat.diminfo[0].strides = __pyx_pybuffernd_dsmat.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_dsmat.diminfo[0].shape = __pyx_pybuffernd_dsmat.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_dsmat.diminfo[1].strides = __pyx_pybuffernd_dsmat.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_dsmat.diminfo[1].shape = __pyx_pybuffernd_dsmat.rcbuffer->pybuffer.shape[1];
 
-  /* "gmmcompression/fkmixture.pyx":496
+  /* "gmmcompression/fkmixture.pyx":498
  * 
- *     def uploadParam(self, np.ndarray[double, ndim=1, mode="c"] pix,np.ndarray[double, ndim=2, mode="c"] lx):
- *         self._cpp_significanceanalyzer.uploadParam(&pix[0],&lx[0,0])             # <<<<<<<<<<<<<<
+ *     def uploadParam(self, np.ndarray[double, ndim=1, mode="c"] pix, np.ndarray[double, ndim=2, mode="c"] lx, np.ndarray[double, ndim=2, mode="c"] dsmat):
+ *         self._cpp_significanceanalyzer.uploadParam(&pix[0],&lx[0,0],&dsmat[0,0])             # <<<<<<<<<<<<<<
  * 
  *     def updateBin(self, pax, np.ndarray[int, ndim=1, mode="c"] n_spikes_g, np.ndarray[double, ndim=1, mode="c"] mu):
  */
@@ -10061,7 +10102,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   } else if (unlikely(__pyx_t_1 >= __pyx_pybuffernd_pix.diminfo[0].shape)) __pyx_t_2 = 0;
   if (unlikely(__pyx_t_2 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_2);
-    __PYX_ERR(0, 496, __pyx_L1_error)
+    __PYX_ERR(0, 498, __pyx_L1_error)
   }
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
@@ -10076,15 +10117,30 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   } else if (unlikely(__pyx_t_4 >= __pyx_pybuffernd_lx.diminfo[1].shape)) __pyx_t_2 = 1;
   if (unlikely(__pyx_t_2 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_2);
-    __PYX_ERR(0, 496, __pyx_L1_error)
+    __PYX_ERR(0, 498, __pyx_L1_error)
   }
-  __pyx_v_self->_cpp_significanceanalyzer->uploadParam((&(*__Pyx_BufPtrCContig1d(double *, __pyx_pybuffernd_pix.rcbuffer->pybuffer.buf, __pyx_t_1, __pyx_pybuffernd_pix.diminfo[0].strides))), (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_lx.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_lx.diminfo[0].strides, __pyx_t_4, __pyx_pybuffernd_lx.diminfo[1].strides))));
+  __pyx_t_5 = 0;
+  __pyx_t_6 = 0;
+  __pyx_t_2 = -1;
+  if (__pyx_t_5 < 0) {
+    __pyx_t_5 += __pyx_pybuffernd_dsmat.diminfo[0].shape;
+    if (unlikely(__pyx_t_5 < 0)) __pyx_t_2 = 0;
+  } else if (unlikely(__pyx_t_5 >= __pyx_pybuffernd_dsmat.diminfo[0].shape)) __pyx_t_2 = 0;
+  if (__pyx_t_6 < 0) {
+    __pyx_t_6 += __pyx_pybuffernd_dsmat.diminfo[1].shape;
+    if (unlikely(__pyx_t_6 < 0)) __pyx_t_2 = 1;
+  } else if (unlikely(__pyx_t_6 >= __pyx_pybuffernd_dsmat.diminfo[1].shape)) __pyx_t_2 = 1;
+  if (unlikely(__pyx_t_2 != -1)) {
+    __Pyx_RaiseBufferIndexError(__pyx_t_2);
+    __PYX_ERR(0, 498, __pyx_L1_error)
+  }
+  __pyx_v_self->_cpp_significanceanalyzer->uploadParam((&(*__Pyx_BufPtrCContig1d(double *, __pyx_pybuffernd_pix.rcbuffer->pybuffer.buf, __pyx_t_1, __pyx_pybuffernd_pix.diminfo[0].strides))), (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_lx.rcbuffer->pybuffer.buf, __pyx_t_3, __pyx_pybuffernd_lx.diminfo[0].strides, __pyx_t_4, __pyx_pybuffernd_lx.diminfo[1].strides))), (&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_dsmat.rcbuffer->pybuffer.buf, __pyx_t_5, __pyx_pybuffernd_dsmat.diminfo[0].strides, __pyx_t_6, __pyx_pybuffernd_dsmat.diminfo[1].strides))));
 
-  /* "gmmcompression/fkmixture.pyx":495
+  /* "gmmcompression/fkmixture.pyx":497
  *         self.n_pos = n_pos
  * 
- *     def uploadParam(self, np.ndarray[double, ndim=1, mode="c"] pix,np.ndarray[double, ndim=2, mode="c"] lx):             # <<<<<<<<<<<<<<
- *         self._cpp_significanceanalyzer.uploadParam(&pix[0],&lx[0,0])
+ *     def uploadParam(self, np.ndarray[double, ndim=1, mode="c"] pix, np.ndarray[double, ndim=2, mode="c"] lx, np.ndarray[double, ndim=2, mode="c"] dsmat):             # <<<<<<<<<<<<<<
+ *         self._cpp_significanceanalyzer.uploadParam(&pix[0],&lx[0,0],&dsmat[0,0])
  * 
  */
 
@@ -10096,6 +10152,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
     __Pyx_PyThreadState_declare
     __Pyx_PyThreadState_assign
     __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_dsmat.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_lx.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_pix.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
@@ -10103,6 +10160,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_dsmat.rcbuffer->pybuffer);
   __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_lx.rcbuffer->pybuffer);
   __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_pix.rcbuffer->pybuffer);
   __pyx_L2:;
@@ -10111,8 +10169,8 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":498
- *         self._cpp_significanceanalyzer.uploadParam(&pix[0],&lx[0,0])
+/* "gmmcompression/fkmixture.pyx":500
+ *         self._cpp_significanceanalyzer.uploadParam(&pix[0],&lx[0,0],&dsmat[0,0])
  * 
  *     def updateBin(self, pax, np.ndarray[int, ndim=1, mode="c"] n_spikes_g, np.ndarray[double, ndim=1, mode="c"] mu):             # <<<<<<<<<<<<<<
  * 
@@ -10153,17 +10211,17 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_n_spikes_g)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("updateBin", 1, 3, 3, 1); __PYX_ERR(0, 498, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("updateBin", 1, 3, 3, 1); __PYX_ERR(0, 500, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_mu)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("updateBin", 1, 3, 3, 2); __PYX_ERR(0, 498, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("updateBin", 1, 3, 3, 2); __PYX_ERR(0, 500, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "updateBin") < 0)) __PYX_ERR(0, 498, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "updateBin") < 0)) __PYX_ERR(0, 500, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -10178,14 +10236,14 @@ static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("updateBin", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 498, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("updateBin", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 500, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("gmmcompression.fkmixture.SignificanceAnalyzerClass.updateBin", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_n_spikes_g), __pyx_ptype_5numpy_ndarray, 1, "n_spikes_g", 0))) __PYX_ERR(0, 498, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mu), __pyx_ptype_5numpy_ndarray, 1, "mu", 0))) __PYX_ERR(0, 498, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_n_spikes_g), __pyx_ptype_5numpy_ndarray, 1, "n_spikes_g", 0))) __PYX_ERR(0, 500, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_mu), __pyx_ptype_5numpy_ndarray, 1, "mu", 0))) __PYX_ERR(0, 500, __pyx_L1_error)
   __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_4updateBin(((struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *)__pyx_v_self), __pyx_v_pax, __pyx_v_n_spikes_g, __pyx_v_mu);
 
   /* function exit code */
@@ -10252,46 +10310,46 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   __pyx_pybuffernd_mu.rcbuffer = &__pyx_pybuffer_mu;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_n_spikes_g.rcbuffer->pybuffer, (PyObject*)__pyx_v_n_spikes_g, &__Pyx_TypeInfo_int, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 498, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_n_spikes_g.rcbuffer->pybuffer, (PyObject*)__pyx_v_n_spikes_g, &__Pyx_TypeInfo_int, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 500, __pyx_L1_error)
   }
   __pyx_pybuffernd_n_spikes_g.diminfo[0].strides = __pyx_pybuffernd_n_spikes_g.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_n_spikes_g.diminfo[0].shape = __pyx_pybuffernd_n_spikes_g.rcbuffer->pybuffer.shape[0];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_mu.rcbuffer->pybuffer, (PyObject*)__pyx_v_mu, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 498, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_mu.rcbuffer->pybuffer, (PyObject*)__pyx_v_mu, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(0, 500, __pyx_L1_error)
   }
   __pyx_pybuffernd_mu.diminfo[0].strides = __pyx_pybuffernd_mu.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_mu.diminfo[0].shape = __pyx_pybuffernd_mu.rcbuffer->pybuffer.shape[0];
 
-  /* "gmmcompression/fkmixture.pyx":500
+  /* "gmmcompression/fkmixture.pyx":502
  *     def updateBin(self, pax, np.ndarray[int, ndim=1, mode="c"] n_spikes_g, np.ndarray[double, ndim=1, mode="c"] mu):
  * 
  *         n_spikes = len(pax)*len(pax[0])             # <<<<<<<<<<<<<<
  *         cdef np.ndarray[double, ndim=2, mode="c"] pax2 = np.zeros((n_spikes, self.n_pos),dtype=np.float64, order="C")
  *         #print "n_spikes_g={}".format(n_spikes_g)
  */
-  __pyx_t_1 = PyObject_Length(__pyx_v_pax); if (unlikely(__pyx_t_1 == -1)) __PYX_ERR(0, 500, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_pax, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 500, __pyx_L1_error)
+  __pyx_t_1 = PyObject_Length(__pyx_v_pax); if (unlikely(__pyx_t_1 == -1)) __PYX_ERR(0, 502, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_pax, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 502, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyObject_Length(__pyx_t_2); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 500, __pyx_L1_error)
+  __pyx_t_3 = PyObject_Length(__pyx_t_2); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 502, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_n_spikes = (__pyx_t_1 * __pyx_t_3);
 
-  /* "gmmcompression/fkmixture.pyx":501
+  /* "gmmcompression/fkmixture.pyx":503
  * 
  *         n_spikes = len(pax)*len(pax[0])
  *         cdef np.ndarray[double, ndim=2, mode="c"] pax2 = np.zeros((n_spikes, self.n_pos),dtype=np.float64, order="C")             # <<<<<<<<<<<<<<
  *         #print "n_spikes_g={}".format(n_spikes_g)
  *         idx = 0
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 501, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 503, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 501, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 503, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyInt_FromSsize_t(__pyx_v_n_spikes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 501, __pyx_L1_error)
+  __pyx_t_2 = PyInt_FromSsize_t(__pyx_v_n_spikes); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 503, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_self->n_pos); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 501, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_self->n_pos); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 503, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 501, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 503, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_2);
@@ -10299,33 +10357,33 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_5);
   __pyx_t_2 = 0;
   __pyx_t_5 = 0;
-  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 501, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 503, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_6);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_6);
   __pyx_t_6 = 0;
-  __pyx_t_6 = PyDict_New(); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 501, __pyx_L1_error)
+  __pyx_t_6 = PyDict_New(); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 503, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 501, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 503, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_float64); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 501, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_float64); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 503, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_dtype, __pyx_t_7) < 0) __PYX_ERR(0, 501, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_dtype, __pyx_t_7) < 0) __PYX_ERR(0, 503, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 501, __pyx_L1_error)
-  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 501, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 503, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 503, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 501, __pyx_L1_error)
+  if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 503, __pyx_L1_error)
   __pyx_t_8 = ((PyArrayObject *)__pyx_t_7);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_pax2.rcbuffer->pybuffer, (PyObject*)__pyx_t_8, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) {
       __pyx_v_pax2 = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_pax2.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 501, __pyx_L1_error)
+      __PYX_ERR(0, 503, __pyx_L1_error)
     } else {__pyx_pybuffernd_pax2.diminfo[0].strides = __pyx_pybuffernd_pax2.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_pax2.diminfo[0].shape = __pyx_pybuffernd_pax2.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_pax2.diminfo[1].strides = __pyx_pybuffernd_pax2.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_pax2.diminfo[1].shape = __pyx_pybuffernd_pax2.rcbuffer->pybuffer.shape[1];
     }
   }
@@ -10333,7 +10391,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   __pyx_v_pax2 = ((PyArrayObject *)__pyx_t_7);
   __pyx_t_7 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":503
+  /* "gmmcompression/fkmixture.pyx":505
  *         cdef np.ndarray[double, ndim=2, mode="c"] pax2 = np.zeros((n_spikes, self.n_pos),dtype=np.float64, order="C")
  *         #print "n_spikes_g={}".format(n_spikes_g)
  *         idx = 0             # <<<<<<<<<<<<<<
@@ -10343,61 +10401,61 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_idx = __pyx_int_0;
 
-  /* "gmmcompression/fkmixture.pyx":504
+  /* "gmmcompression/fkmixture.pyx":506
  *         #print "n_spikes_g={}".format(n_spikes_g)
  *         idx = 0
  *         for i in range(len(pax)):             # <<<<<<<<<<<<<<
  *             for j in range(len(pax[i])):
  *                 #print "i={},j={}".format(i,j)
  */
-  __pyx_t_3 = PyObject_Length(__pyx_v_pax); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 504, __pyx_L1_error)
+  __pyx_t_3 = PyObject_Length(__pyx_v_pax); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 506, __pyx_L1_error)
   for (__pyx_t_1 = 0; __pyx_t_1 < __pyx_t_3; __pyx_t_1+=1) {
     __pyx_v_i = __pyx_t_1;
 
-    /* "gmmcompression/fkmixture.pyx":505
+    /* "gmmcompression/fkmixture.pyx":507
  *         idx = 0
  *         for i in range(len(pax)):
  *             for j in range(len(pax[i])):             # <<<<<<<<<<<<<<
  *                 #print "i={},j={}".format(i,j)
  *                 #print "pax[{}]={}".format(i,pax[i])
  */
-    __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_pax, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 505, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_pax, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 507, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_9 = PyObject_Length(__pyx_t_7); if (unlikely(__pyx_t_9 == -1)) __PYX_ERR(0, 505, __pyx_L1_error)
+    __pyx_t_9 = PyObject_Length(__pyx_t_7); if (unlikely(__pyx_t_9 == -1)) __PYX_ERR(0, 507, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
       __pyx_v_j = __pyx_t_10;
 
-      /* "gmmcompression/fkmixture.pyx":508
+      /* "gmmcompression/fkmixture.pyx":510
  *                 #print "i={},j={}".format(i,j)
  *                 #print "pax[{}]={}".format(i,pax[i])
  *                 pax2[idx] = pax[i][j]             # <<<<<<<<<<<<<<
  *                 idx = idx + 1
  *         #print "pax2={}".format(pax2)
  */
-      __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_pax, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 508, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_pax, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 510, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_6 = __Pyx_GetItemInt(__pyx_t_7, __pyx_v_j, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 508, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_GetItemInt(__pyx_t_7, __pyx_v_j, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 510, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_pax2), __pyx_v_idx, __pyx_t_6) < 0)) __PYX_ERR(0, 508, __pyx_L1_error)
+      if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_pax2), __pyx_v_idx, __pyx_t_6) < 0)) __PYX_ERR(0, 510, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "gmmcompression/fkmixture.pyx":509
+      /* "gmmcompression/fkmixture.pyx":511
  *                 #print "pax[{}]={}".format(i,pax[i])
  *                 pax2[idx] = pax[i][j]
  *                 idx = idx + 1             # <<<<<<<<<<<<<<
  *         #print "pax2={}".format(pax2)
  *         self._cpp_significanceanalyzer.updateBin(&pax2[0,0],&n_spikes_g[0],&mu[0],len(pax[0]),len(pax))
  */
-      __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_v_idx, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 509, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_v_idx, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 511, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF_SET(__pyx_v_idx, __pyx_t_6);
       __pyx_t_6 = 0;
     }
   }
 
-  /* "gmmcompression/fkmixture.pyx":511
+  /* "gmmcompression/fkmixture.pyx":513
  *                 idx = idx + 1
  *         #print "pax2={}".format(pax2)
  *         self._cpp_significanceanalyzer.updateBin(&pax2[0,0],&n_spikes_g[0],&mu[0],len(pax[0]),len(pax))             # <<<<<<<<<<<<<<
@@ -10417,7 +10475,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   } else if (unlikely(__pyx_t_12 >= __pyx_pybuffernd_pax2.diminfo[1].shape)) __pyx_t_13 = 1;
   if (unlikely(__pyx_t_13 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_13);
-    __PYX_ERR(0, 511, __pyx_L1_error)
+    __PYX_ERR(0, 513, __pyx_L1_error)
   }
   __pyx_t_14 = 0;
   __pyx_t_13 = -1;
@@ -10427,7 +10485,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   } else if (unlikely(__pyx_t_14 >= __pyx_pybuffernd_n_spikes_g.diminfo[0].shape)) __pyx_t_13 = 0;
   if (unlikely(__pyx_t_13 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_13);
-    __PYX_ERR(0, 511, __pyx_L1_error)
+    __PYX_ERR(0, 513, __pyx_L1_error)
   }
   __pyx_t_15 = 0;
   __pyx_t_13 = -1;
@@ -10437,32 +10495,32 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   } else if (unlikely(__pyx_t_15 >= __pyx_pybuffernd_mu.diminfo[0].shape)) __pyx_t_13 = 0;
   if (unlikely(__pyx_t_13 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_13);
-    __PYX_ERR(0, 511, __pyx_L1_error)
+    __PYX_ERR(0, 513, __pyx_L1_error)
   }
-  __pyx_t_6 = __Pyx_GetItemInt(__pyx_v_pax, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 511, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_GetItemInt(__pyx_v_pax, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 513, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = PyObject_Length(__pyx_t_6); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 511, __pyx_L1_error)
+  __pyx_t_3 = PyObject_Length(__pyx_t_6); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 513, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_1 = PyObject_Length(__pyx_v_pax); if (unlikely(__pyx_t_1 == -1)) __PYX_ERR(0, 511, __pyx_L1_error)
+  __pyx_t_1 = PyObject_Length(__pyx_v_pax); if (unlikely(__pyx_t_1 == -1)) __PYX_ERR(0, 513, __pyx_L1_error)
   __pyx_v_self->_cpp_significanceanalyzer->updateBin((&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_pax2.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_pax2.diminfo[0].strides, __pyx_t_12, __pyx_pybuffernd_pax2.diminfo[1].strides))), (&(*__Pyx_BufPtrCContig1d(int *, __pyx_pybuffernd_n_spikes_g.rcbuffer->pybuffer.buf, __pyx_t_14, __pyx_pybuffernd_n_spikes_g.diminfo[0].strides))), (&(*__Pyx_BufPtrCContig1d(double *, __pyx_pybuffernd_mu.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_mu.diminfo[0].strides))), __pyx_t_3, __pyx_t_1);
 
-  /* "gmmcompression/fkmixture.pyx":512
+  /* "gmmcompression/fkmixture.pyx":514
  *         #print "pax2={}".format(pax2)
  *         self._cpp_significanceanalyzer.updateBin(&pax2[0,0],&n_spikes_g[0],&mu[0],len(pax[0]),len(pax))
  *         cdef np.ndarray[double, ndim=2, mode="c"] prob = np.ones((self.n_shuffle, self.n_pos),dtype=np.float64, order="C")             # <<<<<<<<<<<<<<
  *         ready = self._cpp_significanceanalyzer.getProb(&prob[0,0])
  * 
  */
-  __pyx_t_6 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 512, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 514, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_ones); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 512, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_ones); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 514, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_self->n_shuffle); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 512, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_self->n_shuffle); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 514, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_self->n_pos); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 512, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_self->n_pos); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 514, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 512, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 514, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_6);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_6);
@@ -10470,33 +10528,33 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_5);
   __pyx_t_6 = 0;
   __pyx_t_5 = 0;
-  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 512, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 514, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = PyDict_New(); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 512, __pyx_L1_error)
+  __pyx_t_4 = PyDict_New(); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 514, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_6 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 512, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 514, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_float64); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 512, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_float64); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 514, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_2) < 0) __PYX_ERR(0, 512, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_2) < 0) __PYX_ERR(0, 514, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 512, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 512, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 514, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 514, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 512, __pyx_L1_error)
+  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 514, __pyx_L1_error)
   __pyx_t_16 = ((PyArrayObject *)__pyx_t_2);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_prob.rcbuffer->pybuffer, (PyObject*)__pyx_t_16, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 2, 0, __pyx_stack) == -1)) {
       __pyx_v_prob = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_prob.rcbuffer->pybuffer.buf = NULL;
-      __PYX_ERR(0, 512, __pyx_L1_error)
+      __PYX_ERR(0, 514, __pyx_L1_error)
     } else {__pyx_pybuffernd_prob.diminfo[0].strides = __pyx_pybuffernd_prob.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_prob.diminfo[0].shape = __pyx_pybuffernd_prob.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_prob.diminfo[1].strides = __pyx_pybuffernd_prob.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_prob.diminfo[1].shape = __pyx_pybuffernd_prob.rcbuffer->pybuffer.shape[1];
     }
   }
@@ -10504,7 +10562,7 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   __pyx_v_prob = ((PyArrayObject *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":513
+  /* "gmmcompression/fkmixture.pyx":515
  *         self._cpp_significanceanalyzer.updateBin(&pax2[0,0],&n_spikes_g[0],&mu[0],len(pax[0]),len(pax))
  *         cdef np.ndarray[double, ndim=2, mode="c"] prob = np.ones((self.n_shuffle, self.n_pos),dtype=np.float64, order="C")
  *         ready = self._cpp_significanceanalyzer.getProb(&prob[0,0])             # <<<<<<<<<<<<<<
@@ -10524,11 +10582,11 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   } else if (unlikely(__pyx_t_18 >= __pyx_pybuffernd_prob.diminfo[1].shape)) __pyx_t_13 = 1;
   if (unlikely(__pyx_t_13 != -1)) {
     __Pyx_RaiseBufferIndexError(__pyx_t_13);
-    __PYX_ERR(0, 513, __pyx_L1_error)
+    __PYX_ERR(0, 515, __pyx_L1_error)
   }
   __pyx_v_ready = __pyx_v_self->_cpp_significanceanalyzer->getProb((&(*__Pyx_BufPtrCContig2d(double *, __pyx_pybuffernd_prob.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_prob.diminfo[0].strides, __pyx_t_18, __pyx_pybuffernd_prob.diminfo[1].strides))));
 
-  /* "gmmcompression/fkmixture.pyx":515
+  /* "gmmcompression/fkmixture.pyx":517
  *         ready = self._cpp_significanceanalyzer.getProb(&prob[0,0])
  * 
  *         return prob,ready             # <<<<<<<<<<<<<<
@@ -10536,9 +10594,9 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
  *         #print pax[11][34]
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyBool_FromLong(__pyx_v_ready); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 515, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBool_FromLong(__pyx_v_ready); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 517, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 515, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 517, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(((PyObject *)__pyx_v_prob));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_prob));
@@ -10550,8 +10608,8 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "gmmcompression/fkmixture.pyx":498
- *         self._cpp_significanceanalyzer.uploadParam(&pix[0],&lx[0,0])
+  /* "gmmcompression/fkmixture.pyx":500
+ *         self._cpp_significanceanalyzer.uploadParam(&pix[0],&lx[0,0],&dsmat[0,0])
  * 
  *     def updateBin(self, pax, np.ndarray[int, ndim=1, mode="c"] n_spikes_g, np.ndarray[double, ndim=1, mode="c"] mu):             # <<<<<<<<<<<<<<
  * 
@@ -10591,8 +10649,172 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
   return __pyx_r;
 }
 
-/* "gmmcompression/fkmixture.pyx":520
+/* "gmmcompression/fkmixture.pyx":521
+ *         #print pax[11][34]
  *         #print pax2[419]
+ *     def assess(self, n_assess_bin):             # <<<<<<<<<<<<<<
+ *         self._cpp_significanceanalyzer.computeRwd(n_assess_bin)
+ *         cdef np.ndarray[double, ndim=1, mode="c"] rwd = np.ones((self.n_shuffle),dtype=np.float64, order="C")
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_7assess(PyObject *__pyx_v_self, PyObject *__pyx_v_n_assess_bin); /*proto*/
+static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_7assess(PyObject *__pyx_v_self, PyObject *__pyx_v_n_assess_bin) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("assess (wrapper)", 0);
+  __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_6assess(((struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *)__pyx_v_self), ((PyObject *)__pyx_v_n_assess_bin));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_6assess(struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self, PyObject *__pyx_v_n_assess_bin) {
+  PyArrayObject *__pyx_v_rwd = 0;
+  CYTHON_UNUSED bool __pyx_v_ready;
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_rwd;
+  __Pyx_Buffer __pyx_pybuffer_rwd;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  PyArrayObject *__pyx_t_7 = NULL;
+  Py_ssize_t __pyx_t_8;
+  __Pyx_RefNannySetupContext("assess", 0);
+  __pyx_pybuffer_rwd.pybuffer.buf = NULL;
+  __pyx_pybuffer_rwd.refcount = 0;
+  __pyx_pybuffernd_rwd.data = NULL;
+  __pyx_pybuffernd_rwd.rcbuffer = &__pyx_pybuffer_rwd;
+
+  /* "gmmcompression/fkmixture.pyx":522
+ *         #print pax2[419]
+ *     def assess(self, n_assess_bin):
+ *         self._cpp_significanceanalyzer.computeRwd(n_assess_bin)             # <<<<<<<<<<<<<<
+ *         cdef np.ndarray[double, ndim=1, mode="c"] rwd = np.ones((self.n_shuffle),dtype=np.float64, order="C")
+ *         ready = self._cpp_significanceanalyzer.getRwd(&rwd[0])
+ */
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n_assess_bin); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 522, __pyx_L1_error)
+  __pyx_v_self->_cpp_significanceanalyzer->computeRwd(__pyx_t_1);
+
+  /* "gmmcompression/fkmixture.pyx":523
+ *     def assess(self, n_assess_bin):
+ *         self._cpp_significanceanalyzer.computeRwd(n_assess_bin)
+ *         cdef np.ndarray[double, ndim=1, mode="c"] rwd = np.ones((self.n_shuffle),dtype=np.float64, order="C")             # <<<<<<<<<<<<<<
+ *         ready = self._cpp_significanceanalyzer.getRwd(&rwd[0])
+ *         return rwd
+ */
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 523, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_ones); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 523, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->n_shuffle); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 523, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 523, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2);
+  __pyx_t_2 = 0;
+  __pyx_t_2 = PyDict_New(); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 523, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 523, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_float64); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 523, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_6) < 0) __PYX_ERR(0, 523, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_order, __pyx_n_s_C) < 0) __PYX_ERR(0, 523, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 523, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (!(likely(((__pyx_t_6) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_6, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 523, __pyx_L1_error)
+  __pyx_t_7 = ((PyArrayObject *)__pyx_t_6);
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_rwd.rcbuffer->pybuffer, (PyObject*)__pyx_t_7, &__Pyx_TypeInfo_double, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) {
+      __pyx_v_rwd = ((PyArrayObject *)Py_None); __Pyx_INCREF(Py_None); __pyx_pybuffernd_rwd.rcbuffer->pybuffer.buf = NULL;
+      __PYX_ERR(0, 523, __pyx_L1_error)
+    } else {__pyx_pybuffernd_rwd.diminfo[0].strides = __pyx_pybuffernd_rwd.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_rwd.diminfo[0].shape = __pyx_pybuffernd_rwd.rcbuffer->pybuffer.shape[0];
+    }
+  }
+  __pyx_t_7 = 0;
+  __pyx_v_rwd = ((PyArrayObject *)__pyx_t_6);
+  __pyx_t_6 = 0;
+
+  /* "gmmcompression/fkmixture.pyx":524
+ *         self._cpp_significanceanalyzer.computeRwd(n_assess_bin)
+ *         cdef np.ndarray[double, ndim=1, mode="c"] rwd = np.ones((self.n_shuffle),dtype=np.float64, order="C")
+ *         ready = self._cpp_significanceanalyzer.getRwd(&rwd[0])             # <<<<<<<<<<<<<<
+ *         return rwd
+ * 
+ */
+  __pyx_t_8 = 0;
+  __pyx_t_1 = -1;
+  if (__pyx_t_8 < 0) {
+    __pyx_t_8 += __pyx_pybuffernd_rwd.diminfo[0].shape;
+    if (unlikely(__pyx_t_8 < 0)) __pyx_t_1 = 0;
+  } else if (unlikely(__pyx_t_8 >= __pyx_pybuffernd_rwd.diminfo[0].shape)) __pyx_t_1 = 0;
+  if (unlikely(__pyx_t_1 != -1)) {
+    __Pyx_RaiseBufferIndexError(__pyx_t_1);
+    __PYX_ERR(0, 524, __pyx_L1_error)
+  }
+  __pyx_v_ready = __pyx_v_self->_cpp_significanceanalyzer->getRwd((&(*__Pyx_BufPtrCContig1d(double *, __pyx_pybuffernd_rwd.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_rwd.diminfo[0].strides))));
+
+  /* "gmmcompression/fkmixture.pyx":525
+ *         cdef np.ndarray[double, ndim=1, mode="c"] rwd = np.ones((self.n_shuffle),dtype=np.float64, order="C")
+ *         ready = self._cpp_significanceanalyzer.getRwd(&rwd[0])
+ *         return rwd             # <<<<<<<<<<<<<<
+ * 
+ *     def __deaclloc__(self):
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(((PyObject *)__pyx_v_rwd));
+  __pyx_r = ((PyObject *)__pyx_v_rwd);
+  goto __pyx_L0;
+
+  /* "gmmcompression/fkmixture.pyx":521
+ *         #print pax[11][34]
+ *         #print pax2[419]
+ *     def assess(self, n_assess_bin):             # <<<<<<<<<<<<<<
+ *         self._cpp_significanceanalyzer.computeRwd(n_assess_bin)
+ *         cdef np.ndarray[double, ndim=1, mode="c"] rwd = np.ones((self.n_shuffle),dtype=np.float64, order="C")
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_rwd.rcbuffer->pybuffer);
+  __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
+  __Pyx_AddTraceback("gmmcompression.fkmixture.SignificanceAnalyzerClass.assess", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  goto __pyx_L2;
+  __pyx_L0:;
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_rwd.rcbuffer->pybuffer);
+  __pyx_L2:;
+  __Pyx_XDECREF((PyObject *)__pyx_v_rwd);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "gmmcompression/fkmixture.pyx":527
+ *         return rwd
  * 
  *     def __deaclloc__(self):             # <<<<<<<<<<<<<<
  *         del self._cpp_significanceanalyzer
@@ -10600,24 +10822,24 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_7__deaclloc__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_7__deaclloc__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_9__deaclloc__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_9__deaclloc__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__deaclloc__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_6__deaclloc__(((struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *)__pyx_v_self));
+  __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_8__deaclloc__(((struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_6__deaclloc__(struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self) {
+static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_8__deaclloc__(struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__deaclloc__", 0);
 
-  /* "gmmcompression/fkmixture.pyx":521
+  /* "gmmcompression/fkmixture.pyx":528
  * 
  *     def __deaclloc__(self):
  *         del self._cpp_significanceanalyzer             # <<<<<<<<<<<<<<
@@ -10625,8 +10847,8 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
  */
   delete __pyx_v_self->_cpp_significanceanalyzer;
 
-  /* "gmmcompression/fkmixture.pyx":520
- *         #print pax2[419]
+  /* "gmmcompression/fkmixture.pyx":527
+ *         return rwd
  * 
  *     def __deaclloc__(self):             # <<<<<<<<<<<<<<
  *         del self._cpp_significanceanalyzer
@@ -10647,19 +10869,19 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_9__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_9__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_11__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_11__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_8__reduce_cython__(((struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *)__pyx_v_self));
+  __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_10__reduce_cython__(((struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_8__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self) {
+static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_10__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -10701,19 +10923,19 @@ static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClas
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_11__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_11__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_13__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_13__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_10__setstate_cython__(((struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_12__setstate_cython__(((struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_10__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_12__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_14gmmcompression_9fkmixture_SignificanceAnalyzerClass *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -13805,9 +14027,10 @@ static void __pyx_tp_dealloc_14gmmcompression_9fkmixture_SignificanceAnalyzerCla
 static PyMethodDef __pyx_methods_14gmmcompression_9fkmixture_SignificanceAnalyzerClass[] = {
   {"uploadParam", (PyCFunction)__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_3uploadParam, METH_VARARGS|METH_KEYWORDS, 0},
   {"updateBin", (PyCFunction)__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_5updateBin, METH_VARARGS|METH_KEYWORDS, 0},
-  {"__deaclloc__", (PyCFunction)__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_7__deaclloc__, METH_NOARGS, 0},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_9__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_11__setstate_cython__, METH_O, 0},
+  {"assess", (PyCFunction)__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_7assess, METH_O, 0},
+  {"__deaclloc__", (PyCFunction)__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_9__deaclloc__, METH_NOARGS, 0},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_11__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_14gmmcompression_9fkmixture_25SignificanceAnalyzerClass_13__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
@@ -13913,6 +14136,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_covariance_match, __pyx_k_covariance_match, sizeof(__pyx_k_covariance_match), 0, 0, 1, 1},
   {&__pyx_n_s_data, __pyx_k_data, sizeof(__pyx_k_data), 0, 0, 1, 1},
   {&__pyx_n_s_diagonal, __pyx_k_diagonal, sizeof(__pyx_k_diagonal), 0, 0, 1, 1},
+  {&__pyx_n_s_dmax, __pyx_k_dmax, sizeof(__pyx_k_dmax), 0, 0, 1, 1},
+  {&__pyx_n_s_dsmat, __pyx_k_dsmat, sizeof(__pyx_k_dsmat), 0, 0, 1, 1},
   {&__pyx_n_s_dtype, __pyx_k_dtype, sizeof(__pyx_k_dtype), 0, 0, 1, 1},
   {&__pyx_n_s_empty, __pyx_k_empty, sizeof(__pyx_k_empty), 0, 0, 1, 1},
   {&__pyx_n_s_end, __pyx_k_end, sizeof(__pyx_k_end), 0, 0, 1, 1},
@@ -13980,9 +14205,9 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(0, 123, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 504, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 506, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(2, 218, __pyx_L1_error)
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(2, 799, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(2, 989, __pyx_L1_error)
@@ -14290,30 +14515,30 @@ PyMODINIT_FUNC PyInit_fkmixture(void)
   /*--- Variable export code ---*/
   /*--- Function export code ---*/
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_14gmmcompression_9fkmixture_CovarianceClass) < 0) __PYX_ERR(0, 109, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_14gmmcompression_9fkmixture_CovarianceClass) < 0) __PYX_ERR(0, 111, __pyx_L1_error)
   __pyx_type_14gmmcompression_9fkmixture_CovarianceClass.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "CovarianceClass", (PyObject *)&__pyx_type_14gmmcompression_9fkmixture_CovarianceClass) < 0) __PYX_ERR(0, 109, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_14gmmcompression_9fkmixture_CovarianceClass) < 0) __PYX_ERR(0, 109, __pyx_L1_error)
+  if (PyObject_SetAttrString(__pyx_m, "CovarianceClass", (PyObject *)&__pyx_type_14gmmcompression_9fkmixture_CovarianceClass) < 0) __PYX_ERR(0, 111, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_14gmmcompression_9fkmixture_CovarianceClass) < 0) __PYX_ERR(0, 111, __pyx_L1_error)
   __pyx_ptype_14gmmcompression_9fkmixture_CovarianceClass = &__pyx_type_14gmmcompression_9fkmixture_CovarianceClass;
-  if (PyType_Ready(&__pyx_type_14gmmcompression_9fkmixture_ComponentClass) < 0) __PYX_ERR(0, 140, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_14gmmcompression_9fkmixture_ComponentClass) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
   __pyx_type_14gmmcompression_9fkmixture_ComponentClass.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "ComponentClass", (PyObject *)&__pyx_type_14gmmcompression_9fkmixture_ComponentClass) < 0) __PYX_ERR(0, 140, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_14gmmcompression_9fkmixture_ComponentClass) < 0) __PYX_ERR(0, 140, __pyx_L1_error)
+  if (PyObject_SetAttrString(__pyx_m, "ComponentClass", (PyObject *)&__pyx_type_14gmmcompression_9fkmixture_ComponentClass) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_14gmmcompression_9fkmixture_ComponentClass) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
   __pyx_ptype_14gmmcompression_9fkmixture_ComponentClass = &__pyx_type_14gmmcompression_9fkmixture_ComponentClass;
-  if (PyType_Ready(&__pyx_type_14gmmcompression_9fkmixture_MixtureClass) < 0) __PYX_ERR(0, 180, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_14gmmcompression_9fkmixture_MixtureClass) < 0) __PYX_ERR(0, 182, __pyx_L1_error)
   __pyx_type_14gmmcompression_9fkmixture_MixtureClass.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "MixtureClass", (PyObject *)&__pyx_type_14gmmcompression_9fkmixture_MixtureClass) < 0) __PYX_ERR(0, 180, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_14gmmcompression_9fkmixture_MixtureClass) < 0) __PYX_ERR(0, 180, __pyx_L1_error)
+  if (PyObject_SetAttrString(__pyx_m, "MixtureClass", (PyObject *)&__pyx_type_14gmmcompression_9fkmixture_MixtureClass) < 0) __PYX_ERR(0, 182, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_14gmmcompression_9fkmixture_MixtureClass) < 0) __PYX_ERR(0, 182, __pyx_L1_error)
   __pyx_ptype_14gmmcompression_9fkmixture_MixtureClass = &__pyx_type_14gmmcompression_9fkmixture_MixtureClass;
-  if (PyType_Ready(&__pyx_type_14gmmcompression_9fkmixture_GpuDecoderClass) < 0) __PYX_ERR(0, 417, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_14gmmcompression_9fkmixture_GpuDecoderClass) < 0) __PYX_ERR(0, 419, __pyx_L1_error)
   __pyx_type_14gmmcompression_9fkmixture_GpuDecoderClass.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "GpuDecoderClass", (PyObject *)&__pyx_type_14gmmcompression_9fkmixture_GpuDecoderClass) < 0) __PYX_ERR(0, 417, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_14gmmcompression_9fkmixture_GpuDecoderClass) < 0) __PYX_ERR(0, 417, __pyx_L1_error)
+  if (PyObject_SetAttrString(__pyx_m, "GpuDecoderClass", (PyObject *)&__pyx_type_14gmmcompression_9fkmixture_GpuDecoderClass) < 0) __PYX_ERR(0, 419, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_14gmmcompression_9fkmixture_GpuDecoderClass) < 0) __PYX_ERR(0, 419, __pyx_L1_error)
   __pyx_ptype_14gmmcompression_9fkmixture_GpuDecoderClass = &__pyx_type_14gmmcompression_9fkmixture_GpuDecoderClass;
-  if (PyType_Ready(&__pyx_type_14gmmcompression_9fkmixture_SignificanceAnalyzerClass) < 0) __PYX_ERR(0, 482, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_14gmmcompression_9fkmixture_SignificanceAnalyzerClass) < 0) __PYX_ERR(0, 484, __pyx_L1_error)
   __pyx_type_14gmmcompression_9fkmixture_SignificanceAnalyzerClass.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "SignificanceAnalyzerClass", (PyObject *)&__pyx_type_14gmmcompression_9fkmixture_SignificanceAnalyzerClass) < 0) __PYX_ERR(0, 482, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_14gmmcompression_9fkmixture_SignificanceAnalyzerClass) < 0) __PYX_ERR(0, 482, __pyx_L1_error)
+  if (PyObject_SetAttrString(__pyx_m, "SignificanceAnalyzerClass", (PyObject *)&__pyx_type_14gmmcompression_9fkmixture_SignificanceAnalyzerClass) < 0) __PYX_ERR(0, 484, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_14gmmcompression_9fkmixture_SignificanceAnalyzerClass) < 0) __PYX_ERR(0, 484, __pyx_L1_error)
   __pyx_ptype_14gmmcompression_9fkmixture_SignificanceAnalyzerClass = &__pyx_type_14gmmcompression_9fkmixture_SignificanceAnalyzerClass;
   /*--- Type import code ---*/
   __pyx_ptype_7cpython_4type_type = __Pyx_ImportType(__Pyx_BUILTIN_MODULE_NAME, "type", 
@@ -14357,27 +14582,27 @@ PyMODINIT_FUNC PyInit_fkmixture(void)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_pdb, __pyx_t_1) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "gmmcompression/fkmixture.pyx":409
+  /* "gmmcompression/fkmixture.pyx":411
  * 
  *     @classmethod
  *     def fromfile(cls, filename):             # <<<<<<<<<<<<<<
  *         result = MixtureClass(ndim=0)
  *         result._c_mixture = mixture_load_from_file( filename )
  */
-  __pyx_t_1 = __Pyx_GetNameInClass((PyObject *)__pyx_ptype_14gmmcompression_9fkmixture_MixtureClass, __pyx_n_s_fromfile); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 409, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetNameInClass((PyObject *)__pyx_ptype_14gmmcompression_9fkmixture_MixtureClass, __pyx_n_s_fromfile); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 411, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "gmmcompression/fkmixture.pyx":408
+  /* "gmmcompression/fkmixture.pyx":410
  *         return mixture_save_to_file( self._c_mixture, filename )
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def fromfile(cls, filename):
  *         result = MixtureClass(ndim=0)
  */
-  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 408, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 410, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_14gmmcompression_9fkmixture_MixtureClass->tp_dict, __pyx_n_s_fromfile, __pyx_t_2) < 0) __PYX_ERR(0, 409, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_14gmmcompression_9fkmixture_MixtureClass->tp_dict, __pyx_n_s_fromfile, __pyx_t_2) < 0) __PYX_ERR(0, 411, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_14gmmcompression_9fkmixture_MixtureClass);
 

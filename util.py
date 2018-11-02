@@ -138,7 +138,7 @@ def getTrainSet(behavior, ephys, config):
     print ""
     return train, training_time
 
-def getTestSet(behavior, ephys, config, event = [], replay=False):
+def getTestSet(behavior, ephys, config, event = [], replay=False, rm_no_spk=True, count_bins_each_event=True):
     """
     get train set from run epoch based on configuration
 
@@ -195,37 +195,48 @@ def getTestSet(behavior, ephys, config, event = [], replay=False):
         n_spikes_all = n_spikes_all + n_spikes[i]
         sum_tt.append(sum(n_spikes[i]))
         mean_tt.append(np.mean(n_spikes[i]))
+    print"get spike count done"
     n_spikes_bin = []
     for i in range(len(n_spikes_all)):
         n_spikes_bin.append(np.asarray([n_spikes[j][i] for j in range(len(ephys))],dtype=np.int32))
         if n_spikes_all[i] > max_spike:
             max_spike = n_spikes_all[i]
             max_bin = i
-    for j,n in enumerate(n_spikes_all):
-        if n==0:
-            no_spike_bin_idx.append(j)
-        else:
-            spike_bin_idx.append(j)
-    if len(no_spike_bin_idx)>0:
-        test_binned = test_binned[spike_bin_idx]
+    print"get spike count per bin done"
+    if rm_no_spk:
+        for j,n in enumerate(n_spikes_all):
+            if n==0:
+                no_spike_bin_idx.append(j)
+            else:
+                spike_bin_idx.append(j)
+        if len(no_spike_bin_idx)>0:
+            test_binned = test_binned[spike_bin_idx]
+        print "{} no spike bins removed".format(len(no_spike_bin_idx))
+
     testing_time = np.sum( test_binned.duration )
     print "testing_time={} s".format(testing_time)
     print ""
 
-    # get number of bins in each event
-    if replay:
-        event_bins = [[]]*len(test)
-        for j,evnt_bin in enumerate(test_binned):
-            for i,env in enumerate(test):
-                if env[0]<=evnt_bin[0] and env[1]>=evnt_bin[1]:
-                    event_bins[i] = event_bins[i] + [j];
-                    break
-        #spio.savemat('event_bins.mat',{'event_bins':event_bins})
-        true_behavior = []
+    if count_bins_each_event:
+        # get number of bins in each event
+        if replay:
+            event_bins = [[]]*len(test)
+            for j,evnt_bin in enumerate(test_binned):
+                for i,env in enumerate(test):
+                    if env[0]<=evnt_bin[0] and env[1]>=evnt_bin[1]:
+                        event_bins[i] = event_bins[i] + [j];
+                        break
+            #spio.savemat('event_bins.mat',{'event_bins':event_bins})
+            true_behavior = []
+        else:
+            event_bins = []
+            true_behavior = interpolate.interp1d( behavior["time"], behavior["linear_position"],\
+                    kind='linear', axis=0 ) ( test_binned.center )
+        print"get #bins in each event done"
     else:
-        event_bins = []
-        true_behavior = interpolate.interp1d( behavior["time"], behavior["linear_position"],\
-                kind='linear', axis=0 ) ( test_binned.center )
+        event_bins=len(test_binned)
+        true_behavior = []
+    
     return test_binned, event_bins, n_spikes_all, true_behavior
 
 def load_mcd_from_file(file_path,n_features,n_shanks,config):
@@ -261,7 +272,7 @@ def encode(train, behavior, ephys, config, save=False):
     n_features = len(ephys[u'TT1']['spike_amplitudes'][0])
     n_shanks = len(ephys)
     covars = create_covariance_array( config.behav_bw_cm, config.spf_bw_mV, n_features)
-
+    pdb.set_trace()
     print "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
     print "encoding"
     print "n_features = {}".format(n_features)
@@ -299,7 +310,7 @@ def encode(train, behavior, ephys, config, save=False):
     return mcd_spikebehav, mcd_behav, tetrode_inclusion_mask, n_train_spike
 
 def getGrid(behavior,config):
-    half_grid_size_cm = config.grid_element_size_cm / 2
+    half_grid_size_cm = config.grid_element_size_cm / 2.0
     xgrid_vector = np.arange( np.nanmin( behavior["linear_position"] ) + half_grid_size_cm,\
         np.nanmax( behavior["linear_position"] ) - half_grid_size_cm, config.grid_element_size_cm )
     grid = xgrid_vector.reshape( (len(xgrid_vector),1) )
@@ -339,6 +350,8 @@ def getTestSpikes(spike_features, bins,  tt_included, spike_ampl_mask, bin_size,
         test_spikes_binned = []
         n_spikes_binned = []
         for i in range(len(bins)):
+            if i%1000==0:
+                print"{} bins done".format(i)
             test_spikes,n_spikes = testSpikes(spike_features,bins[i],tt_included,spike_ampl_mask,sf_keys)
             if shuffle:
                 test_spikes_tmp = []

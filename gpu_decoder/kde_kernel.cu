@@ -1005,9 +1005,303 @@ int launch_ll_bin_kernel(float* pax, float* p_mo, float* offset, float* prob, in
     }
 }
 
-
-
-__global__ void sig_kernel(float* prob, float* trans_mat, int n_shf, size_t g_pitch, int n_pos, int n_bin, float* sig )
+// current setting requires n_pos<=BS, for a proper synchronization with block
+__global__ void normalize_kernel(float* prob, int n_pos, int n_shuffle, size_t g_pitch, int bin_idx)
 {
-    
+    int g_idx = blockIdx.x*blockDim.x + threadIdx.x;
+    int shf_idx = blockIdx.y;
+    float* p_prob = (float*)((char*)prob + (shf_idx + n_shuffle*bin_idx)*g_pitch);
+    // step 1 sum all the log_prob for mean
+    __shared__ float tmp;
+    if (g_idx==0)
+    {
+        tmp = 0;
+	for (int i=0;i<n_pos;i++)
+	{
+	    tmp += p_prob[i];
+	}
+        tmp = tmp/n_pos;
+    }
+    __syncthreads();
+    // step 2 exp
+    __shared__ float exp_prob[64];
+    exp_prob[g_idx]=__expf(p_prob[g_idx]-tmp);
+    // step 3 compute sum
+    __syncthreads();
+    if (g_idx==0)
+    {
+        tmp = 0;
+        for (int i=0;i<n_pos;i++)
+	{
+	    tmp += exp_prob[i];
+	}
+    }
+    __syncthreads();
+    // step 4 normalize
+    p_prob[g_idx] = exp_prob[g_idx]/tmp;
+}
+
+int launch_normalize_kernel(float* prob, size_t g_pitch, int n_pos, int bin_idx, int n_shuffle)
+{
+    int bs = 64;
+    //dim3 blockdim(bs,n_bin);
+    dim3 griddim((n_pos-1)/bs +1,n_shuffle);
+    cudaError_t cuda_result_code1 = cudaGetLastError();
+    if (cuda_result_code1!=cudaSuccess) {
+        printf("message norm kernel3: %s\n",cudaGetErrorString(cuda_result_code1));
+	//return -1;
+    }
+    normalize_kernel<<<griddim,bs>>>(prob, n_pos, n_shuffle, g_pitch, bin_idx);
+    // synch current stream
+    cudaDeviceSynchronize();
+    cudaError_t cuda_result_code = cudaGetLastError();
+    if (cuda_result_code!=cudaSuccess) {
+        printf("message norm kernel2: %s\n",cudaGetErrorString(cuda_result_code));
+	return -1;
+    }
+    return 0;
+}
+// current version uses 2 weights
+__global__ void rwd_kernel(float* prob, float* dsmat, int n_shf, size_t g_pitch, int n_pos, int n_bin, float* rwd, float dmax, int bin_idx, int bin_buf_sz)
+{
+    int shf_idx = blockIdx.x*blockDim.x + threadIdx.x;
+     
+    float* p_prob;
+    float* p_dsmat;
+    float max2[50][2];
+    float B_tmp[50][2];
+    int max2_idx[50][2];
+    float dist_states[50][50];
+    float A[50][50];
+    float B[50][50];
+    float tmp;
+
+    int actual_bin_idx = (bin_idx-n_bin + bin_buf_sz)%bin_buf_sz;
+    if (shf_idx==0)
+    {
+        //printf("actual_bin_idx=%d,bin_idx=%d,bin_buf_sz=%d\n",actual_bin_idx,bin_idx,bin_buf_sz);
+    }
+
+    for (int i=0;i<n_bin;i++)
+    {
+        // step 1: find the largest two probiblities 
+        p_prob = (float*)((char*)prob + (shf_idx + n_shf*actual_bin_idx)*g_pitch);
+        actual_bin_idx = (actual_bin_idx + 1)%bin_buf_sz;
+	max2[i][0] = 0;
+	max2[i][1] = 0;
+	// sort for two largest
+	for (int k=0;k<2;k++)
+	{
+	    for (int j=0;j<n_pos;j++)
+	    {
+		if (p_prob[j]>max2[i][k])
+		{
+		    max2[i][k] = p_prob[j];
+		    max2_idx[i][k] = j;
+		}
+	    }
+	    p_prob[max2_idx[i][k]]=0;
+	}
+	p_prob[max2_idx[i][0]]=max2[i][0];
+	p_prob[max2_idx[i][1]]=max2[i][1];
+	tmp = max2[i][0]+max2[i][1];
+	if (tmp>0)
+	{
+	    max2[i][0]=max2[i][0]/tmp;
+   	    max2[i][1]=max2[i][1]/tmp;
+	}
+    // for debugging
+	//if (shf_idx==0)
+//	{
+	    //printf("bin_idx=%d,prob[0]=%f,prob[1]=%f,max[0]=[%d]%f,max[1]=[%d]%f\n",i,p_prob[0],p_prob[1],max2_idx[i][0],max2[i][0],max2_idx[i][1],max2[i][1]);
+//	}
+    }
+    // step 2: compute dist states
+    for (int j=0;j<n_bin;j++)
+    {
+        for (int k=0;k<n_bin;k++)
+	{
+	    dist_states[j][k] = 0;
+	    if (j!=k)
+	    {
+		for (int n=0;n<2;n++)
+		{
+		    for(int m=0;m<2;m++)
+		    {
+			p_dsmat = (float*)((char*)dsmat + (max2_idx[j][n])*g_pitch);
+			dist_states[j][k] += (max2[j][n])*(max2[k][m])*(p_dsmat[max2_idx[k][m]]);
+		    }
+		}
+	    }
+	}
+    }
+    // for debugging
+    /*
+    if(shf_idx==0)
+    {
+        for (int j=0;j<5;j++)
+	{
+	    for (int k=0;k<5;k++)
+	    {
+                printf("dist_states[%d][%d]=%f,",j,k,dist_states[j][k]);
+	    }
+	    printf("\n");
+	}
+    }
+    */
+    /*
+    if (shf_idx==0)
+    {
+        for (int j=0;j<n_bin;j++)
+	{
+            p_prob = (float*)((char*)prob + (shf_idx + n_shf*j)*g_pitch);
+	    for (int k=0;k<n_bin;k++)
+	    {
+		printf("%f,",p_prob[k]);
+	    }
+	    printf("\n");
+	}
+    }*/
+    // step 3: compute A and B
+    // reuse max2 array
+    //compute dist_time
+    for (int j=0;j<n_bin;j++)
+    {
+        for (int k=0;k<n_bin;k++)
+	{
+	    if (abs(j-k)>=3)
+	    {
+	        A[j][k] = dmax;
+	    }
+	    else
+	    {
+	        A[j][k] = (abs(j-k)*dmax/3.0);
+	    }
+	}
+    }
+    /*
+    if(shf_idx==0)
+    {
+        for (int j=0;j<5;j++)
+	{
+	    for (int k=0;k<5;k++)
+	    {
+                printf("A[%d][%d]=%f,",j,k,A[j][k]);
+	    }
+	    printf("\n");
+	}
+    }
+    */
+
+    //compute row and col means
+    float ma = 0;
+    float mb = 0;
+    for (int j=0;j<n_bin;j++)
+    {
+        max2[j][0]=0;
+	B_tmp[j][0]=0;
+        max2[j][1]=0;
+	B_tmp[j][1]=0;
+        for (int k=0;k<n_bin;k++)
+	{
+	   max2[j][0] += A[j][k];
+	   max2[j][1] += A[k][j];
+	   B_tmp[j][0] += dist_states[j][k];
+	   B_tmp[j][1] += dist_states[k][j];
+	}
+	ma += max2[j][0];
+	mb += B_tmp[j][0];
+        max2[j][0] /= n_bin;
+        max2[j][1] /= n_bin;
+        B_tmp[j][0] /= n_bin;
+        B_tmp[j][1] /= n_bin;
+    }
+    ma /= (n_bin*n_bin);
+    mb /= (n_bin*n_bin);
+    //for debugging
+    /*
+    if(shf_idx==0)
+    {
+        for (int j=0;j<2;j++)
+	{
+	    for (int k=0;k<5;k++)
+	    {
+                printf("B_tmp[%d][%d]=%f,",k,j,B_tmp[k][j]);
+	    }
+	    printf("\n");
+	}
+	printf("ma=%f,mb=%f\n",ma,mb);
+    }
+    */
+    // compute A,B & covariance and variance
+    float dcov=0;
+    float dvarx=0;
+    float dvary=0;
+    for (int j=0;j<n_bin;j++)
+    {
+        for (int k=0;k<n_bin;k++)
+	{
+	    A[j][k] = A[j][k] - max2[j][0] - max2[k][1] + ma;
+	    dist_states[j][k] = dist_states[j][k] - B_tmp[j][0] - B_tmp[k][1] + mb;
+	    dcov += A[j][k]*dist_states[j][k];
+	    dvarx += A[j][k]*A[j][k];
+	    dvary += dist_states[j][k]*dist_states[j][k];
+	}
+    }
+    //for debugging
+    /*
+    if(shf_idx==0)
+    {
+        for (int j=0;j<5;j++)
+	{
+	    for (int k=0;k<5;k++)
+	    {
+                printf("dist_states[%d][%d]=%f,",j,k,dist_states[j][k]);
+	    }
+	    printf("\n");
+	}
+    }
+    */
+    dcov /= (n_bin*n_bin);
+    dvarx /= (n_bin*n_bin);
+    dvary /= (n_bin*n_bin);
+    // step 4: compute covariance and variance
+    rwd[shf_idx] = sqrt(dcov/sqrt(dvarx*dvary));
+    if (dcov<0)
+    {
+        rwd[shf_idx]=0;
+    }
+    if (shf_idx==1)
+    {
+        //printf("rwd=%f,dcov=%f,dvarx=%f,dvary=%f\n",rwd[shf_idx],dcov,dvarx,dvary);
+	/*for (int j=0;j<n_bin;j++)
+	{
+	    for (int k=0;k<n_bin;k++)
+	    {
+	        printf("%f,",dist_states[j][k]);
+	    }
+	    printf("\n");
+	}*/
+    }
+}
+
+int launch_rwd_kernel(float* prob, float* dsmat, int n_shuffle, size_t g_pitch, int n_pos, int n_bin, float* rwd, float dmax, int bin_idx, int bin_buf_sz)
+{
+    int bs = 64;
+    //dim3 blockdim(bs,n_bin);
+    int griddim =  (n_shuffle-1)/bs +1;
+    cudaError_t cuda_result_code1 = cudaGetLastError();
+    if (cuda_result_code1!=cudaSuccess) {
+        printf("message rwd kernel3: %s\n",cudaGetErrorString(cuda_result_code1));
+	//return -1;
+    }
+    rwd_kernel<<<griddim,bs>>>(prob, dsmat, n_shuffle, g_pitch, n_pos, n_bin, rwd, dmax, bin_idx, bin_buf_sz);
+    // synch current stream
+    cudaDeviceSynchronize();
+    cudaError_t cuda_result_code = cudaGetLastError();
+    if (cuda_result_code!=cudaSuccess) {
+        printf("message rwd kernel2: %s\n",cudaGetErrorString(cuda_result_code));
+	return -1;
+    }
+    return 0;
 }

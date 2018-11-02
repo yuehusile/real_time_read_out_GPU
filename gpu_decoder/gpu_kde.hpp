@@ -280,7 +280,9 @@ private:
     int n_spike_group_; // spike group means tetrodes or shanks, or any other way to group the spike channels
     int n_gr_;          // the pax block size
     float bin_size_;    // size of time bin (s)
-    
+    float dmax_;
+    float max_prob_;
+
     int n_pax_;         // number of paxes in current pax buffer
     int shf_idx_size_;  // size of shuffle indexes,eg. how many paxes to be shuffled.
     size_t g_pitch_;    // for aligned memory allocations (spatial bin)
@@ -310,6 +312,10 @@ private:
     int* shift_idx_cpu_;
     int* shf_idx_cpu_;
     float* prob_cpu_;
+    float* dsmat_;
+    float* dsmat_cpu_;
+    float* rwd_;
+    float* rwd_cpu_;
     // memory allocator
     int allocateMem();
     // memory de-allocator
@@ -321,14 +327,14 @@ private:
 public:
 
     // constructor
-    SignificanceAnalyzer(const int n_pos, const int n_group, const float bin_size,
+    SignificanceAnalyzer(const int n_pos, const int n_group, const float bin_size, const float dmax,
 	const int n_shf = 1000, const int n_tbin = 10, const int max_sp = 100, const  int shf_id_sz = 5000):
 	//const int n_shf = 1000, const int n_tbin = 10, const int max_sp = 100, const  int shf_id_sz = 10):
       n_shuffle_(n_shf),n_time_bin_(n_tbin),n_spatial_bin_(n_pos),max_spikes_(max_sp),n_spike_group_(n_group),n_gr_(n_group*n_tbin),
-      bin_size_(bin_size), shf_idx_size_(shf_id_sz), n_pax_(0),
+      bin_size_(bin_size), dmax_(dmax), max_prob_(0), shf_idx_size_(shf_id_sz), n_pax_(0),
       g_pitch_(0), s_pitch_(0), head(0), bin_head(0),full_(false),
       pax_(nullptr),offset_(nullptr),cum_n_spikes_(nullptr),prob_(nullptr),shf_idx_(nullptr),pix_(nullptr),lx_(nullptr),shift_idx_(nullptr),
-      pix_cpu_(nullptr),lx_cpu_(nullptr),pax_cpu_(nullptr),offset_cpu_(nullptr),n_spikes_cpu_(nullptr),cum_n_spikes_cpu_(nullptr),shift_idx_cpu_(nullptr),shf_idx_cpu_(nullptr),prob_cpu_(nullptr)
+      pix_cpu_(nullptr),lx_cpu_(nullptr),pax_cpu_(nullptr),offset_cpu_(nullptr),n_spikes_cpu_(nullptr),cum_n_spikes_cpu_(nullptr),shift_idx_cpu_(nullptr),shf_idx_cpu_(nullptr),prob_cpu_(nullptr),dsmat_(nullptr),dsmat_cpu_(nullptr), rwd_(nullptr), rwd_cpu_(nullptr)
     {
         allocateMem();
 	//printf("g_pitch=%d",(int)g_pitch_);
@@ -353,7 +359,7 @@ public:
     }
     
     // copy pix/lx to GPU
-    void uploadParam(double* pix, double* lx);
+    void uploadParam(double* pix, double* lx, double* dsmat);
     // add decoding results of new bin into buffer
     //void updateBin(double* pax, int* n_spikes_g, const int n_spikes, const int n_group);
     void updateBin(double* pax, int* n_spikes_g, double* mu, const int n_spikes, const int n_group);
@@ -390,7 +396,10 @@ public:
 	printf("total=%funit=ms\n",total);
     }
 
-    float significance();
+    //int normalize();
+
+    void computeRwd(int n_assess_bin);
+    bool getRwd(double* rwd);
 
     // buffer access methods
     float* pax(const int spike_idx);// return the buffer pitch pointer based on spike index(inside shuffle access)

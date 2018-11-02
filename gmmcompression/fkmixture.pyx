@@ -100,10 +100,12 @@ cdef extern from "../gpu_decoder/gpu_kde.hpp" nogil:
 
 cdef extern from "../gpu_decoder/gpu_kde.hpp" nogil:
     cdef cppclass SignificanceAnalyzer:
-        SignificanceAnalyzer(const int n_pos, const int n_group, const float bin_size, const int n_shf, const int n_tbin,const int max_sp) except +
-        void uploadParam(double* pix, double* lx)
+        SignificanceAnalyzer(const int n_pos, const int n_group, const float bin_size, const float dmax, const int n_shf, const int n_tbin, const int max_sp) except +
+        void uploadParam(double* pix, double* lx, double* dsmat)
         void updateBin(double* pax, int* n_spikes_g, double* mu, int n_spikes, int n_group )
         bool_t getProb(double* prob)
+        void computeRwd(int n_assess_bin)
+        bool_t getRwd(double* rwd)
         void clear()
 
 cdef class CovarianceClass:
@@ -485,15 +487,15 @@ cdef class SignificanceAnalyzerClass:
     cdef int n_shuffle
     cdef int ngrid
 
-    def __cinit__(self, int n_pos, int n_group, float bin_size, int n_shf=1000, int n_tbin=10,int max_sp=100):
-        _cpp_significanceanalyzer = new SignificanceAnalyzer(n_pos,n_group,bin_size,n_shf,n_tbin,max_sp)
+    def __cinit__(self, int n_pos, int n_group, float bin_size, float dmax, int n_shf=1000, int n_tbin=10,int max_sp=100):
+        _cpp_significanceanalyzer = new SignificanceAnalyzer(n_pos,n_group,bin_size, dmax, n_shf,n_tbin,max_sp)
         self._cpp_significanceanalyzer = _cpp_significanceanalyzer
         self.n_pos = n_pos
         self.n_shuffle = n_shf
         self.n_pos = n_pos
     
-    def uploadParam(self, np.ndarray[double, ndim=1, mode="c"] pix,np.ndarray[double, ndim=2, mode="c"] lx):
-        self._cpp_significanceanalyzer.uploadParam(&pix[0],&lx[0,0])
+    def uploadParam(self, np.ndarray[double, ndim=1, mode="c"] pix, np.ndarray[double, ndim=2, mode="c"] lx, np.ndarray[double, ndim=2, mode="c"] dsmat):
+        self._cpp_significanceanalyzer.uploadParam(&pix[0],&lx[0,0],&dsmat[0,0])
     
     def updateBin(self, pax, np.ndarray[int, ndim=1, mode="c"] n_spikes_g, np.ndarray[double, ndim=1, mode="c"] mu):
 
@@ -516,6 +518,11 @@ cdef class SignificanceAnalyzerClass:
         #print len(pax2)
         #print pax[11][34]
         #print pax2[419]
+    def assess(self, n_assess_bin):
+        self._cpp_significanceanalyzer.computeRwd(n_assess_bin)
+        cdef np.ndarray[double, ndim=1, mode="c"] rwd = np.ones((self.n_shuffle),dtype=np.float64, order="C")
+        ready = self._cpp_significanceanalyzer.getRwd(&rwd[0])
+        return rwd
 
     def __deaclloc__(self):
         del self._cpp_significanceanalyzer
