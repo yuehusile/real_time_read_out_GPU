@@ -29,8 +29,6 @@ import config_file as config
 import pdb
 import collections
 import scipy.io as spio
-import matplotlib.pyplot as plt
-import random
 import util
 import pickle
 

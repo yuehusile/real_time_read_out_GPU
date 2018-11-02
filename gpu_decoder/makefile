@@ -1,5 +1,5 @@
-cc = g++ -O2
-ncc = nvcc -O2 -Xptxas="-v" -default-stream per-thread -lineinfo
+cc = g++-4.9 -O2
+ncc = nvcc -D_FORCE_INLINES -O2 -Xptxas="-v" -default-stream per-thread -lineinfo 
 
 slib = libgpu_kde.so
 deps = ../gmmcompression/mixture.h kde_kernel.h gpu_kde.hpp
