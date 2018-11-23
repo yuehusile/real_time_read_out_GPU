@@ -7,6 +7,10 @@ from Cython.Build import cythonize
 
 import numpy
 
+# cuda include folder
+cuda_inc_folder = "/usr/local/cuda-8.0/targets/x86_64-linux/include"
+
+
 setup(
     cmdclass = {'build_ext': build_ext},
     ext_modules = cythonize( Extension("fkmixture",
@@ -16,7 +20,7 @@ setup(
                      libraries=['gsl', 'gslcblas', 'm',\
                                 'gpu_kde', 'cudart' ],
                      library_dirs=["../gpu_decoder", '/usr/local/cuda-8.0/lib64', '/usr/local/cuda-8.0'],
-                     include_dirs=[numpy.get_include(), "../gpu_decoder","/usr/local/cuda-8.0/targets/x86_64-linux/include"],
+                     include_dirs=[numpy.get_include(), "../gpu_decoder",cuda_inc_folder],
                      language="c++"))
 
 )

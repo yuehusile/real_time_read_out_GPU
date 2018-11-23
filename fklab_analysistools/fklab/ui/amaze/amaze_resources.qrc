@@ -1,0 +1,35 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/field3_v3.png</file>
+    <file>icons/field3_v4.png</file>
+    <file>icons/field3_v2.png</file>
+    <file>icons/field1_v2.png</file>
+    <file>icons/field1_v3.png</file>
+    <file>icons/field1_v4.png</file>
+    <file>icons/field2_v2.png</file>
+    <file>icons/field2_v3.png</file>
+    <file>icons/field2_v4.png</file>
+    <file>icons/object1_v2.png</file>
+    <file>icons/object1_v3.png</file>
+    <file>icons/object1_v4.png</file>
+    <file>icons/object2_v2.png</file>
+    <file>icons/object2_v3.png</file>
+    <file>icons/object2_v4.png</file>
+    <file>icons/track2_v2.png</file>
+    <file>icons/track2_v3.png</file>
+    <file>icons/track2_v4.png</file>
+    <file>icons/track3_v3.png</file>
+    <file>icons/track3_v4.png</file>
+    <file>icons/field1.png</file>
+    <file>icons/field2.png</file>
+    <file>icons/field3.png</file>
+    <file>icons/object1.png</file>
+    <file>icons/object2.png</file>
+    <file>icons/object3.png</file>
+    <file>icons/track3_v2.png</file>
+    <file>icons/track1.png</file>
+    <file>icons/track2.png</file>
+    <file>icons/track3.png</file>
+    <file>icons/track4.png</file>
+  </qresource>
+</RCC>
