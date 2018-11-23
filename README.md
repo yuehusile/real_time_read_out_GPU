@@ -1,7 +1,7 @@
 # What is this?
 This repository contains the source code for reading out the neural ensemble places code in real-time with GPU.
 We got 20-50X speedup and real-time decoding and significance assessment(with 1000 shuffle samples) performance for 20ms time bins.
-More details and results can be found in our Cell Reports paper "Real-time read out of large-scale unsorted neural ensemble place codes" (Url to be updated after published). 
+More details and results can be found in our Cell Reports paper "Real-time read out of large-scale unsorted neural ensemble place codes" (Url: will be updated after paper published online). 
 
 files:
 
@@ -10,6 +10,10 @@ gpu_decode_demo.py         - The python script for the demostration of GPU decod
 online_assess_demo.py      - The python script for the demostration of online decoding and assessment
 
 kde_gpu.py                 - KDE decoding related python classes
+
+util.py                    - tool functions for this demo code
+
+config_file.py             - configuration options
 
 files under gpu_decoder    - CUDA codes and C++ wrappers for decoding with GPU
 
@@ -58,7 +62,14 @@ add the following line into ~/.bashrc or ~/.profile, replace path/to/gpu_decoder
 ```
 export LD_LIBRARY_PATH=path/to/gpu_decoder:$LD_LIBRARY_PATH
 ```
-4. run gpu_decode_demo.py and online_assess_demo.py, it takes 30s to a few minutes to run the decoding process, depending on the hardware. 
+
+4. pre-trained models and testing data: https://drive.google.com/open?id=11tdFXoXyFvqeo_dxkpWttTMjnO-X8je4
+download data to the repository folder, and extract the data files in data.zip:
+```
+unzip data.zip
+```
+
+5. run gpu_decode_demo.py and online_assess_demo.py, it takes 30s to a few minutes to run the decoding process, depending on the hardware. 
 ```
 python gpu_decode_demo.py
 
