@@ -1,6 +1,6 @@
 # What is this?
 This repository contains the source code for reading out the neural ensemble places code in real-time with GPU.
-We got 20-50X speedup and real-time decoding and significance assessment(with 1000 shuffle samples) performance for 20ms time bins.
+We got 20-50X speedup for decoding of unsorted ensemble place codes. Online real-time (20ms bin) significance assessment (with 1000 shuffle samples) for replay events during sleep is realized with our approuch.
 More details and results can be found in our Cell Reports paper "Real-time read out of large-scale unsorted neural ensemble place codes" (Url: will be updated after paper published online). 
 
 files:
