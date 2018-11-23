@@ -1,10 +1,13 @@
 # What is this?
 This repository contains the source code for reading out the neural ensemble places code in real-time with GPU.
-We got 20X speedup and real-time decoding and significance assessment(with 1000 shuffle samples) performance for 20ms time bins.
-More details and results can be found in a paper under submission. Link to the paper will be updated later.
+We got 20-50X speedup and real-time decoding and significance assessment(with 1000 shuffle samples) performance for 20ms time bins.
+More details and results can be found in our Cell Reports paper "Real-time read out of large-scale unsorted neural ensemble place codes" (Url to be updated after published). 
+
 files:
 
-demo.py                    - The python script for demostration
+gpu_decode_demo.py         - The python script for the demostration of GPU decoding speed up
+
+online_assess_demo.py      - The python script for the demostration of online decoding and assessment
 
 kde_gpu.py                 - KDE decoding related python classes
 
@@ -16,7 +19,12 @@ files under data           - data for testing
 
 files under mixture        - preprocessed mixtures(trained model)
 
-website:
+files under fklab_analysistools - fklab python toolbox, for data preprocessing
+
+The codes under gmmcompression,mixture,fklab_analysistools are borrowed from https://bitbucket.org/kloostermannerflab/ciliberti_elife2018_realtimereplay
+kde_gpu.py is modified based on the orignal version in the repo above to adapt to GPU computation
+
+See more about our rearch on our website:
 http://www.cn3lab.org/home.html
 
 # Step-by-step setup instructions:
@@ -27,11 +35,7 @@ Operating system: Ubuntu 16.04;
 Python version: Python2.7.2; 
 CUDA version: 8.0
 
-1. Setup FKLab toolbox:
-'FKLab Data Analysis in Python' toolbox is required to run this code.
-The toolbox code and setup instructions can be found here:
-https://bitbucket.org/kloostermannerflab/dataanalysispython/src/master/
-some packages maybe required to use this toolbox:
+1. some packages maybe required to use this toolbox:
 scipy, numba, pyyaml, h5py, natsort, libgsl
 They can be installed by pip:
 
@@ -42,7 +46,7 @@ pip install scipy, numba, pyyaml, h5py, natsort
 remember add the path to this toolbox into PYTHONPATH.
 add the following line into ~/.bashrc or ~/.profile, replace path/to/dataanalysispython with your path:
 ```
-PYTHONPATH=$PYTHONPATH:"path/to/dataanalysispython"
+export PYTHONPATH=$PYTHONPATH:"path/to/dataanalysispython"
 ```
 2. Intall CUDA toolkit if not installed yet.
 The download link and instrctions can be found here: 
@@ -54,9 +58,11 @@ add the following line into ~/.bashrc or ~/.profile, replace path/to/gpu_decoder
 ```
 export LD_LIBRARY_PATH=path/to/gpu_decoder:$LD_LIBRARY_PATH
 ```
-4. run demo.py, it takes 30s to a few minutes to run the decoding process, depending on the hardware. Several results will be shown on the screen.
+4. run gpu_decode_demo.py and online_assess_demo.py, it takes 30s to a few minutes to run the decoding process, depending on the hardware. 
 ```
-Python demo.py
+python gpu_decode_demo.py
+
+python online_assess_demo.py
 ```
 
 # Compile the binaries by yourself:
