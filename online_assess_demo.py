@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Aug 26 16:32:41 2016
+Created on Nov 2018
 
-@author: davide
+@author: Sile Hu
 
-This script validates and generates an encoding model from an input dataset
+This script demostrates the online decoding and assessment of replay events. 
 
 """
 from __future__ import division
@@ -29,7 +29,7 @@ import collections
 import scipy.io as spio
 import util
 import pickle
-
+import matplotlib.pyplot as plt
 # load data information
 print "------------------------------------------------------------------------"
 print " Loading data information..."
@@ -54,56 +54,18 @@ print " Loading pre-trained model and testing data..."
 mcd_spikebehav, mcd_behav = util.load_mcd_from_file('data/mixture{}'.format(config.compression_threshold),n_features,n_shanks,config)
 # load dist state matrix for online assessment
 dist_state=spio.loadmat('data/Achi1101_dist_state_matrix_new.mat')
-######################################################################################################
-# decoding
-######################################################################################################
-
-with open('data/test_spikes_run.dat', "rb") as f:
-    test_spikes_run = pickle.load(f)
-    n_spikes_run = pickle.load(f)
-    true_behavior_run = pickle.load(f)
+# load testing data
 with open('data/test_spikes_sleep_bin_online2000.dat', "rb") as f:
     test_spikes_sleep_bin = pickle.load(f)
     n_spikes_sleep_bin = pickle.load(f)
 print "testing spikes loaded"
 print "------------------------------------------------------------------------"
-# initialize decoder
-decoder_cpu = Decoder( mcd_behav, mcd_spikebehav, training_time,\
-        grid, config.offset )
-decoder_gpu = Decoder( mcd_behav, mcd_spikebehav, training_time,\
-        grid, config.offset, use_gpu = True, gpu_batch_size=1024)
-
-# test decoding time
-print "Test CPU vs GPU decoding time (RUN):"
-print "Position grid size = {} cm ({} position bins)".format(config.grid_element_size_cm, len(grid))
-#print "number of testing spikes: {}".format(np.sum(n_spikes_run))
-print "decoding {} spikes with CPU...".format(np.sum(n_spikes_run))
-posterior_cpu, logpos_cpu, n_spikes_cpu, n_tt, decode_time_cpu = \
-        decoder_cpu.decode_new( tetrode_inclusion_mask, config.bin_size_run, test_spikes_run, n_spikes_run, shuffle=False)
-print "CPU decoding done, cost {0:.3f} ms ({1:.3f} ms/spike)".format(decode_time_cpu*1e3, decode_time_cpu/np.sum(n_spikes_cpu) * 1e3)
-
-print "------------------------------------------------------------------------"
-print "decoding {} spikes with GPU...".format(np.sum(n_spikes_run))
-posterior_gpu, logpos_gpu, n_spikes_gpu, n_tt, decode_time_gpu = \
-        decoder_gpu.decode_new( tetrode_inclusion_mask, config.bin_size_run, test_spikes_run, n_spikes_run, shuffle=False)
-print "GPU decoding done, cost {0:.3f} ms ({1:.3f} ms/spike)".format(decode_time_gpu*1e3, decode_time_gpu/np.sum(n_spikes_gpu) * 1e3)
-
-# show errors with figure
-#print "\n\tCPU Decoding time: {0:.3f} ms/spike" .format(\
-#                              decode_time_cpu/np.sum(n_spikes_cpu) * 1e3)
-#print "\n\tGPU Decoding time: {0:.3f} ms/spike" .format(\
-#                              decode_time_gpu/np.sum(n_spikes_gpu) * 1e3)
-# compute decoding error
-errors_cpu = util.getErrors(true_behavior_run,logpos_cpu,grid)
-errors_gpu = util.getErrors(true_behavior_run,logpos_gpu,grid)
-print "\n\tCPU Decoding median error: {0:.3f} cm".format(np.nanmedian(errors_cpu))
-print "\n\tGPU Decoding median error: {0:.3f} cm".format(np.nanmedian(errors_gpu))
-print "Position grid size = {} cm".format(config.grid_element_size_cm)
-
-print "------------------------------------------------------------------------"
 print "online assessment of replay events:"
 # the example to plot
 bins_to_plot = range(1227,171+1227)
+# initialize decoder
+decoder_gpu = Decoder( mcd_behav, mcd_spikebehav, training_time,\
+        grid, config.offset, use_gpu = True, gpu_batch_size=1024)
 
 sigAna = SigAnalyzer(len(grid),n_shanks,config.bin_size_sleep,2.8,config.n_shuffle,config.n_time_bin,config.n_max_spike)
 sigAna.uploadParam(decoder_gpu.pix(),decoder_gpu.lx(),np.ascontiguousarray(dist_state['dist_matrix_states']))
@@ -151,9 +113,9 @@ for i in range(2000):
             detected = False
             score[-1] = 0
         if len(rwd_all)==0 or len(prob_all)==0:
-            prob_all = np.ones(len(grid))
+            prob_all = np.zeros(len(grid))
         else:
-            prob_all = np.vstack((prob_all,np.ones(len(grid))))
+            prob_all = np.vstack((prob_all,np.zeros(len(grid))))
 
         p_value_all.append(1)
         all_shuffle_decode_time.append(0)
@@ -208,7 +170,42 @@ for i in range(2000):
     
     # total time used for the decoding and assessment of current bin
     all_shuffle_decode_time.append((t2-t1) * 1e3)
-    #print"{} bins of {} done\r".format(i,len(test_spikes_sleep_bin)),
-spio.savemat('demo_test.mat',{'errors_gpu':errors_gpu,'decode_bin_idx':decode_bin_idx,'mua_all':mua_all,'all_shuffle_decode_time':all_shuffle_decode_time,'prob':prob_all,'p_value':p_value_all,'score':score})
 print "decoding + Assessment time of 2000 bins: mean={0:.3} ms, max={1:.3} ms".format(np.mean(all_shuffle_decode_time),np.max(all_shuffle_decode_time))
 print "------------------------------------------------------------------------"
+
+# plot figure for the example event
+fig, (ax1, ax2, ax3, ax4) = plt.subplots(nrows=4, figsize=(10,8))
+
+im = ax2.imshow(np.transpose(prob_all[1227:1227+171]),cmap='gray_r',aspect='auto')
+ax2.get_xaxis().set_visible(False)
+cax = fig.add_axes([0.14,0.65,0.3,0.02])
+fig.colorbar(im,cax=cax,orientation='horizontal')
+ax2.set_title('Decoded probability')
+ax2.set_ylabel('Position')
+
+ax4.bar(range(171),all_shuffle_decode_time[1227:1227+171])
+ax4.set_xlim((0,170))
+ax4.set_ylabel('Computation time (s)')
+ax4.set_xticklabels([0,0.4,0.8,1.2,1.6,2,2.4,2.8,3.2])
+ax4.set_xlabel('Time (s)')
+
+p1, = ax3.plot(p_value_all[1227:1227+171])
+ax3.set_xlim((0,170))
+ax3.get_xaxis().set_visible(False)
+ax3.set_title('Online significance assessment')
+ax3.set_ylabel('P-value')
+
+ax5 = ax3.twinx()
+p2, = ax5.plot(score[1228:1228+171],color='r')
+ax5.set_xlim((0,170))
+ax5.get_xaxis().set_visible(False)
+ax5.set_ylabel('Score')
+lines = [p1,p2]
+ax3.legend(lines,['P-value','Score'])
+
+ax1.plot(mua[1227:1227+171])
+ax1.set_xlim((0,170))
+ax1.get_xaxis().set_visible(False)
+ax1.set_title('MUA activity')
+ax1.set_ylabel('MUA')
+plt.show()
